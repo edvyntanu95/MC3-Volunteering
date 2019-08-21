@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="reJ-0e-Trb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="byc-ED-IxA">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -161,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcQ-HB-LiY">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcQ-HB-LiY" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="18" y="753" width="173" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.74677230050281684" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,13 +169,11 @@
                                 <state key="normal" title="Go by my self">
                                     <color key="titleColor" red="0.20530781149864197" green="0.46923267841339111" blue="0.96475356817245483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="reJ-0e-Trb" kind="show" id="xbo-xf-2Qc"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIG-Dm-1LD">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIG-Dm-1LD" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="223" y="753" width="173" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.35562729840000001" green="0.78381639719999996" blue="0.98041778800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -183,11 +181,9 @@
                                 <state key="normal" title="Invite my friend !">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="reJ-0e-Trb" kind="show" id="RpE-B0-kln"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vt6-DX-t8N">
                                 <rect key="frame" x="18" y="233" width="55" height="24"/>
@@ -290,7 +286,7 @@
         <!--Login Page Controller-->
         <scene sceneID="u7G-4F-7yj">
             <objects>
-                <viewController id="reJ-0e-Trb" customClass="LoginPageController" customModule="LoginPage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="reJ-0e-Trb" customClass="LoginPageController" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GYv-31-16C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,7 +312,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHA-h6-NbI" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHA-h6-NbI" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="81" y="236" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.24054017659999999" green="0.34450596570000003" blue="0.59610432390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -324,7 +320,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epm-u0-eZc" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epm-u0-eZc" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="81" y="297" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.67791265249999999" green="0.22799992559999999" blue="0.22741669419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -374,7 +370,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ce-rm-KLw" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ce-rm-KLw" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="153" y="573" width="108" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.9952539802" green="0.58893865349999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -411,7 +407,7 @@
         <!--View Controller Sign Up-->
         <scene sceneID="paj-DT-Rhn">
             <objects>
-                <viewController id="8uk-Eh-S60" customClass="ViewControllerSignUp" customModule="LoginPage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8uk-Eh-S60" customClass="ViewControllerSignUp" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="paM-95-uUC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,7 +419,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-FF-lma" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-FF-lma" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="81" y="234" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.24054017659999999" green="0.34450596570000003" blue="0.59610432390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -431,7 +427,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-AY-zVs" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-AY-zVs" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="81" y="295" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.67791265249999999" green="0.22799992559999999" blue="0.22741669419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -501,7 +497,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq6-6G-6Rt" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq6-6G-6Rt" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="153" y="650" width="109" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.9952539802" green="0.58893865349999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -565,7 +561,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNm-4L-4C9" customClass="RoundButton" customModule="LoginPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNm-4L-4C9" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="38" y="508" width="108" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.9952539802" green="0.58893865349999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -599,6 +595,6 @@
         <image name="money" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PYf-Te-CdX"/>
+        <segue reference="RpE-B0-kln"/>
     </inferredMetricsTieBreakers>
 </document>
