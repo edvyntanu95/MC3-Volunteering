@@ -10,7 +10,7 @@ import UIKit
 
 class RoundButton: UIButton  {
     override func didMoveToWindow() {
-        self.layer.cornerRadius = self.frame.height/4
+        self.layer.cornerRadius = self.frame.height/2
         
     }
 }

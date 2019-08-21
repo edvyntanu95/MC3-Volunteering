@@ -72,18 +72,54 @@
                                         <rect key="frame" x="20" y="402" width="374" height="423"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uMT-7x-hwf">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="134" id="9hL-cu-KKa" customClass="HomeCustomTableViewCell" customModule="MC3_Volunteering" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="374" height="134"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="123" id="9hL-cu-KKa" customClass="HomeCustomTableViewCell" customModule="MC3_Volunteering" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="60" width="374" height="123"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9hL-cu-KKa" id="vJn-G7-Dfj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="133.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="122.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC5-qf-F3X">
+                                                            <rect key="frame" x="119" y="31" width="43.5" height="21"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lokasi Acara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keO-pC-Ltx">
+                                                            <rect key="frame" x="131" y="57" width="152" height="15"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tanggal Acara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpq-nj-2xj">
+                                                            <rect key="frame" x="131" y="73" width="152" height="15"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0v-OT-0xt" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
+                                                            <rect key="frame" x="298" y="40" width="65" height="23"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.39335590600967407" green="0.62297368049621582" blue="0.86277371644973755" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <state key="normal" title="Button">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                        </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nkr-2j-bzw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="119"/>
+                                                            <rect key="frame" x="0.0" y="4" width="111" height="104"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Nkr-2j-bzw" secondAttribute="height" multiplier="22:7" id="Dwg-pW-zG4"/>
+                                                                <constraint firstAttribute="width" secondItem="Nkr-2j-bzw" secondAttribute="height" multiplier="123:115" id="lVl-Ua-QYh"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="conrerRadius">
@@ -93,10 +129,10 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Nkr-2j-bzw" secondAttribute="trailing" id="UD7-dH-3U6"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Nkr-2j-bzw" secondAttribute="bottom" constant="14.5" id="dtU-FI-vEZ"/>
-                                                        <constraint firstItem="Nkr-2j-bzw" firstAttribute="top" secondItem="vJn-G7-Dfj" secondAttribute="top" id="heE-wa-hwK"/>
-                                                        <constraint firstItem="Nkr-2j-bzw" firstAttribute="leading" secondItem="vJn-G7-Dfj" secondAttribute="leading" id="jRK-DE-IFg"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Nkr-2j-bzw" secondAttribute="bottom" constant="14.5" id="LlH-3Y-cxx"/>
+                                                        <constraint firstItem="eC5-qf-F3X" firstAttribute="leading" secondItem="Nkr-2j-bzw" secondAttribute="trailing" constant="8" id="gWe-OG-etJ"/>
+                                                        <constraint firstItem="Nkr-2j-bzw" firstAttribute="leading" secondItem="vJn-G7-Dfj" secondAttribute="leading" id="i6n-GK-pam"/>
+                                                        <constraint firstItem="Nkr-2j-bzw" firstAttribute="top" secondItem="vJn-G7-Dfj" secondAttribute="top" constant="4" id="yxc-5D-bRB"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
