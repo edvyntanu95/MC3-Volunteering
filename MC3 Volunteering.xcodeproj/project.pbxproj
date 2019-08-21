@@ -17,6 +17,10 @@
 		B6C7820A230C3BB9005099E9 /* DetailedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78209230C3BB9005099E9 /* DetailedEvent.swift */; };
 		B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */; };
 		B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78210230D63B0005099E9 /* EventDetailController.swift */; };
+		E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */; };
+		E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */; };
+		E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */; };
+		E9775807230D6E6D00A9A3D0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775806230D6E6D00A9A3D0 /* RoundButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		B6C78209230C3BB9005099E9 /* DetailedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEvent.swift; sourceTree = "<group>"; };
 		B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
 		B6C78210230D63B0005099E9 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
+		E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSignUp.swift; sourceTree = "<group>"; };
+		E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		E9775806230D6E6D00A9A3D0 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 				B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */,
 				B6C78205230C2AFC005099E9 /* ButtonHeaderText.swift */,
 				B6C78202230C02D3005099E9 /* CustomCollectionView.swift */,
+				E9775806230D6E6D00A9A3D0 /* RoundButton.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -92,6 +101,9 @@
 				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
 				B6C781F2230C027E005099E9 /* ViewController.swift */,
 				B6C78209230C3BB9005099E9 /* DetailedEvent.swift */,
+				E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */,
+				E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */,
+				E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,9 +195,13 @@
 				B6C781F3230C027E005099E9 /* ViewController.swift in Sources */,
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
 				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
+				E9775807230D6E6D00A9A3D0 /* RoundButton.swift in Sources */,
 				B6C7820A230C3BB9005099E9 /* DetailedEvent.swift in Sources */,
 				B6C78206230C2AFC005099E9 /* ButtonHeaderText.swift in Sources */,
+				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
+				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
 				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
+				E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
