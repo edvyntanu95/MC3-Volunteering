@@ -42,6 +42,11 @@ class ViewControllerSignUp: UIViewController {
         label2.text = passwordTF.text
     }
     
+    @IBAction func closeButtonSignUpPage(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

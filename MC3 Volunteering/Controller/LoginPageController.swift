@@ -47,4 +47,9 @@ class LoginPageController: UIViewController {
         
     }
 
+    
+    @IBAction func closeButtonLoginPage(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
