@@ -10,19 +10,19 @@ import UIKit
 
 class DetailedEvent: UIViewController {
 
-    @IBOutlet weak var imageDetailedEvent: UIImageView!
+//    @IBOutlet weak var imageDetailedEvent: UIImageView!
     
     var imageContainer: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageDetailedEvent.image = imageContainer
+//        imageDetailedEvent.image = imageContainer
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func imageTapped(recognizer:UITapGestureRecognizer){
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func imageTapped(recognizer:UITapGestureRecognizer){
+//        dismiss(animated: true, completion: nil)
+//    }
     /*
     // MARK: - Navigation
 

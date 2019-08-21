@@ -14,8 +14,9 @@
 		B6C781FB230C027F005099E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C781F9230C027F005099E9 /* LaunchScreen.storyboard */; };
 		B6C78203230C02D3005099E9 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78202230C02D3005099E9 /* CustomCollectionView.swift */; };
 		B6C78206230C2AFC005099E9 /* ButtonHeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78205230C2AFC005099E9 /* ButtonHeaderText.swift */; };
-		B6C78208230C311A005099E9 /* CustomScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78207230C311A005099E9 /* CustomScroll.swift */; };
 		B6C7820A230C3BB9005099E9 /* DetailedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78209230C3BB9005099E9 /* DetailedEvent.swift */; };
+		B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */; };
+		B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78210230D63B0005099E9 /* EventDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,9 @@
 		B6C781FC230C027F005099E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6C78202230C02D3005099E9 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		B6C78205230C2AFC005099E9 /* ButtonHeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHeaderText.swift; sourceTree = "<group>"; };
-		B6C78207230C311A005099E9 /* CustomScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScroll.swift; sourceTree = "<group>"; };
 		B6C78209230C3BB9005099E9 /* DetailedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEvent.swift; sourceTree = "<group>"; };
+		B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
+		B6C78210230D63B0005099E9 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				B6C781EF230C027E005099E9 /* MC3 Volunteering */,
 				B6C781EE230C027E005099E9 /* Products */,
+				B6C78212230D6675005099E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,9 +79,9 @@
 		B6C78204230C2AA0005099E9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */,
 				B6C78205230C2AFC005099E9 /* ButtonHeaderText.swift */,
 				B6C78202230C02D3005099E9 /* CustomCollectionView.swift */,
-				B6C78207230C311A005099E9 /* CustomScroll.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -86,10 +89,18 @@
 		B6C7820B230D171D005099E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
 				B6C781F2230C027E005099E9 /* ViewController.swift */,
 				B6C78209230C3BB9005099E9 /* DetailedEvent.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B6C78212230D6675005099E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +135,11 @@
 				TargetAttributes = {
 					B6C781EC230C027E005099E9 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -166,9 +182,10 @@
 				B6C78203230C02D3005099E9 /* CustomCollectionView.swift in Sources */,
 				B6C781F3230C027E005099E9 /* ViewController.swift in Sources */,
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
-				B6C78208230C311A005099E9 /* CustomScroll.swift in Sources */,
+				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
 				B6C7820A230C3BB9005099E9 /* DetailedEvent.swift in Sources */,
 				B6C78206230C2AFC005099E9 /* ButtonHeaderText.swift in Sources */,
+				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
