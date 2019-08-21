@@ -59,16 +59,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TVcell") as! TableViewCellHome
-        
-        return cell
-    }
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     //if(collectionView == scrollView){
@@ -82,14 +73,14 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
     
     cell.imageSliderHome.image = imageSliderArray[indexPath.row]
     
-//    if(collectionView == eventHomeCollectionView){
-//        let cell2 = eventHomeCollectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CustomScroll
-//        cell2.scrollImage.image = imageSliderArray[indexPath.row]
-////        cell2.scrollHeaderText.text = "EDVYN YEAYY !!! "
-//
-//        return cell2
-//
-//    }
+    if(collectionView == eventHomeCollectionView){
+        let cell2 = eventHomeCollectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CustomScroll
+        cell2.scrollImage.image = imageSliderArray[indexPath.row]
+//        cell2.scrollHeaderText.text = "EDVYN YEAYY !!! "
+
+        return cell2
+
+    }
     
     return cell
 }
