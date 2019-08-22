@@ -53,6 +53,8 @@ class EventDetailController: UIViewController, MKMapViewDelegate {
         
         imageEventDetailed.image = imageContainer
         
+//        self.navigationController?.hidesBarsOnSwipe = true
+        
         let location = CLLocationCoordinate2D(latitude: -6.175392, longitude: 106.827153)
         //itu lattitude sama longitude monas, kaya buat default aja
         let region = MKCoordinateRegion (center: location , span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
