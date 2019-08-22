@@ -34,14 +34,6 @@ class ViewController: UIViewController {
 //        collectionView.dataSource = self
     }
 
-//    fileprivate var collectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        cv.translatesAutoresizingMaskIntoConstraints = false
-//        cv.register(CustomCollectionView.self, forCellWithReuseIdentifier: "Cell")
-//        return cv
-//    }()
     
 //    func setupNavBar(){
 //
@@ -59,6 +51,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindSeguesToEventPage(_ sender: UIStoryboardSegue) {}
+    
     
     
 }
