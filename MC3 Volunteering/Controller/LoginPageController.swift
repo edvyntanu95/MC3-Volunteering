@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginPageController: UIViewController {
+class LoginPageController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -23,6 +23,9 @@ class LoginPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTF.delegate = self
+        passwordTF.delegate = self
+        
         let email = userDef.string(forKey: "email")
         label.text = email
         
@@ -36,6 +39,20 @@ class LoginPageController: UIViewController {
         passwordTF.rightViewMode = .always
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTF{
+            passwordTF.becomeFirstResponder()
+        }else if textField == passwordTF{
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    
     @IBAction func refresh( sender: Any){
         passwordTF.isSecureTextEntry.toggle()
     }
@@ -46,10 +63,6 @@ class LoginPageController: UIViewController {
         label2.text = passwordTF.text
         
     }
-
     
-    @IBAction func closeButtonLoginPage(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
 }

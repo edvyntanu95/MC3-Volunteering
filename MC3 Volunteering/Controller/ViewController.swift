@@ -27,8 +27,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nearbyEventCollectionView.isPagingEnabled = true
-        print("iseng nambah")
-        setupNavBar()
+//
+//        setupNavBar()
         
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
@@ -43,13 +43,13 @@ class ViewController: UIViewController {
 //        return cv
 //    }()
     
-    func setupNavBar(){
-        
-        let searchNavBarHome = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchNavBarHome
-        navigationItem.hidesSearchBarWhenScrolling = false
-        
-    }
+//    func setupNavBar(){
+//
+//        let searchNavBarHome = UISearchController(searchResultsController: nil)
+//        navigationItem.searchController = searchNavBarHome
+//        navigationItem.hidesSearchBarWhenScrolling = false
+//
+//    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -57,6 +57,9 @@ class ViewController: UIViewController {
         destinationEventDetailed.imageContainer = imageSliderArray[imageSelected!]
         
     }
+    
+    @IBAction func unwindSeguesToEventPage(_ sender: UIStoryboardSegue) {}
+    
     
 }
 

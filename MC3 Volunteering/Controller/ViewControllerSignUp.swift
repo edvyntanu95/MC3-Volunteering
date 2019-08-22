@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerSignUp: UIViewController {
+class ViewControllerSignUp: UIViewController, UITextFieldDelegate {
 
 
     @IBOutlet weak var nameTF: UITextField!
@@ -29,11 +29,25 @@ class ViewControllerSignUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nameTF.delegate = self
+        emailTF.delegate = self
+        passwordTF.delegate = self
+        
         _ = userDef.string(forKey: "email")
         
         _ = userDef.string(forKey: "name")
         
         _ = userDef.string(forKey: "password")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
     
     @IBAction func signUpTapped(_ sender: Any) {
