@@ -10,7 +10,11 @@ import UIKit
 
 class HomeCustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tvHomeJumlahTemanLabel: UILabel!
+    @IBOutlet weak var tvHomeLokasiDanTanggalLabel: UILabel!
+    @IBOutlet weak var tvHomeNamaAcaraLabel: UILabel!
     @IBOutlet weak var tableViewCellHomeImage: UIImageView!
+    @IBOutlet weak var tableViewCellHomeJoinButton: RoundButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

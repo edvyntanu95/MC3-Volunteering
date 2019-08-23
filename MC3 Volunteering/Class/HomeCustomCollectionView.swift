@@ -8,9 +8,12 @@
 
 import UIKit
 
-class CustomCollectionView: UICollectionViewCell {
+class HomeCustomCollectionView: UICollectionViewCell {
     
     @IBOutlet weak var imageSliderHome: UIImageView!
+    @IBOutlet weak var homeSliderNamaAcaraLabel: UILabel!
     
+    @IBOutlet weak var homeSliderTempatAcaraLabel: UILabel!
+    @IBOutlet weak var homeSliderTanggalAcaraLabel: UILabel!
     
 }

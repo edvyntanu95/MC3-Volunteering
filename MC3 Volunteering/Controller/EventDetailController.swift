@@ -42,8 +42,8 @@ class EventDetailController: UIViewController, MKMapViewDelegate {
     @IBOutlet var profile2: UIImageView!
     @IBOutlet var profile3: UIImageView!
     @IBOutlet var organizationProfile: UIImageView!
-    @IBOutlet var inviteButton: UIButton!
-    @IBOutlet var goSelfButton: UIButton!
+    @IBOutlet var goAloneButton: UIButton!
+    @IBOutlet var inviteFriendButton: UIButton!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var locationAdress: UILabel!
     
@@ -75,10 +75,10 @@ class EventDetailController: UIViewController, MKMapViewDelegate {
         profile3.layer.cornerRadius = profile3.bounds.width / 2
         organizationProfile.layer.cornerRadius = organizationProfile.bounds.width / 2
         
-        inviteButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
-        inviteButton.layer.borderWidth = 1
-        goSelfButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
-        goSelfButton.layer.borderWidth = 1
+        goAloneButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
+        goAloneButton.layer.borderWidth = 1
+        inviteFriendButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
+        inviteFriendButton.layer.borderWidth = 1
         
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

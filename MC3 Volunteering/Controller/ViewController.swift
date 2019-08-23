@@ -10,6 +10,7 @@ import UIKit
 
 
 class ViewController: UIViewController {
+
     
     @IBOutlet weak var nearbyEventCollectionView: UICollectionView!
     
@@ -27,7 +28,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nearbyEventCollectionView.isPagingEnabled = true
+        
 //
+        
 //        setupNavBar()
         
 //        collectionView.delegate = self
@@ -67,6 +70,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         cell.tableViewCellHomeImage.image = imageSliderArray[indexPath.row]
         
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
         return cell
     }
     
@@ -79,7 +84,7 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
 }
 
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = nearbyEventCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionView
+    let cell = nearbyEventCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCustomCollectionView
     
     cell.imageSliderHome.image = imageSliderArray[indexPath.row]
     
