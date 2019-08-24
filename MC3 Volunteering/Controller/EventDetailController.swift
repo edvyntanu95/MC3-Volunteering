@@ -35,13 +35,25 @@ class EventDetailController: UIViewController, MKMapViewDelegate {
     
     var imageContainer: UIImage?
     
+    @IBOutlet weak var judulDetailEventLabel: UILabel!
+    @IBOutlet weak var bodyCopyDetailEventLabel: UILabel!
+    @IBOutlet weak var waktuDetailEventLabel: UILabel!
+    @IBOutlet weak var tanggalDetailEventLabel: UILabel!
     
     @IBOutlet weak var imageEventDetailed: UIImageView!
     
     @IBOutlet var profile1: UIImageView!
     @IBOutlet var profile2: UIImageView!
     @IBOutlet var profile3: UIImageView!
+    @IBOutlet weak var jumlahTemanLainDetailEventLabel: UILabel!
+    
+    
     @IBOutlet var organizationProfile: UIImageView!
+    @IBOutlet weak var namaOrganisasiDetailEventLabel: UILabel!
+    
+    @IBOutlet weak var callOrganisasiButton: UIButton!
+    @IBOutlet weak var messageOrganisasiButton: UIButton!
+    
     @IBOutlet var goAloneButton: UIButton!
     @IBOutlet var inviteFriendButton: UIButton!
     @IBOutlet var mapView: MKMapView!

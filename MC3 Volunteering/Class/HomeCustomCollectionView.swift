@@ -16,4 +16,26 @@ class HomeCustomCollectionView: UICollectionViewCell {
     @IBOutlet weak var homeSliderTempatAcaraLabel: UILabel!
     @IBOutlet weak var homeSliderTanggalAcaraLabel: UILabel!
     
+    override var isHighlighted: Bool {
+        didSet {
+            if self.isHighlighted {
+                UIView.animate(withDuration: 0) {
+                self.imageSliderHome.transform = self.isSelected ? CGAffineTransform(scaleX: 0.98, y: 0.98) : CGAffineTransform.identity
+                }
+            } else {
+                UIView.animate(withDuration: 0.1) {
+                self.imageSliderHome.transform = self.isSelected ? CGAffineTransform(scaleX: 1, y: 1) : CGAffineTransform.identity
+            }
+            }
+        }
+    }
+//    override var isSelected: Bool{
+//        didSet{
+//            UIView.animate(withDuration: 2.0) {
+//                self.imageSliderHome.transform = self.isSelected ? CGAffineTransform(scaleX: 0.9, y: 0.9) : CGAffineTransform.identity
+//            }
+//        }
+//    }
 }
+    
+

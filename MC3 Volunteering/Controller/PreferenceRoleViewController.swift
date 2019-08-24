@@ -56,8 +56,7 @@ extension PreferenceRoleViewController: UICollectionViewDelegate, UICollectionVi
         let cell = prCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PreferenceRoleCollectionViewCell
         
         cell.preferenceRoleImage.image = preferenceRoleImageArray[indexPath.row]
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
+        
         
         
         if(collectionView == prTanggalCollectionView){

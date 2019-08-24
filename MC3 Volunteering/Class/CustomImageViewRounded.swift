@@ -12,7 +12,7 @@ class CustomImageViewRounded: UIImageView {
 
     func customRoundedImage() {
         self.layer.cornerRadius = 10
-        self.layer.masksToBounds = true
+//        self.layer.masksToBounds = true
     }
 
 }

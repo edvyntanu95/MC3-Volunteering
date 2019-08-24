@@ -33,6 +33,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYP-x7-i2W">
+                                                <rect key="frame" x="17" y="416" width="381" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.80000758169999997" green="0.79999023680000003" blue="0.79999357459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -47,21 +52,20 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="2va-se-Gbk" customClass="CustomCollectionView" customModule="MC3_Volunteering" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="2va-se-Gbk" customClass="HomeCustomCollectionView" customModule="MC3_Volunteering" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="4" width="357" height="194"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="357" height="194"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MLF-gc-zDL" customClass="CustomImageViewRounded" customModule="MC3_Volunteering" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MLF-gc-zDL">
                                                             <rect key="frame" x="0.0" y="4" width="357" height="186"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <integer key="value" value="10"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tempat Acara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bis-9S-JyE">
@@ -100,8 +104,8 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="iQj-L4-bAI"/>
                                         </connections>
                                     </collectionView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-4R-ZSb">
-                                        <rect key="frame" x="20" y="411" width="374" height="414"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-4R-ZSb">
+                                        <rect key="frame" x="20" y="426" width="374" height="399"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uMT-7x-hwf">
@@ -112,40 +116,45 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="123" id="9hL-cu-KKa" customClass="HomeCustomTableViewCell" customModule="MC3_Volunteering" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="60" width="374" height="123"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="110" id="9hL-cu-KKa" customClass="HomeCustomTableViewCell" customModule="MC3_Volunteering" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="60" width="374" height="110"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9hL-cu-KKa" id="vJn-G7-Dfj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="122.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="109.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC5-qf-F3X">
-                                                            <rect key="frame" x="119" y="31" width="152" height="21"/>
+                                                            <rect key="frame" x="117" y="24" width="152" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lokasi + Tanggal Acara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keO-pC-Ltx">
-                                                            <rect key="frame" x="119" y="60" width="152" height="15"/>
+                                                            <rect key="frame" x="117" y="53" width="152" height="15"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="jumlah temen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpq-nj-2xj">
-                                                            <rect key="frame" x="119" y="77" width="152" height="15"/>
+                                                            <rect key="frame" x="117" y="70" width="152" height="15"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nkr-2j-bzw" customClass="CustomImageViewRounded" customModule="MC3_Volunteering" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="9" width="111" height="104"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nkr-2j-bzw">
+                                                            <rect key="frame" x="0.0" y="9" width="103" height="91"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0v-OT-0xt" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
-                                                            <rect key="frame" x="289" y="46" width="65" height="31"/>
+                                                            <rect key="frame" x="289" y="39" width="65" height="31"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.39335590600967407" green="0.62297368049621582" blue="0.86277371644973755" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -176,9 +185,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event" largeTitleDisplayMode="always" id="IsJ-Op-TI6"/>
+                    <navigationItem key="navigationItem" title="Event" largeTitleDisplayMode="always" id="IsJ-Op-TI6">
+                        <barButtonItem key="rightBarButtonItem" image="Contact" id="AtP-hn-o8G"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="nearbyEventCollectionView" destination="60z-Hj-w5U" id="GXQ-7E-vGG"/>
+                        <outlet property="notificationEventPageButton" destination="AtP-hn-o8G" id="ZvH-02-I8h"/>
                         <outlet property="suitableEventTableView" destination="aCk-4R-ZSb" id="sAT-Iy-DJf"/>
                         <segue destination="YdV-Qv-eaX" kind="show" identifier="goToEventDetailed" id="R5z-i7-7Hz"/>
                     </connections>
@@ -605,15 +617,15 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.80000758169999997" green="0.79999023680000003" blue="0.79999357459999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="MJp-2R-N6V" customClass="roundShapeView" customModule="MC3_Volunteering" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="MJp-2R-N6V">
                                                 <rect key="frame" x="68" y="585" width="33" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="QXj-ho-apm" customClass="roundShapeView" customModule="MC3_Volunteering" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="QXj-ho-apm">
                                                 <rect key="frame" x="52" y="585" width="33" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="Zcq-C5-1dC" customClass="roundShapeView" customModule="MC3_Volunteering" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="Zcq-C5-1dC">
                                                 <rect key="frame" x="36" y="585" width="33" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -624,14 +636,6 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Contact" translatesAutoresizingMaskIntoConstraints="NO" id="84w-P8-lDW">
-                                                <rect key="frame" x="308" y="680" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Message" translatesAutoresizingMaskIntoConstraints="NO" id="vwT-Bj-tT4">
-                                                <rect key="frame" x="359" y="680" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8je-26-v2i">
                                                 <rect key="frame" x="10" y="729" width="395" height="2"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -649,7 +653,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="Uae-rz-IZe" customClass="roundShapeView" customModule="MC3_Volunteering" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="human" translatesAutoresizingMaskIntoConstraints="NO" id="Uae-rz-IZe">
                                                 <rect key="frame" x="40" y="673" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -683,6 +687,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </mapView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9j-iL-EQ8">
+                                                <rect key="frame" x="356" y="681" width="28" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Message"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqw-UH-KNY">
+                                                <rect key="frame" x="307" y="679" width="27" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Contact"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -755,18 +769,28 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3vz-yt-Blv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" largeTitleDisplayMode="never" id="AGt-eA-z0e"/>
+                    <navigationItem key="navigationItem" title="Detail" largeTitleDisplayMode="never" id="AGt-eA-z0e">
+                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="J3S-mV-tER"/>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
+                        <outlet property="bodyCopyDetailEventLabel" destination="LPi-ja-QpV" id="lae-Oy-znl"/>
+                        <outlet property="callOrganisasiButton" destination="gqw-UH-KNY" id="JfM-zk-e0E"/>
                         <outlet property="goAloneButton" destination="eTk-Tt-IiU" id="3Bi-5f-weN"/>
                         <outlet property="imageEventDetailed" destination="3II-As-z58" id="VRf-qn-FgW"/>
                         <outlet property="inviteFriendButton" destination="Ey9-rj-O97" id="Suw-Q6-oBE"/>
+                        <outlet property="judulDetailEventLabel" destination="h3x-K3-GZs" id="ueE-AN-Oi3"/>
+                        <outlet property="jumlahTemanLainDetailEventLabel" destination="E1d-na-Rk6" id="vha-5y-tEt"/>
                         <outlet property="locationAdress" destination="4Xg-0J-wfB" id="kdY-uO-Gsu"/>
                         <outlet property="mapView" destination="Tgs-zF-tyC" id="35X-5w-PPC"/>
+                        <outlet property="messageOrganisasiButton" destination="n9j-iL-EQ8" id="vfr-zw-tTV"/>
+                        <outlet property="namaOrganisasiDetailEventLabel" destination="nZv-GR-67l" id="HTW-dw-0BI"/>
                         <outlet property="organizationProfile" destination="Uae-rz-IZe" id="AkH-bx-laL"/>
                         <outlet property="profile1" destination="MJp-2R-N6V" id="dKF-FC-8DB"/>
                         <outlet property="profile2" destination="QXj-ho-apm" id="4Q9-fI-bTd"/>
                         <outlet property="profile3" destination="Zcq-C5-1dC" id="i1W-YM-lBI"/>
+                        <outlet property="tanggalDetailEventLabel" destination="tKa-RE-fCf" id="LzD-4o-NgC"/>
+                        <outlet property="waktuDetailEventLabel" destination="CSj-lB-mPK" id="mfd-qO-OnH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvl-l7-5S9" sceneMemberID="firstResponder"/>

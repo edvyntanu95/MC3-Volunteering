@@ -116,11 +116,11 @@
 			children = (
 				B61C345B230FD3D9005BAA55 /* PreferenceRoleViewController.swift */,
 				B61C3459230FC4BE005BAA55 /* paymentViewController.swift */,
-				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
 				B6C781F2230C027E005099E9 /* ViewController.swift */,
 				E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */,
 				E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */,
 				E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */,
+				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
 				B61C3455230EC1C2005BAA55 /* FriendListController.swift */,
 			);
 			path = Controller;

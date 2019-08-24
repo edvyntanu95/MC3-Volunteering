@@ -11,10 +11,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var notificationEventPageButton: UIBarButtonItem!
+    
     
     @IBOutlet weak var nearbyEventCollectionView: UICollectionView!
     
     @IBOutlet weak var suitableEventTableView: UITableView!
+    
     
     
     let imageSliderArray = [UIImage(named: "Berenang"), UIImage(named: "Anjing"), UIImage(named: "Lampu Merah"), UIImage(named: "Surfing"), UIImage(named: "Motor")]
@@ -28,6 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nearbyEventCollectionView.isPagingEnabled = true
+        
         
 //
         
@@ -70,10 +74,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         cell.tableViewCellHomeImage.image = imageSliderArray[indexPath.row]
         
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
         return cell
     }
+    
     
     
 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,6 +99,7 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 //        return cell2
 //
 //    }
+    
     
     return cell
 }
