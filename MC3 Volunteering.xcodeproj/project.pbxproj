@@ -10,9 +10,9 @@
 		B6163A0C230FE32500288352 /* PreferenceRoleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */; };
 		B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A0D231013C400288352 /* CustomImageViewRounded.swift */; };
 		B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A11231017AA00288352 /* TanggalCollectionView.swift */; };
-		B61C3450230E9815005BAA55 /* roundMapCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C344F230E9815005BAA55 /* roundMapCorner.swift */; };
-		B61C3456230EC1C2005BAA55 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C3455230EC1C2005BAA55 /* FriendListController.swift */; };
-		B61C3458230EC23B005BAA55 /* ClickableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C3457230EC23B005BAA55 /* ClickableTableViewCell.swift */; };
+		B6163A14231235E200288352 /* FriendListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A13231235E200288352 /* FriendListController.swift */; };
+		B6163A16231236A500288352 /* ClickableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A15231236A500288352 /* ClickableTableViewCell.swift */; };
+		B6163A182312372D00288352 /* roundMapCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A172312372D00288352 /* roundMapCorner.swift */; };
 		B61C345A230FC4BE005BAA55 /* paymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C3459230FC4BE005BAA55 /* paymentViewController.swift */; };
 		B61C345C230FD3D9005BAA55 /* PreferenceRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C345B230FD3D9005BAA55 /* PreferenceRoleViewController.swift */; };
 		B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C781F0230C027E005099E9 /* AppDelegate.swift */; };
@@ -33,9 +33,9 @@
 		B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRoleCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6163A0D231013C400288352 /* CustomImageViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewRounded.swift; sourceTree = "<group>"; };
 		B6163A11231017AA00288352 /* TanggalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TanggalCollectionView.swift; sourceTree = "<group>"; };
-		B61C344F230E9815005BAA55 /* roundMapCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roundMapCorner.swift; path = "../../../../../../../../Downloads/CustomAnnotationPin-master 3/CustomAnnotationPin/roundMapCorner.swift"; sourceTree = "<group>"; };
-		B61C3455230EC1C2005BAA55 /* FriendListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendListController.swift; path = "../../../../../../../../Downloads/Bebaslah-master/TableViewDanielllll/FriendListController.swift"; sourceTree = "<group>"; };
-		B61C3457230EC23B005BAA55 /* ClickableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClickableTableViewCell.swift; path = "../../../../../../../../Downloads/Bebaslah-master/TableViewDanielllll/ClickableTableViewCell.swift"; sourceTree = "<group>"; };
+		B6163A13231235E200288352 /* FriendListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListController.swift; sourceTree = "<group>"; };
+		B6163A15231236A500288352 /* ClickableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableTableViewCell.swift; sourceTree = "<group>"; };
+		B6163A172312372D00288352 /* roundMapCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundMapCorner.swift; sourceTree = "<group>"; };
 		B61C3459230FC4BE005BAA55 /* paymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paymentViewController.swift; sourceTree = "<group>"; };
 		B61C345B230FD3D9005BAA55 /* PreferenceRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRoleViewController.swift; sourceTree = "<group>"; };
 		B6C781ED230C027E005099E9 /* MC3 Volunteering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3 Volunteering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +105,8 @@
 				B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */,
 				E9775806230D6E6D00A9A3D0 /* RoundButton.swift */,
 				B6163A0D231013C400288352 /* CustomImageViewRounded.swift */,
-				B61C344F230E9815005BAA55 /* roundMapCorner.swift */,
-				B61C3457230EC23B005BAA55 /* ClickableTableViewCell.swift */,
+				B6163A172312372D00288352 /* roundMapCorner.swift */,
+				B6163A15231236A500288352 /* ClickableTableViewCell.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -121,7 +121,7 @@
 				E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */,
 				E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */,
 				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
-				B61C3455230EC1C2005BAA55 /* FriendListController.swift */,
+				B6163A13231235E200288352 /* FriendListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,17 +215,17 @@
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
 				B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */,
 				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
-				B61C3456230EC1C2005BAA55 /* FriendListController.swift in Sources */,
 				B61C345A230FC4BE005BAA55 /* paymentViewController.swift in Sources */,
-				B61C3458230EC23B005BAA55 /* ClickableTableViewCell.swift in Sources */,
 				B6163A0C230FE32500288352 /* PreferenceRoleCollectionViewCell.swift in Sources */,
 				E9775807230D6E6D00A9A3D0 /* RoundButton.swift in Sources */,
+				B6163A16231236A500288352 /* ClickableTableViewCell.swift in Sources */,
+				B6163A182312372D00288352 /* roundMapCorner.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
 				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
 				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
-				B61C3450230E9815005BAA55 /* roundMapCorner.swift in Sources */,
 				E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */,
 				B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */,
+				B6163A14231235E200288352 /* FriendListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
