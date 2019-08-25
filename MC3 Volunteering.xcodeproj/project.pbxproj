@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A22CA9231299260005EF81 /* ActivitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CA8231299260005EF81 /* ActivitiesCollectionViewCell.swift */; };
+		31A22CAC23129DA90005EF81 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CAB23129DA90005EF81 /* UserModel.swift */; };
+		31A22CAE23129DBF0005EF81 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CAD23129DBF0005EF81 /* EventModel.swift */; };
+		31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */; };
+		31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */; };
+		31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */; };
 		B6163A0C230FE32500288352 /* PreferenceRoleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */; };
 		B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A0D231013C400288352 /* CustomImageViewRounded.swift */; };
 		B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A11231017AA00288352 /* TanggalCollectionView.swift */; };
@@ -30,6 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31A22CA8231299260005EF81 /* ActivitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewCell.swift; sourceTree = "<group>"; };
+		31A22CAB23129DA90005EF81 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		31A22CAD23129DBF0005EF81 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEventModel.swift; sourceTree = "<group>"; };
+		31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesPage.swift; sourceTree = "<group>"; };
+		31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesDetailsPage.swift; sourceTree = "<group>"; };
 		B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRoleCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6163A0D231013C400288352 /* CustomImageViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewRounded.swift; sourceTree = "<group>"; };
 		B6163A11231017AA00288352 /* TanggalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TanggalCollectionView.swift; sourceTree = "<group>"; };
@@ -65,6 +77,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A22CAA23129D7F0005EF81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31A22CAB23129DA90005EF81 /* UserModel.swift */,
+				31A22CAD23129DBF0005EF81 /* EventModel.swift */,
+				31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B6C781E4230C027E005099E9 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +109,7 @@
 			children = (
 				B6C781F0230C027E005099E9 /* AppDelegate.swift */,
 				B6C781F4230C027E005099E9 /* Main.storyboard */,
+				31A22CAA23129D7F0005EF81 /* Model */,
 				B6C7820B230D171D005099E9 /* Controller */,
 				B6C78204230C2AA0005099E9 /* Class */,
 				B6C781F7230C027F005099E9 /* Assets.xcassets */,
@@ -99,6 +122,7 @@
 		B6C78204230C2AA0005099E9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				31A22CA8231299260005EF81 /* ActivitiesCollectionViewCell.swift */,
 				B6163A11231017AA00288352 /* TanggalCollectionView.swift */,
 				B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */,
 				B6C78202230C02D3005099E9 /* HomeCustomCollectionView.swift */,
@@ -122,6 +146,8 @@
 				E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */,
 				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
 				B6163A13231235E200288352 /* FriendListController.swift */,
+				31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */,
+				31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,17 +240,23 @@
 				B61C345C230FD3D9005BAA55 /* PreferenceRoleViewController.swift in Sources */,
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
 				B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */,
+				31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */,
+				31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */,
 				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
 				B61C345A230FC4BE005BAA55 /* paymentViewController.swift in Sources */,
 				B6163A0C230FE32500288352 /* PreferenceRoleCollectionViewCell.swift in Sources */,
 				E9775807230D6E6D00A9A3D0 /* RoundButton.swift in Sources */,
+				31A22CA9231299260005EF81 /* ActivitiesCollectionViewCell.swift in Sources */,
 				B6163A16231236A500288352 /* ClickableTableViewCell.swift in Sources */,
+				31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */,
 				B6163A182312372D00288352 /* roundMapCorner.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
 				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
 				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
+				31A22CAC23129DA90005EF81 /* UserModel.swift in Sources */,
 				E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */,
 				B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */,
+				31A22CAE23129DBF0005EF81 /* EventModel.swift in Sources */,
 				B6163A14231235E200288352 /* FriendListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
