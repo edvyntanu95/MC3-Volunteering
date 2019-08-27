@@ -13,6 +13,14 @@
 		31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */; };
 		31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */; };
 		31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */; };
+		31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */; };
+		31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE52313E46600EF75B2 /* FriendModel.swift */; };
+		31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE72314015400EF75B2 /* ProfileViewController.swift */; };
+		31DC0CEA231411FE00EF75B2 /* ECertificateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE9231411FE00EF75B2 /* ECertificateCollectionViewCell.swift */; };
+		31DC0CEC23146B3B00EF75B2 /* friendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CEB23146B3B00EF75B2 /* friendListTableViewCell.swift */; };
+		31DC0CEE23146C4600EF75B2 /* friendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CED23146C4600EF75B2 /* friendListTableViewController.swift */; };
+		31E964A52315188B00B728BB /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E964A42315188B00B728BB /* QRCodeViewController.swift */; };
+		31E964A723153EB000B728BB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E964A623153EB000B728BB /* CameraViewController.swift */; };
 		B6163A0C230FE32500288352 /* PreferenceRoleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */; };
 		B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A0D231013C400288352 /* CustomImageViewRounded.swift */; };
 		B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6163A11231017AA00288352 /* TanggalCollectionView.swift */; };
@@ -22,7 +30,7 @@
 		B61C345A230FC4BE005BAA55 /* paymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C3459230FC4BE005BAA55 /* paymentViewController.swift */; };
 		B61C345C230FD3D9005BAA55 /* PreferenceRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C345B230FD3D9005BAA55 /* PreferenceRoleViewController.swift */; };
 		B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C781F0230C027E005099E9 /* AppDelegate.swift */; };
-		B6C781F3230C027E005099E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C781F2230C027E005099E9 /* ViewController.swift */; };
+		B6C781F3230C027E005099E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C781F2230C027E005099E9 /* HomeViewController.swift */; };
 		B6C781F6230C027E005099E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C781F4230C027E005099E9 /* Main.storyboard */; };
 		B6C781F8230C027F005099E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6C781F7230C027F005099E9 /* Assets.xcassets */; };
 		B6C781FB230C027F005099E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C781F9230C027F005099E9 /* LaunchScreen.storyboard */; };
@@ -42,6 +50,14 @@
 		31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEventModel.swift; sourceTree = "<group>"; };
 		31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesPage.swift; sourceTree = "<group>"; };
 		31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesDetailsPage.swift; sourceTree = "<group>"; };
+		31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
+		31DC0CE52313E46600EF75B2 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		31DC0CE72314015400EF75B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		31DC0CE9231411FE00EF75B2 /* ECertificateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECertificateCollectionViewCell.swift; sourceTree = "<group>"; };
+		31DC0CEB23146B3B00EF75B2 /* friendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendListTableViewCell.swift; sourceTree = "<group>"; };
+		31DC0CED23146C4600EF75B2 /* friendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendListTableViewController.swift; sourceTree = "<group>"; };
+		31E964A42315188B00B728BB /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		31E964A623153EB000B728BB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B6163A0B230FE32500288352 /* PreferenceRoleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRoleCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6163A0D231013C400288352 /* CustomImageViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewRounded.swift; sourceTree = "<group>"; };
 		B6163A11231017AA00288352 /* TanggalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TanggalCollectionView.swift; sourceTree = "<group>"; };
@@ -52,7 +68,7 @@
 		B61C345B230FD3D9005BAA55 /* PreferenceRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRoleViewController.swift; sourceTree = "<group>"; };
 		B6C781ED230C027E005099E9 /* MC3 Volunteering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC3 Volunteering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C781F0230C027E005099E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6C781F2230C027E005099E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B6C781F2230C027E005099E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B6C781F5230C027E005099E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6C781F7230C027F005099E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6C781FA230C027F005099E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,6 +99,8 @@
 				31A22CAB23129DA90005EF81 /* UserModel.swift */,
 				31A22CAD23129DBF0005EF81 /* EventModel.swift */,
 				31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */,
+				31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */,
+				31DC0CE52313E46600EF75B2 /* FriendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +140,7 @@
 		B6C78204230C2AA0005099E9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				31DC0CEB23146B3B00EF75B2 /* friendListTableViewCell.swift */,
 				31A22CA8231299260005EF81 /* ActivitiesCollectionViewCell.swift */,
 				B6163A11231017AA00288352 /* TanggalCollectionView.swift */,
 				B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */,
@@ -131,6 +150,7 @@
 				B6163A0D231013C400288352 /* CustomImageViewRounded.swift */,
 				B6163A172312372D00288352 /* roundMapCorner.swift */,
 				B6163A15231236A500288352 /* ClickableTableViewCell.swift */,
+				31DC0CE9231411FE00EF75B2 /* ECertificateCollectionViewCell.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -140,14 +160,18 @@
 			children = (
 				B61C345B230FD3D9005BAA55 /* PreferenceRoleViewController.swift */,
 				B61C3459230FC4BE005BAA55 /* paymentViewController.swift */,
-				B6C781F2230C027E005099E9 /* ViewController.swift */,
-				E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */,
+				B6C781F2230C027E005099E9 /* HomeViewController.swift */,
+				31E964A42315188B00B728BB /* QRCodeViewController.swift */,
 				E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */,
 				E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */,
 				B6C78210230D63B0005099E9 /* EventDetailController.swift */,
 				B6163A13231235E200288352 /* FriendListController.swift */,
 				31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */,
 				31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */,
+				31DC0CE72314015400EF75B2 /* ProfileViewController.swift */,
+				31DC0CED23146C4600EF75B2 /* friendListTableViewController.swift */,
+				E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */,
+				31E964A623153EB000B728BB /* CameraViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */,
 				B6C78203230C02D3005099E9 /* HomeCustomCollectionView.swift in Sources */,
-				B6C781F3230C027E005099E9 /* ViewController.swift in Sources */,
+				B6C781F3230C027E005099E9 /* HomeViewController.swift in Sources */,
+				31DC0CEC23146B3B00EF75B2 /* friendListTableViewCell.swift in Sources */,
 				B61C345C230FD3D9005BAA55 /* PreferenceRoleViewController.swift in Sources */,
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
 				B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */,
@@ -244,18 +270,24 @@
 				31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */,
 				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
 				B61C345A230FC4BE005BAA55 /* paymentViewController.swift in Sources */,
+				31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */,
 				B6163A0C230FE32500288352 /* PreferenceRoleCollectionViewCell.swift in Sources */,
 				E9775807230D6E6D00A9A3D0 /* RoundButton.swift in Sources */,
 				31A22CA9231299260005EF81 /* ActivitiesCollectionViewCell.swift in Sources */,
+				31E964A723153EB000B728BB /* CameraViewController.swift in Sources */,
 				B6163A16231236A500288352 /* ClickableTableViewCell.swift in Sources */,
 				31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */,
+				31DC0CEA231411FE00EF75B2 /* ECertificateCollectionViewCell.swift in Sources */,
 				B6163A182312372D00288352 /* roundMapCorner.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
 				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
 				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
 				31A22CAC23129DA90005EF81 /* UserModel.swift in Sources */,
+				31DC0CEE23146C4600EF75B2 /* friendListTableViewController.swift in Sources */,
+				31E964A52315188B00B728BB /* QRCodeViewController.swift in Sources */,
 				E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */,
 				B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */,
+				31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */,
 				31A22CAE23129DBF0005EF81 /* EventModel.swift in Sources */,
 				B6163A14231235E200288352 /* FriendListController.swift in Sources */,
 			);
@@ -404,7 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q67V59ZZGA;
+				DEVELOPMENT_TEAM = C56NL525H5;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -422,7 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q67V59ZZGA;
+				DEVELOPMENT_TEAM = C56NL525H5;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

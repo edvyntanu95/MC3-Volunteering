@@ -7,111 +7,80 @@
 //
 
 import UIKit
-import MapKit
 
-class customPin: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
-    var title: String?
-    var subtitle: String?
+class EventDetailController: UIViewController{
     
-    init(pinTitle: String, pinSubTitle: String, location:CLLocationCoordinate2D) {
-        self.title = pinTitle
-        self.subtitle = pinSubTitle
-        self.coordinate = location
-    }
+    var imageEvent: UIImage?
+    var imageFriendPhoto1: UIImage?
+    var imageFriendPhoto2: UIImage?
+    var imageFriendPhoto3: UIImage?
+    var imageEOPhoto: UIImage?
     
-    func getTitleName() -> String {
-        return self.title!
-    }
-    
-    func getSubTitleName() -> String {
-        return self.subtitle!
-    }
-}
-
-
-
-class EventDetailController: UIViewController, MKMapViewDelegate {
-    
-    var imageContainer: UIImage?
+    var eventTitle: String?
+    var numberOFfriends: String?
+    var eventLocation: String?
+    var eventTime: String?
+    var eventDate: String?
+    var eventOrganizer: String?
+    var eventDescription: String?
     
     @IBOutlet weak var judulDetailEventLabel: UILabel!
-    @IBOutlet weak var bodyCopyDetailEventLabel: UILabel!
-    @IBOutlet weak var waktuDetailEventLabel: UILabel!
-    @IBOutlet weak var tanggalDetailEventLabel: UILabel!
+    @IBOutlet weak var lblNumberOfFriends: UILabel!
+    @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblEventOrganizer: UILabel!
+    @IBOutlet weak var lblDescription: UILabel!
     
     @IBOutlet weak var imageEventDetailed: UIImageView!
-    
-    @IBOutlet var profile1: UIImageView!
-    @IBOutlet var profile2: UIImageView!
-    @IBOutlet var profile3: UIImageView!
-    @IBOutlet weak var jumlahTemanLainDetailEventLabel: UILabel!
-    
-    
-    @IBOutlet var organizationProfile: UIImageView!
-    @IBOutlet weak var namaOrganisasiDetailEventLabel: UILabel!
-    
-    @IBOutlet weak var callOrganisasiButton: UIButton!
-    @IBOutlet weak var messageOrganisasiButton: UIButton!
+    @IBOutlet weak var imageFriend2: UIImageView!
+    @IBOutlet weak var imageFriend1: UIImageView!
+    @IBOutlet weak var imageFriend3: UIImageView!
+    @IBOutlet weak var imageEventOrganizer: UIImageView!
     
     @IBOutlet var goAloneButton: UIButton!
     @IBOutlet var inviteFriendButton: UIButton!
-    @IBOutlet var mapView: MKMapView!
-    @IBOutlet var locationAdress: UILabel!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageEventDetailed.image = imageContainer
-        
-//        self.navigationController?.hidesBarsOnSwipe = true
-        
-        let location = CLLocationCoordinate2D(latitude: -6.175392, longitude: 106.827153)
-        //itu lattitude sama longitude monas, kaya buat default aja
-        let region = MKCoordinateRegion (center: location , span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-        self.mapView.setRegion(region, animated: true)
-        let pin = customPin(pinTitle: "Monas", pinSubTitle: "Jakarta", location: location)
-        locationAdress.text = "\(pin.getTitleName()) , \(pin.getSubTitleName()) "
-        
-        self.mapView.addAnnotation(pin)
-        self.mapView.delegate = self
-        
-        profile1.layer.masksToBounds = true
-        profile2.layer.masksToBounds = true
-        profile3.layer.masksToBounds = true
-        organizationProfile.layer.masksToBounds = true
-        
-        profile1.layer.cornerRadius = profile1.bounds.width / 2
-        profile2.layer.cornerRadius = profile2.bounds.width / 2
-        profile3.layer.cornerRadius = profile3.bounds.width / 2
-        organizationProfile.layer.cornerRadius = organizationProfile.bounds.width / 2
         
         goAloneButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
         goAloneButton.layer.borderWidth = 1
         inviteFriendButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
         inviteFriendButton.layer.borderWidth = 1
+        imageFriend1.layer.cornerRadius = imageFriend1.frame.height / 2
+        imageFriend2.layer.cornerRadius = imageFriend2.frame.height / 2
+        imageFriend3.layer.cornerRadius = imageFriend3.frame.height / 2
+        imageEventOrganizer.layer.cornerRadius = imageEventOrganizer.frame.height / 2
         
-        
-        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            if annotation is MKUserLocation {
-                return nil
-            }
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customannotation")
-            annotationView.image = UIImage(named: "pin")
-            annotationView.canShowCallout = true
-            return annotationView
-        }
-        
-        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            print("annotation title == \(String(describing:view.annotation?.title!))")
-        }
-        
+        setUpContent()
+        setUpView()
+
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func setUpContent(){
+        judulDetailEventLabel.text = eventTitle
+        lblNumberOfFriends.text = numberOFfriends
+        lblLocation.text = eventLocation
+        lblTime.text = eventTime
+        lblDate.text = eventDate
+        lblEventOrganizer.text = eventOrganizer
+        lblDescription.text = eventDescription
         
-        }
+        imageEventDetailed.image = imageEvent
+        imageFriend2.image = imageFriendPhoto2
+        imageFriend1.image = imageFriendPhoto1
+        imageFriend3.image = imageFriendPhoto3
+        imageEventOrganizer.image = imageEOPhoto
+    }
+    
+    func setUpView(){
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
 }
     
     

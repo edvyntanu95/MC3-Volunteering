@@ -18,13 +18,15 @@ class RegisterEventModel{
     var eventDescription: String
     var eventLocation: String
     var eventDate: String
+    var eventTime: String
+    var eventOrganizer: String
     var status: String
     
     var friendPhoto1: UIImage
     var friendPhoto2: UIImage
     var friendPhoto3: UIImage
     
-    init(registerEventID: String, userID: String, eventID: String, eventPhoto: UIImage, eventName: String, eventDescription: String, eventLocation: String, eventDate: String, status: String, friendPhoto1: UIImage, friendPhoto2: UIImage, friendPhoto3: UIImage) {
+    init(registerEventID: String, userID: String, eventID: String, eventPhoto: UIImage, eventName: String, eventDescription: String, eventLocation: String, eventDate: String, eventTime: String, eventOrganizer: String, status: String, friendPhoto1: UIImage, friendPhoto2: UIImage, friendPhoto3: UIImage) {
         self.registerEventID = registerEventID
         self.userID = userID
         self.eventID = eventID
@@ -33,6 +35,8 @@ class RegisterEventModel{
         self.eventDescription = eventDescription
         self.eventLocation = eventLocation
         self.eventDate = eventDate
+        self.eventTime = eventTime
+        self.eventOrganizer = eventOrganizer
         self.status = status
         self.friendPhoto1 = friendPhoto1
         self.friendPhoto2 = friendPhoto2

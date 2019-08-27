@@ -20,6 +20,11 @@ class HomeCustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func setTableCell(model: EventModel){
+        tvHomeLokasiDanTanggalLabel.text = "\(model.eventLocation), \(model.eventTime)"
+        tableViewCellHomeImage.image = model.eventPhoto
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

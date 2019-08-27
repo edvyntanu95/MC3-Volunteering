@@ -11,8 +11,18 @@ import UIKit
 class ClickableTableViewCell: UITableViewCell {
     
     @IBOutlet var gambar: UIImageView!
-    
     @IBOutlet var lblName: UILabel!
+    @IBOutlet weak var lblLastActive: UILabel!
+    
+    func setInviteYourFriends(model: FriendModel){
+        gambar.image = model.friendPhoto
+        lblName.text = model.friendName
+        lblLastActive.text = model.lastActive
+        
+        gambar.layer.cornerRadius = gambar.frame.height/2
+        gambar.layer.masksToBounds = true
+    }
+    
     
     
     override func awakeFromNib() {

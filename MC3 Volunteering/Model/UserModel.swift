@@ -15,13 +15,20 @@ class UserModel{
     var userPass: String
     var userEmail: String
     var userPhoto: UIImage
-
+    var userRole: String
+    var userCertificates: [UIImage]
+    var userLocation: String
+    var userBioDesc: String
     
-    init(userID:String, userName:String, userPass: String, userEmail: String, userPhoto: UIImage) {
+    init(userID:String, userName:String, userPass: String, userEmail: String, userPhoto: UIImage, userRole: String, userLocation: String, userBioDesc: String, userCertificates: [UIImage]) {
         self.userID = userID
         self.userName = userName
         self.userPass = userPass
         self.userEmail = userEmail
         self.userPhoto = userPhoto
+        self.userRole = userRole
+        self.userLocation = userLocation
+        self.userBioDesc = userBioDesc
+        self.userCertificates = userCertificates
     }
 }

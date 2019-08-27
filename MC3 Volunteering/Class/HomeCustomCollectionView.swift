@@ -29,13 +29,14 @@ class HomeCustomCollectionView: UICollectionViewCell {
             }
         }
     }
-//    override var isSelected: Bool{
-//        didSet{
-//            UIView.animate(withDuration: 2.0) {
-//                self.imageSliderHome.transform = self.isSelected ? CGAffineTransform(scaleX: 0.9, y: 0.9) : CGAffineTransform.identity
-//            }
-//        }
-//    }
+    
+    func setCell(model: EventModel){
+        imageSliderHome.image = model.eventPhoto
+        homeSliderNamaAcaraLabel.text = model.eventName
+        homeSliderTempatAcaraLabel.text = model.eventLocation
+        homeSliderTanggalAcaraLabel.text = model.eventDate
+    }
+    
 }
     
 
