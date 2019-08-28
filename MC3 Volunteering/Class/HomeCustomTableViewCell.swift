@@ -14,7 +14,8 @@ class HomeCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var tvHomeLokasiDanTanggalLabel: UILabel!
     @IBOutlet weak var tvHomeNamaAcaraLabel: UILabel!
     @IBOutlet weak var tableViewCellHomeImage: UIImageView!
-    @IBOutlet weak var tableViewCellHomeJoinButton: RoundButton!
+    
+    @IBOutlet weak var tableViewCellHomeJoinButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,9 @@ class HomeCustomTableViewCell: UITableViewCell {
     func setTableCell(model: EventModel){
         tvHomeLokasiDanTanggalLabel.text = "\(model.eventLocation), \(model.eventTime)"
         tableViewCellHomeImage.image = model.eventPhoto
+        
+        tableViewCellHomeJoinButton.layer.cornerRadius = tableViewCellHomeJoinButton.frame.height/2
+        tableViewCellHomeJoinButton.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

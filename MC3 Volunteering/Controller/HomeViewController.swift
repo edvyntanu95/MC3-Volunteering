@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var notificationEventPageButton: UIBarButtonItem!
     
-    
     @IBOutlet weak var nearbyEventCollectionView: UICollectionView!
     
     @IBOutlet weak var suitableEventTableView: UITableView!
@@ -58,6 +57,7 @@ class HomeViewController: UIViewController {
         
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
+        
     }
 
     

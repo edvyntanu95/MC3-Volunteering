@@ -95,15 +95,28 @@ class ProfileViewController: UIViewController {
             animateOut()
         }
     }
-    @IBAction func qrCodeButtonTapped(_ sender: UIButton) {
-        
+
+    @IBAction func qrCodeButtonTapped(_ sender: UIBarButtonItem) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "QRCodeViewController") as? QRCodeViewController
         
         vc?.userName = user.userName
         self.navigationController?.pushViewController(vc!, animated: true)
         
+    }
+    
+    @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SettingProfileViewController") as? SettingProfileViewController
+        print(user.userName)
+        vc?.name = user.userName
+        vc?.location = user.userLocation
+        vc?.passion = user.userBioDesc
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
         
     }
+    
+
     
 }
 
