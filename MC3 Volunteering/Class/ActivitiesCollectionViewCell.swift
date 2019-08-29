@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class ActivitiesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImageCard: UIImageView!
@@ -19,15 +20,18 @@ class ActivitiesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageFriend2: UIImageView!
     @IBOutlet weak var imageFriend3: UIImageView!
     
-    func setCell(model: RegisterEventModel){
-        backgroundImageCard.image = model.eventPhoto
-        lblStatus.text = model.status
-        lblTitle.text = model.eventName
-        lblLocation.text = model.eventLocation
-        lblDate.text = model.eventDate
-        imageFriend1.image = model.friendPhoto1
-        imageFriend2.image = model.friendPhoto2
-        imageFriend3.image = model.friendPhoto3
+    func setCell(myActivity: CKRecord, myActivityStatus: CKRecord){
+        if let asset = myActivity[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                self.backgroundImageCard.image = UIImage(data: data)
+            }
+        }
+    
+        lblStatus.text = myActivityStatus[RemoteRegisterEvents.status] as! String
+        lblTitle.text = myActivity[RemoteEvents.name] as! String
+        lblLocation.text = myActivity[RemoteEvents.location] as! String
+        lblDate.text = myActivity[RemoteEvents.date] as! String
         
         backgroundImageCard.layer.cornerRadius = 10
         imageFriend1.layer.cornerRadius = imageFriend1.frame.height/2
@@ -38,11 +42,11 @@ class ActivitiesCollectionViewCell: UICollectionViewCell {
         lblStatus.layer.cornerRadius = 10
         lblStatus.layer.masksToBounds = true
         
-        if model.status == "Registered"{
+        if myActivityStatus[RemoteRegisterEvents.status] as! String == "Registered"{
             lblStatus.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.6941176471, blue: 0.7843137255, alpha: 1)
-        } else if model.status == "On Progress" {
+        } else if myActivityStatus[RemoteRegisterEvents.status] as! String == "On Progress" {
             lblStatus.backgroundColor = #colorLiteral(red: 0.6862745098, green: 0.9176470588, blue: 0.8901960784, alpha: 1)
-        } else if model.status == "Completed" {
+        } else if myActivityStatus[RemoteRegisterEvents.status] as! String == "Completed" {
             lblStatus.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.8156862745, blue: 0.6196078431, alpha: 1)
         }
         

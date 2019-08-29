@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CloudKit
 
 class HomeCustomCollectionView: UICollectionViewCell {
+    
+    var eventId:String?
     
     @IBOutlet weak var imageSliderHome: UIImageView!
     @IBOutlet weak var homeSliderNamaAcaraLabel: UILabel!
@@ -30,11 +33,18 @@ class HomeCustomCollectionView: UICollectionViewCell {
         }
     }
     
-    func setCell(model: EventModel){
-        imageSliderHome.image = model.eventPhoto
-        homeSliderNamaAcaraLabel.text = model.eventName
-        homeSliderTempatAcaraLabel.text = model.eventLocation
-        homeSliderTanggalAcaraLabel.text = model.eventDate
+    func setCell(model: CKRecord){
+        
+        if let asset = model[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                self.imageSliderHome.image = UIImage(data: data)
+            }
+        }
+        homeSliderNamaAcaraLabel.text = model[RemoteEvents.name] as! String
+        homeSliderTempatAcaraLabel.text = model[RemoteEvents.location] as! String
+        homeSliderTanggalAcaraLabel.text = model[RemoteEvents.date
+            ] as! String
     }
     
 }

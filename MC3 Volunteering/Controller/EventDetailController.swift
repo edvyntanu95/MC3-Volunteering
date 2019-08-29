@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CloudKit
 
 class EventDetailController: UIViewController{
     
+    var eventId:String?
     var imageEvent: UIImage?
     var imageFriendPhoto1: UIImage?
     var imageFriendPhoto2: UIImage?
@@ -43,9 +45,10 @@ class EventDetailController: UIViewController{
     
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         goAloneButton.layer.borderColor = #colorLiteral(red: 0.3039953709, green: 0.6345664263, blue: 0.8838434815, alpha: 1)
         goAloneButton.layer.borderWidth = 1
@@ -60,6 +63,17 @@ class EventDetailController: UIViewController{
         setUpView()
 
     }
+    
+    @IBAction func registerEventAloneTapped(_ sender: UIButton) {
+        registerEventAlone { (finished) in
+            if finished == true {
+                print("Daftar Event Berhasil")
+            }else{
+                print("Daftar Event Gagal")
+            }
+        }
+    }
+    
     
     func setUpContent(){
         judulDetailEventLabel.text = eventTitle
@@ -77,8 +91,32 @@ class EventDetailController: UIViewController{
         imageEventOrganizer.image = imageEOPhoto
     }
     
+    
     func setUpView(){
         self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    func registerEventAlone(completionHandler: @escaping (_ finished: Bool) -> Void){
+        var userDF = UserDefaults.standard
+        var recordEventID = CKRecord.ID(recordName: eventId!)
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        var recordRegisterEvent = CKRecord(recordType: RemoteRecords.registerEvents)
+    
+        print("Record ID EVENT : \(recordEventID)")
+        print("Record ID USER : \(recordUserID)")
+        completionHandler(true)
+    
+        recordRegisterEvent[RemoteRegisterEvents.eventId] = CKRecord.Reference(recordID: recordEventID, action: .none)
+        recordRegisterEvent[RemoteRegisterEvents.userId] = CKRecord.Reference(recordID: recordUserID, action: .none)
+        recordRegisterEvent[RemoteRegisterEvents.status] = "Registered" as! NSString
+        DBConnection.share.publicDB.save(recordRegisterEvent) { (record, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                completionHandler(false)
+            }else{
+                completionHandler(true)
+            }
+        }
     }
     
 }

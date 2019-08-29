@@ -7,79 +7,114 @@
 //
 
 import UIKit
+import CloudKit
 
 class MyActivitiesPage: UIViewController {
-
+    
+    var myActivitiesEventList:[CKRecord] = []
+    var myActivitiesEventsListStatus:[CKRecord] = []
+    @IBOutlet weak var myActivitiesCV: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        registerEventArray = makeRegisterEventArrayObject()
+        getMyActivitiesEventList { (finished) in
+            DispatchQueue.main.async {
+                self.myActivitiesCV.reloadData()
+            }
+        }
     }
     
-    var registerEventArray: [RegisterEventModel] = []
-    
-    func makeRegisterEventArrayObject() -> [RegisterEventModel]{
-        var tempArray : [RegisterEventModel] = []
-        
-        let model1 = RegisterEventModel.init(registerEventID: "001", userID: "0001", eventID: "0001", eventPhoto: #imageLiteral(resourceName: "village2"), eventName: "Sightseeing", eventDescription: "Sightseeing with orphanage children", eventLocation: "Austria", eventDate: "Near Future", eventTime: "All Day", eventOrganizer: "Social Designee", status: "Registered", friendPhoto1: #imageLiteral(resourceName: "human"), friendPhoto2: #imageLiteral(resourceName: "human"), friendPhoto3: #imageLiteral(resourceName: "human"))
-        
-        let model2 = RegisterEventModel.init(registerEventID: "002", userID: "0002", eventID: "0002", eventPhoto: #imageLiteral(resourceName: "Motor"), eventName: "Touring", eventDescription: "Touring with orphanage children", eventLocation: "Austria", eventDate: "Near Future", eventTime: "All Week", eventOrganizer: "Me & You", status: "On Progress", friendPhoto1: #imageLiteral(resourceName: "human"), friendPhoto2: #imageLiteral(resourceName: "human"), friendPhoto3: #imageLiteral(resourceName: "human"))
-        
-        let model3 = RegisterEventModel.init(registerEventID: "003", userID: "0003", eventID: "0003", eventPhoto: #imageLiteral(resourceName: "village"), eventName: "Exploring", eventDescription: "Exploring with orphanage children", eventLocation: "Austria", eventDate: "Near Future", eventTime: "All Month", eventOrganizer: "Us", status: "Completed", friendPhoto1: #imageLiteral(resourceName: "human"), friendPhoto2: #imageLiteral(resourceName: "human"), friendPhoto3: #imageLiteral(resourceName: "human"))
-        
-        
-        
-        tempArray.append(model1)
-        tempArray.append(model2)
-        tempArray.append(model3)
-        
-        return tempArray
+    override func viewWillAppear(_ animated: Bool) {
+        myActivitiesEventList = []
+        myActivitiesEventsListStatus = []
+        getMyActivitiesEventList { (finished) in
+            DispatchQueue.main.async {
+                self.myActivitiesCV.reloadData()
+            }
+        }
     }
     
-
-
+    
+    func getMyActivitiesEventList(completionHandler: @escaping (_ finished: Bool) -> Void){
+    
+        let userDF = UserDefaults.standard
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        let userReference = CKRecord.Reference(recordID: recordUserID, action: .none)
+        let predicate = NSPredicate(format: "recordUserID == %@", userReference)
+        let query = CKQuery(recordType: RemoteRecords.registerEvents, predicate: predicate)
+    
+    
+        DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }else{
+                guard let records = records else {return}
+                var recordNames:[CKRecord.ID] = []
+                for record in records {
+                    let eventReference = record[RemoteRegisterEvents.eventId] as! CKRecord.Reference
+                    self.myActivitiesEventsListStatus.append(record)
+                    recordNames.append(eventReference.recordID)
+                }
+    
+                print(recordNames.count)
+    
+                let operation = CKFetchRecordsOperation(recordIDs: recordNames)
+                operation.fetchRecordsCompletionBlock = { (records, error) in
+                    guard let records = records else {return}
+                    for (key, value) in records {
+                        self.myActivitiesEventList.append(value)
+                    }
+                    completionHandler(true)
+                }
+                DBConnection.share.publicDB.add(operation)
+            }
+        }
+    }
+            
 }
 
 extension MyActivitiesPage:UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return registerEventArray.count
+        return myActivitiesEventList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let myActivity = myActivitiesEventList[indexPath.row]
+        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActivitiesCollectionViewCell", for: indexPath) as! ActivitiesCollectionViewCell
-        cell.setCell(model: registerEventArray[indexPath.row])
+        cell.setCell(myActivity: myActivity, myActivityStatus: myActivityStatus)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "MyActivitiesDetailsPage") as? MyActivitiesDetailsPage
+        let myActivity = myActivitiesEventList[indexPath.row]
+        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
         
-        vc?.eventTitle = registerEventArray[indexPath.row].eventName
+        let eventRecordID = myActivity.recordID.recordName as! String
+        vc?.eventId = eventRecordID
         
-        vc?.eventDescriptions = registerEventArray[indexPath.row].eventDescription
+        vc?.eventTitle = myActivity[RemoteEvents.name] as! String
         
-        vc?.eventLocation = registerEventArray[indexPath.row].eventLocation
+        vc?.eventDescriptions = myActivity[RemoteEvents.description] as! String
         
-        vc?.eventTime = registerEventArray[indexPath.row].eventTime
+        vc?.eventLocation = myActivity[RemoteEvents.location] as! String
         
-        vc?.eventDate = registerEventArray[indexPath.row].eventDate
+        vc?.eventTime = myActivity[RemoteEvents.time] as! String
         
-        vc?.eventOrganizer = registerEventArray[indexPath.row].eventOrganizer
+        vc?.eventDate = myActivity[RemoteEvents.date] as! String
+        
+        vc?.eventOrganizer = myActivity[RemoteEvents.organizer] as! String
         
         vc?.numberOFfriends = "3 more friends joins"
         
-        vc?.eventImage = registerEventArray[indexPath.row].eventPhoto
+        if let asset = myActivity[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            vc?.eventImage = UIImage(data: data)
+        }
         
-        vc?.friend1 = registerEventArray[indexPath.row].friendPhoto1
-        
-        vc?.friend2 = registerEventArray[indexPath.row].friendPhoto2
-        
-        vc?.friend3 = registerEventArray[indexPath.row].friendPhoto3
-        print(registerEventArray[indexPath.row].eventName)
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
-    
     
 }

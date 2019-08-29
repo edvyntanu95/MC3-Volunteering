@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CloudKit
 
 class HomeViewController: UIViewController {
 
@@ -17,49 +17,53 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var suitableEventTableView: UITableView!
     
-    var eventArray : [EventModel] = []
-    
-    func makeEventArrayObject() -> [EventModel]{
-        var tempArray : [EventModel] = []
-        
-        let model1 = EventModel.init(eventID: "001", eventName: "Seeing the world", eventDescription: "Seeing the world with orphan kids", eventLocation: "Austria, Switzerland", eventDate: "Next 3 months", eventPhoto: #imageLiteral(resourceName: "village"), eventTime: "3 months", eventFee: 0000, eventOrganizer: "You & I", userIDs: ["001","002"])
-        
-        let model2 = EventModel.init(eventID: "002", eventName: "Seeing the space", eventDescription: "Seeing the space with orphan kids", eventLocation: "Andromeda Galaxy, Orion's Belt", eventDate: "Next 30 year", eventPhoto: #imageLiteral(resourceName: "village2"), eventTime: "30 year", eventFee: 0000, eventOrganizer: "The Universe", userIDs: ["003","004"])
-        
-        let model3 = EventModel.init(eventID: "003", eventName: "Seeing the galaxy", eventDescription: "Seeing the stars with orphan kids", eventLocation: "Andromeda Galaxy, Orion's Belt and more", eventDate: "Next 300 year", eventPhoto: #imageLiteral(resourceName: "village2"), eventTime: "300 year", eventFee: 0000, eventOrganizer: "The Universe", userIDs: ["005","006"])
-        
-
-        tempArray.append(model1)
-        tempArray.append(model2)
-        tempArray.append(model3)
-        
-        return tempArray
-    }
-    
-    
-    let imageSliderArray = [UIImage(named: "Berenang"), UIImage(named: "Anjing"), UIImage(named: "Lampu Merah"), UIImage(named: "Surfing"), UIImage(named: "Motor")]
-    
-    var imageSelected: Int?
-    
-    
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.providesPresentationContextTransitionStyle = false
-//    }
+    var eventList : [CKRecord] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    nearbyEventCollectionView.isPagingEnabled = true
-        
-        eventArray = makeEventArrayObject()
-        
+        getDataEventList { (finished) in
+            DispatchQueue.main.async {
+                self.nearbyEventCollectionView.reloadData()
+                self.suitableEventTableView.reloadData()
+            }
+        }
+        nearbyEventCollectionView.isPagingEnabled = true
         setupNavBar()
-        
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        eventList = []
+        getDataEventList { (finished) in
+            DispatchQueue.main.async {
+                self.nearbyEventCollectionView.reloadData()
+                self.suitableEventTableView.reloadData()
+            }
+        }
+        nearbyEventCollectionView.isPagingEnabled = true
+        setupNavBar()
+    }
+    
+    func getDataEventList(completionHandler: @escaping(_ finished: Bool) -> Void){
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RemoteRecords.events, predicate: predicate)
+        let queryOperation = CKQueryOperation(query: query)
+        queryOperation.resultsLimit = 5
+        
+        queryOperation.recordFetchedBlock = { record in
+            self.eventList.append(record)
+            print(record)
+        }
+        
+        queryOperation.queryCompletionBlock = { cursor, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                completionHandler(true)
+            }
+        }
+        DBConnection.share.publicDB.add(queryOperation)
+    }
+    
     
     func setupNavBar(){
 
@@ -69,59 +73,53 @@ class HomeViewController: UIViewController {
 
     }
     
-
-    
-    @IBAction func unwindSeguesToEventPage(_ sender: UIStoryboardSegue) {}
+    @IBAction func unwindSeguesToEventPage(_ sender: UIStoryboardSegue) {
+        //--------
+    }
 }
 
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventArray.count
+        return eventList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = suitableEventTableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! HomeCustomTableViewCell
         
-        cell.setTableCell(model: eventArray[indexPath.row])
+        cell.setTableCell(model: eventList[indexPath.row])
         
         return cell
     }
     
     
-    
-func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return eventArray.count
-}
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return eventList.count
+    }
 
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = nearbyEventCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCustomCollectionView
-    cell.setCell(model: eventArray[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = nearbyEventCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCustomCollectionView
+        cell.setCell(model: eventList[indexPath.row])
     
-//    if(collectionView == eventHomeCollectionView){
-//        let cell2 = eventHomeCollectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CustomScroll
-//        cell2.scrollImage.image = imageSliderArray[indexPath.row]
-////        cell2.scrollHeaderText.text = "EDVYN YEAYY !!! "
-//
-//        return cell2
-//
-//    }
-    
-    
-    return cell
-}
+        return cell
+    }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let event = eventList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
-        
-        vc?.eventTitle = eventArray[indexPath.row].eventName
-        vc?.eventDescription = eventArray[indexPath.row].eventDescription
-        vc?.eventLocation = eventArray[indexPath.row].eventLocation
-        vc?.eventTime = eventArray[indexPath.row].eventTime
-        vc?.eventDate = eventArray[indexPath.row].eventDate
-        vc?.eventOrganizer = eventArray[indexPath.row].eventOrganizer
+        let eventRecordID = event.recordID.recordName as! String
+        vc?.eventId = eventRecordID
+        vc?.eventTitle = event[RemoteEvents.name] as! String
+        vc?.eventDescription = event[RemoteEvents.description] as! String
+        vc?.eventLocation = event[RemoteEvents.location] as! String
+        vc?.eventTime = event[RemoteEvents.time] as! String
+        vc?.eventDate = event[RemoteEvents.date] as! String
+        vc?.eventOrganizer = "Social Designee"
         vc?.numberOFfriends = "3 more friends joins"
-        vc?.imageEvent = eventArray[indexPath.row].eventPhoto
+        if let asset = event[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            vc?.imageEvent = UIImage(data: data)
+        }
         vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
         vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
         vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
@@ -129,21 +127,24 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let event = eventList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
-        
-        vc?.eventTitle = eventArray[indexPath.row].eventName
-        vc?.eventDescription = eventArray[indexPath.row].eventDescription
-        vc?.eventLocation = eventArray[indexPath.row].eventLocation
-        vc?.eventTime = eventArray[indexPath.row].eventTime
-        vc?.eventDate = eventArray[indexPath.row].eventDate
-        vc?.eventOrganizer = eventArray[indexPath.row].eventOrganizer
+        let eventRecordID = event.recordID.recordName as! String
+        vc?.eventId = eventRecordID
+        vc?.eventTitle = event[RemoteEvents.name] as! String
+        vc?.eventDescription = event[RemoteEvents.description] as! String
+        vc?.eventLocation = event[RemoteEvents.location] as! String
+        vc?.eventTime = event[RemoteEvents.time] as! String
+        vc?.eventDate = event[RemoteEvents.date] as! String
+        vc?.eventOrganizer = "Social Designee"
         vc?.numberOFfriends = "3 more friends joins"
-        vc?.imageEvent = eventArray[indexPath.row].eventPhoto
+        if let asset = event[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            vc?.imageEvent = UIImage(data: data)
+        }
         vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
         vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
         vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
-    
 }

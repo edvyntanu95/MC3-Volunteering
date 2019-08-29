@@ -596,6 +596,21 @@
             </objects>
             <point key="canvasLocation" x="6457" y="3898"/>
         </scene>
+        <!--Init Data View Controller-->
+        <scene sceneID="5uZ-IY-HNa">
+            <objects>
+                <viewController id="LOg-WP-PsK" customClass="InitDataViewController" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fZY-Jt-TSi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZBK-8Z-QmN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDF-zK-HgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="-1389"/>
+        </scene>
         <!--Login Page Controller-->
         <scene sceneID="u7G-4F-7yj">
             <objects>
@@ -676,13 +691,6 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0q-KH-yLx">
-                                <rect key="frame" x="88" y="729" width="279" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ce-rm-KLw" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                 <rect key="frame" x="153" y="573" width="108" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -694,13 +702,6 @@
                                     <action selector="signInTapped:" destination="reJ-0e-Trb" eventType="touchUpInside" id="eob-QH-ITa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Secret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1p-u8-nXf">
-                                <rect key="frame" x="88" y="783" width="279" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVX-rU-xNX">
                                 <rect key="frame" x="347" y="70" width="29" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -717,8 +718,6 @@
                     <navigationItem key="navigationItem" id="peX-i8-YbD"/>
                     <connections>
                         <outlet property="emailTF" destination="7NY-hH-pAk" id="9XR-Dh-WjZ"/>
-                        <outlet property="label" destination="k0q-KH-yLx" id="JIm-kd-0Cd"/>
-                        <outlet property="label2" destination="q1p-u8-nXf" id="dRM-sg-dLZ"/>
                         <outlet property="passwordTF" destination="zT9-gD-De9" id="Y7x-7f-R3T"/>
                         <outlet property="signInButton" destination="1ce-rm-KLw" id="jOt-W6-VjF"/>
                     </connections>
@@ -1036,7 +1035,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="icons8-call-50"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTk-Tt-IiU" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTk-Tt-IiU">
                                         <rect key="frame" x="34" y="699" width="340" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1053,6 +1052,9 @@
                                                 <real key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerEventAloneTapped:" destination="YdV-Qv-eaX" eventType="touchUpInside" id="ES1-B8-PzK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-rj-O97" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
                                         <rect key="frame" x="34" y="760" width="340" height="53"/>
@@ -1359,6 +1361,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="certificateCV" destination="1lb-81-J0q" id="dsq-3b-01s"/>
                         <outlet property="certificateView" destination="7pO-tr-RH2" id="TDU-4H-r3d"/>
                         <outlet property="lblBioDescription" destination="voQ-qX-vWe" id="SUJ-8Q-MSb"/>
                         <outlet property="lblLocation" destination="KP0-CR-oJQ" id="89A-0a-04p"/>
@@ -1535,6 +1538,9 @@
                         <viewLayoutGuide key="safeArea" id="Y1y-UY-SBj"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Activities" id="rTT-UE-DIz"/>
+                    <connections>
+                        <outlet property="myActivitiesCV" destination="yS0-Kl-igJ" id="SFo-gQ-EC1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjS-UV-CbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -37,6 +37,29 @@
 		B6C78203230C02D3005099E9 /* HomeCustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78202230C02D3005099E9 /* HomeCustomCollectionView.swift */; };
 		B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */; };
 		B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78210230D63B0005099E9 /* EventDetailController.swift */; };
+		C36C0D4E2317CF600012F75D /* QueryAddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D372317CF600012F75D /* QueryAddEvent.swift */; };
+		C36C0D4F2317CF600012F75D /* QueryRegisterEventWithFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D382317CF600012F75D /* QueryRegisterEventWithFriends.swift */; };
+		C36C0D502317CF600012F75D /* QueryMyActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D392317CF600012F75D /* QueryMyActivities.swift */; };
+		C36C0D512317CF600012F75D /* QueryFriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D3A2317CF600012F75D /* QueryFriendListView.swift */; };
+		C36C0D522317CF600012F75D /* QueryRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D3B2317CF600012F75D /* QueryRegister.swift */; };
+		C36C0D532317CF600012F75D /* QueryAddFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D3C2317CF600012F75D /* QueryAddFriend.swift */; };
+		C36C0D542317CF600012F75D /* QueryLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D3D2317CF600012F75D /* QueryLogin.swift */; };
+		C36C0D552317CF600012F75D /* QueryRegisterEventAlone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D3E2317CF600012F75D /* QueryRegisterEventAlone.swift */; };
+		C36C0D562317CF600012F75D /* QueryMyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D3F2317CF600012F75D /* QueryMyProfile.swift */; };
+		C36C0D572317CF600012F75D /* RemoteNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D412317CF600012F75D /* RemoteNotifications.swift */; };
+		C36C0D582317CF600012F75D /* RemoteUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D422317CF600012F75D /* RemoteUsers.swift */; };
+		C36C0D592317CF600012F75D /* RemoteEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D432317CF600012F75D /* RemoteEvents.swift */; };
+		C36C0D5A2317CF600012F75D /* RemoteInviteEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D442317CF600012F75D /* RemoteInviteEvents.swift */; };
+		C36C0D5B2317CF600012F75D /* DBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D452317CF600012F75D /* DBConnection.swift */; };
+		C36C0D5C2317CF600012F75D /* RemoteRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D462317CF600012F75D /* RemoteRecords.swift */; };
+		C36C0D5D2317CF600012F75D /* RemoteFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D472317CF600012F75D /* RemoteFriends.swift */; };
+		C36C0D5E2317CF600012F75D /* QueryAddData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D482317CF600012F75D /* QueryAddData.swift */; };
+		C36C0D5F2317CF600012F75D /* RemoteCertificates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D492317CF600012F75D /* RemoteCertificates.swift */; };
+		C36C0D602317CF600012F75D /* RemoteRegisterEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D4A2317CF600012F75D /* RemoteRegisterEvents.swift */; };
+		C36C0D612317CF600012F75D /* QueryReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D4B2317CF600012F75D /* QueryReadData.swift */; };
+		C36C0D622317CF600012F75D /* gambar1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C36C0D4D2317CF600012F75D /* gambar1.jpg */; };
+		C36C0D642317D6AB0012F75D /* InitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D632317D6AB0012F75D /* InitDataViewController.swift */; };
+		C36C0D672317DC650012F75D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C0D662317DC650012F75D /* CloudKit.framework */; };
 		E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */; };
 		E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */; };
 		E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */; };
@@ -75,6 +98,30 @@
 		B6C78202230C02D3005099E9 /* HomeCustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCollectionView.swift; sourceTree = "<group>"; };
 		B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
 		B6C78210230D63B0005099E9 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		C36C0D372317CF600012F75D /* QueryAddEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAddEvent.swift; sourceTree = "<group>"; };
+		C36C0D382317CF600012F75D /* QueryRegisterEventWithFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryRegisterEventWithFriends.swift; sourceTree = "<group>"; };
+		C36C0D392317CF600012F75D /* QueryMyActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryMyActivities.swift; sourceTree = "<group>"; };
+		C36C0D3A2317CF600012F75D /* QueryFriendListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryFriendListView.swift; sourceTree = "<group>"; };
+		C36C0D3B2317CF600012F75D /* QueryRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryRegister.swift; sourceTree = "<group>"; };
+		C36C0D3C2317CF600012F75D /* QueryAddFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAddFriend.swift; sourceTree = "<group>"; };
+		C36C0D3D2317CF600012F75D /* QueryLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryLogin.swift; sourceTree = "<group>"; };
+		C36C0D3E2317CF600012F75D /* QueryRegisterEventAlone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryRegisterEventAlone.swift; sourceTree = "<group>"; };
+		C36C0D3F2317CF600012F75D /* QueryMyProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryMyProfile.swift; sourceTree = "<group>"; };
+		C36C0D412317CF600012F75D /* RemoteNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotifications.swift; sourceTree = "<group>"; };
+		C36C0D422317CF600012F75D /* RemoteUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUsers.swift; sourceTree = "<group>"; };
+		C36C0D432317CF600012F75D /* RemoteEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteEvents.swift; sourceTree = "<group>"; };
+		C36C0D442317CF600012F75D /* RemoteInviteEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteInviteEvents.swift; sourceTree = "<group>"; };
+		C36C0D452317CF600012F75D /* DBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConnection.swift; sourceTree = "<group>"; };
+		C36C0D462317CF600012F75D /* RemoteRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteRecords.swift; sourceTree = "<group>"; };
+		C36C0D472317CF600012F75D /* RemoteFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteFriends.swift; sourceTree = "<group>"; };
+		C36C0D482317CF600012F75D /* QueryAddData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAddData.swift; sourceTree = "<group>"; };
+		C36C0D492317CF600012F75D /* RemoteCertificates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCertificates.swift; sourceTree = "<group>"; };
+		C36C0D4A2317CF600012F75D /* RemoteRegisterEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteRegisterEvents.swift; sourceTree = "<group>"; };
+		C36C0D4B2317CF600012F75D /* QueryReadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryReadData.swift; sourceTree = "<group>"; };
+		C36C0D4D2317CF600012F75D /* gambar1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gambar1.jpg; sourceTree = "<group>"; };
+		C36C0D632317D6AB0012F75D /* InitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDataViewController.swift; sourceTree = "<group>"; };
+		C36C0D652317DC610012F75D /* MC3 Volunteering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC3 Volunteering.entitlements"; sourceTree = "<group>"; };
+		C36C0D662317DC650012F75D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
 		E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSignUp.swift; sourceTree = "<group>"; };
 		E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
@@ -85,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36C0D672317DC650012F75D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +172,10 @@
 		B6C781EF230C027E005099E9 /* MC3 Volunteering */ = {
 			isa = PBXGroup;
 			children = (
+				C36C0D652317DC610012F75D /* MC3 Volunteering.entitlements */,
+				C36C0D402317CF600012F75D /* CloudkitSettings */,
+				C36C0D4C2317CF600012F75D /* Images */,
+				C36C0D362317CF600012F75D /* Query */,
 				B6C781F0230C027E005099E9 /* AppDelegate.swift */,
 				B6C781F4230C027E005099E9 /* Main.storyboard */,
 				31A22CAA23129D7F0005EF81 /* Model */,
@@ -169,6 +221,7 @@
 				319C7B5823164612008E74E0 /* NotificationViewController.swift */,
 				31DC0CE72314015400EF75B2 /* ProfileViewController.swift */,
 				319C7B5E23167782008E74E0 /* SettingProfileViewController.swift */,
+				C36C0D632317D6AB0012F75D /* InitDataViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,8 +229,51 @@
 		B6C78212230D6675005099E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C36C0D662317DC650012F75D /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C36C0D362317CF600012F75D /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				C36C0D372317CF600012F75D /* QueryAddEvent.swift */,
+				C36C0D382317CF600012F75D /* QueryRegisterEventWithFriends.swift */,
+				C36C0D392317CF600012F75D /* QueryMyActivities.swift */,
+				C36C0D3A2317CF600012F75D /* QueryFriendListView.swift */,
+				C36C0D3B2317CF600012F75D /* QueryRegister.swift */,
+				C36C0D3C2317CF600012F75D /* QueryAddFriend.swift */,
+				C36C0D3D2317CF600012F75D /* QueryLogin.swift */,
+				C36C0D3E2317CF600012F75D /* QueryRegisterEventAlone.swift */,
+				C36C0D3F2317CF600012F75D /* QueryMyProfile.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		C36C0D402317CF600012F75D /* CloudkitSettings */ = {
+			isa = PBXGroup;
+			children = (
+				C36C0D412317CF600012F75D /* RemoteNotifications.swift */,
+				C36C0D422317CF600012F75D /* RemoteUsers.swift */,
+				C36C0D432317CF600012F75D /* RemoteEvents.swift */,
+				C36C0D442317CF600012F75D /* RemoteInviteEvents.swift */,
+				C36C0D452317CF600012F75D /* DBConnection.swift */,
+				C36C0D462317CF600012F75D /* RemoteRecords.swift */,
+				C36C0D472317CF600012F75D /* RemoteFriends.swift */,
+				C36C0D482317CF600012F75D /* QueryAddData.swift */,
+				C36C0D492317CF600012F75D /* RemoteCertificates.swift */,
+				C36C0D4A2317CF600012F75D /* RemoteRegisterEvents.swift */,
+				C36C0D4B2317CF600012F75D /* QueryReadData.swift */,
+			);
+			path = CloudkitSettings;
+			sourceTree = "<group>";
+		};
+		C36C0D4C2317CF600012F75D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C36C0D4D2317CF600012F75D /* gambar1.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +312,12 @@
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -244,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6C781FB230C027F005099E9 /* LaunchScreen.storyboard in Resources */,
+				C36C0D622317CF600012F75D /* gambar1.jpg in Resources */,
 				B6C781F8230C027F005099E9 /* Assets.xcassets in Resources */,
 				B6C781F6230C027E005099E9 /* Main.storyboard in Resources */,
 			);
@@ -258,23 +361,42 @@
 			files = (
 				31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */,
 				B6C78203230C02D3005099E9 /* HomeCustomCollectionView.swift in Sources */,
+				C36C0D522317CF600012F75D /* QueryRegister.swift in Sources */,
+				C36C0D5E2317CF600012F75D /* QueryAddData.swift in Sources */,
 				319C7B5923164612008E74E0 /* NotificationViewController.swift in Sources */,
+				C36C0D5F2317CF600012F75D /* RemoteCertificates.swift in Sources */,
+				C36C0D562317CF600012F75D /* QueryMyProfile.swift in Sources */,
+				C36C0D512317CF600012F75D /* QueryFriendListView.swift in Sources */,
+				C36C0D592317CF600012F75D /* RemoteEvents.swift in Sources */,
 				B6C781F3230C027E005099E9 /* HomeViewController.swift in Sources */,
+				C36C0D502317CF600012F75D /* QueryMyActivities.swift in Sources */,
 				31DC0CEC23146B3B00EF75B2 /* friendListTableViewCell.swift in Sources */,
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
+				C36C0D572317CF600012F75D /* RemoteNotifications.swift in Sources */,
 				B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */,
+				C36C0D602317CF600012F75D /* RemoteRegisterEvents.swift in Sources */,
 				31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */,
+				C36C0D5A2317CF600012F75D /* RemoteInviteEvents.swift in Sources */,
 				31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */,
+				C36C0D542317CF600012F75D /* QueryLogin.swift in Sources */,
 				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
 				31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */,
+				C36C0D532317CF600012F75D /* QueryAddFriend.swift in Sources */,
 				31A22CA9231299260005EF81 /* ActivitiesCollectionViewCell.swift in Sources */,
 				31E964A723153EB000B728BB /* CameraViewController.swift in Sources */,
+				C36C0D4E2317CF600012F75D /* QueryAddEvent.swift in Sources */,
 				B6163A16231236A500288352 /* ClickableTableViewCell.swift in Sources */,
+				C36C0D552317CF600012F75D /* QueryRegisterEventAlone.swift in Sources */,
+				C36C0D612317CF600012F75D /* QueryReadData.swift in Sources */,
+				C36C0D5D2317CF600012F75D /* RemoteFriends.swift in Sources */,
+				C36C0D642317D6AB0012F75D /* InitDataViewController.swift in Sources */,
 				31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */,
 				31DC0CEA231411FE00EF75B2 /* ECertificateCollectionViewCell.swift in Sources */,
 				319C7B5B231646EA008E74E0 /* NotificationTableViewCell.swift in Sources */,
+				C36C0D4F2317CF600012F75D /* QueryRegisterEventWithFriends.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
 				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
+				C36C0D5B2317CF600012F75D /* DBConnection.swift in Sources */,
 				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
 				31A22CAC23129DA90005EF81 /* UserModel.swift in Sources */,
 				31DC0CEE23146C4600EF75B2 /* friendListTableViewController.swift in Sources */,
@@ -283,9 +405,11 @@
 				B6163A0E231013C400288352 /* CustomImageViewRounded.swift in Sources */,
 				31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */,
 				31A22CAE23129DBF0005EF81 /* EventModel.swift in Sources */,
+				C36C0D582317CF600012F75D /* RemoteUsers.swift in Sources */,
 				319C7B5F23167782008E74E0 /* SettingProfileViewController.swift in Sources */,
 				319C7B5D2316475F008E74E0 /* NotificationModel.swift in Sources */,
 				B6163A14231235E200288352 /* FriendListController.swift in Sources */,
+				C36C0D5C2317CF600012F75D /* RemoteRecords.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,8 +555,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C56NL525H5;
+				DEVELOPMENT_TEAM = MTU6Z4VFLV;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,8 +574,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C56NL525H5;
+				DEVELOPMENT_TEAM = MTU6Z4VFLV;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

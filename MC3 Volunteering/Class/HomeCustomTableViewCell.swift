@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CloudKit
 
 class HomeCustomTableViewCell: UITableViewCell {
-
+    
+    var eventId:String?
+    
     @IBOutlet weak var tvHomeJumlahTemanLabel: UILabel!
     @IBOutlet weak var tvHomeLokasiDanTanggalLabel: UILabel!
     @IBOutlet weak var tvHomeNamaAcaraLabel: UILabel!
@@ -22,9 +25,21 @@ class HomeCustomTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func setTableCell(model: EventModel){
-        tvHomeLokasiDanTanggalLabel.text = "\(model.eventLocation), \(model.eventTime)"
-        tableViewCellHomeImage.image = model.eventPhoto
+    func setTableCell(model: CKRecord){
+        
+        tvHomeNamaAcaraLabel.text = model[RemoteEvents.name] as! String
+        
+        tvHomeJumlahTemanLabel.text = "30"
+        
+        tvHomeLokasiDanTanggalLabel.text = "\(model[RemoteEvents.location] as! String), \(model[RemoteEvents.time] as! String)"
+        
+        if let asset = model[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                    self.tableViewCellHomeImage.image = UIImage(data: data)
+            }
+        }
+        
         
         tableViewCellHomeJoinButton.layer.cornerRadius = tableViewCellHomeJoinButton.frame.height/2
         tableViewCellHomeJoinButton.layer.masksToBounds = true

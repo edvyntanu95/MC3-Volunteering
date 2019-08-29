@@ -7,13 +7,18 @@
 //
 
 import UIKit
-
+import CloudKit
 class ECertificateCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cetificateImageView: UIImageView!
     
-    func setCell(model: UserModel, row: Int){
-        self.cetificateImageView.image = model.userCertificates[row]
+    func setCell(certificate: CKRecord){
+        if let asset = certificate[RemoteCertificates.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                self.cetificateImageView.image = UIImage(data: data)
+            }
+        }
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
     }

@@ -38,6 +38,7 @@ class MyActivitiesDetailsPage: UIViewController {
     
     @IBOutlet weak var imageViewEventOrganizer: UIImageView!
     
+    var eventId:String?
     var eventTitle: String?
     var numberOFfriends: String?
     var eventDescriptions: String?

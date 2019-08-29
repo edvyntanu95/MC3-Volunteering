@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import CloudKit
 
 class LoginPageController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var label2: UILabel!
     
     var userDef = UserDefaults.standard
     
@@ -25,11 +24,6 @@ class LoginPageController: UIViewController, UITextFieldDelegate {
         
         emailTF.delegate = self
         passwordTF.delegate = self
-        
-        let email = userDef.string(forKey: "email")
-        label.text = email
-        
-        _ = userDef.string(forKey: "password")
         
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "eye"), for: .normal)
@@ -58,10 +52,39 @@ class LoginPageController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInTapped(_ sender: Any) {
-        userDef.set(emailTF.text, forKey: "email")
-        label.text = emailTF.text
-        label2.text = passwordTF.text
-        
+        login { (finished) in
+            if(finished == true) {
+                print("Benar")
+            }else{
+                print("Salah")
+            }
+        }
+    }
+    
+    func login(completionhandler:@escaping(_ finished:Bool) -> Void) {
+        var userDF = UserDefaults.standard
+        var isLogin = userDF.bool(forKey: "isLogin")
+        var sessionID = userDF.string(forKey: "sessionID")
+        let predicate = NSPredicate(format: "\(RemoteUsers.email) == %@ && \(RemoteUsers.password ) == %@", emailTF.text!, passwordTF.text!)
+        let query = CKQuery(recordType: RemoteRecords.users, predicate: predicate)
+    
+        DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }else{
+                guard let records = records else {return}
+                if records.count > 0 {
+                    userDF.set(true, forKey: "isLogin")
+                    for record in records {
+                        userDF.set(record.recordID.recordName as! String, forKey: "sessionID")
+                    }
+                    completionhandler(true)
+                }else{
+                    print("Akun Belom Daftar / Salah Input")
+                    completionhandler(false)
+                }
+            }
+        }
     }
     
     
