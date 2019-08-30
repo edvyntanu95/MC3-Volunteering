@@ -18,9 +18,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var suitableEventTableView: UITableView!
     
     var eventList : [CKRecord] = []
+    var userDF = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDF.set(true, forKey: "isLogin")
+        userDF.set("FDC5DC8A-8410-42CE-8749-C5A44D3F14B6", forKey: "sessionID")
         getDataEventList { (finished) in
             DispatchQueue.main.async {
                 self.nearbyEventCollectionView.reloadData()

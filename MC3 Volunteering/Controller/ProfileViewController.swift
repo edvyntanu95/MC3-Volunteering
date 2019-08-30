@@ -28,18 +28,21 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var popUpView: UIView!
     
-//    var user = UserModel.init(userID: "001", userName: "prahadiM", userPass: "12345", userEmail: "prahadiM@gmail.com", userPhoto: #imageLiteral(resourceName: "human"), userRole: "User", userLocation: "Tangerang", userBioDesc: "I am a diligent student who likes to code and jokes around with my friends and have a good time with everybody and anybody :)", userCertificates: [#imageLiteral(resourceName: "village"),#imageLiteral(resourceName: "Motor"),#imageLiteral(resourceName: "village2")])
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getUserData { (finished) in
-            self.getUserCertificate(completionHandler: { (finished) in
-                if finished == true {
-                    self.setUpContent()
-                }
-            })
+            if finished == true{
+                self.getUserCertificate(completionHandler: { (finished) in
+                    if finished == true {
+                        self.setUpContent()
+                    }else{
+                        print("Data Certificate Kosong")
+                    }
+                })
+            }else{
+                print("Data User Kosong")
+            }
         }
         
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
@@ -141,7 +144,7 @@ class ProfileViewController: UIViewController {
     
     func getUserCertificate(completionHandler: @escaping (_ finished: Bool) -> Void) {
         let userID = CKRecord.ID(recordName: UserDefaults.standard.string(forKey: "sessionID")!)
-        let predicate = NSPredicate(format: "recordID == %@", userID)
+        let predicate = NSPredicate(format: "userID == %@", userID)
         let query = CKQuery(recordType: RemoteRecords.certificates, predicate: predicate)
         let queryOperation = CKQueryOperation(query: query)
         DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
@@ -150,10 +153,15 @@ class ProfileViewController: UIViewController {
                 completionHandler(false)
             }else{
                 guard let records = records else {return}
-                for record in records {
-                    self.userCetificates.append(record)
+                if records.count > 0 {
+                    for record in records {
+                        self.userCetificates.append(record)
+                    }
+                    completionHandler(true)
+                }else{
+                    print("Data Kosong")
+                    completionHandler(false)
                 }
-                completionHandler(true)
             }
         }
     }
@@ -166,18 +174,20 @@ class ProfileViewController: UIViewController {
         DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
             if error != nil {
                 print(error!.localizedDescription)
-                completionHandler(false)
             }else{
                 guard let records = records else {return}
-                for record in records {
-                    self.userData.append(record)
+                if records.count > 0 {
+                    for record in records {
+                        self.userData.append(record)
+                    }
+                    completionHandler(true)
+                }else{
+                    print("Data Kosong")
+                    completionHandler(false)
                 }
-                completionHandler(true)
             }
         }
     }
-    
-
     
 }
 
@@ -187,7 +197,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "certificatesCell", for: indexPath) as! ECertificateCollectionViewCell
+        let cell = certificateCV.dequeueReusableCell(withReuseIdentifier: "certificatesCell", for: indexPath) as! ECertificateCollectionViewCell
         let certificate = userCetificates[indexPath.row]
         cell.setCell(certificate: certificate)
         return cell

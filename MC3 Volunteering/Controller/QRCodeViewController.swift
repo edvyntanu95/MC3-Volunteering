@@ -30,7 +30,7 @@ class QRCodeViewController: UIViewController {
     }
     
     func generateQRcode(){
-        let data = generateQRcodeString.data(using: .ascii, allowLossyConversion: false)
+        let data = userName!.data(using: .ascii, allowLossyConversion: false)
         let filter = CIFilter(name: "CIQRCodeGenerator")
         filter?.setValue(data, forKey: "InputMessage")
             

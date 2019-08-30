@@ -1313,8 +1313,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="nht-gx-eFb" id="0Qs-vJ-aV2"/>
-                                    <outlet property="delegate" destination="nht-gx-eFb" id="Kcn-2Y-hsI"/>
+                                    <outlet property="dataSource" destination="nht-gx-eFb" id="kO1-Bl-dNI"/>
+                                    <outlet property="delegate" destination="nht-gx-eFb" id="aCd-t4-u5v"/>
                                 </connections>
                             </collectionView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJY-ug-rem">
