@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class MyActivitiesDetailsPage: UIViewController {
     
@@ -53,6 +54,28 @@ class MyActivitiesDetailsPage: UIViewController {
     var friend3: UIImage?
     var eventOrganizerPhoto: UIImage?
     
+    func makeASMS(){
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Hai Kak Saya Ingin Mengikuti Event Ini, Apakah Masih Tersedia Slotnya ?"
+            controller.recipients = ["087889901930"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func makeAPhoneCall()  {
+        let url: NSURL = URL(string: "TEL://087889901930")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func tapToCall(_ sender: UIButton) {
+        makeAPhoneCall()
+    }
+    
+    @IBAction func tapToSMS(_ sender: Any) {
+        makeASMS()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,3 +137,13 @@ class MyActivitiesDetailsPage: UIViewController {
     */
 
 }
+
+extension MyActivitiesDetailsPage: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+

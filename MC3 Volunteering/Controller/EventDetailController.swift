@@ -11,6 +11,7 @@ import CloudKit
 import UserNotifications
 import UserNotificationsUI
 import NotificationCenter
+import MessageUI
 
 class EventDetailController: UIViewController{
     
@@ -47,6 +48,30 @@ class EventDetailController: UIViewController{
     @IBOutlet var inviteFriendButton: UIButton!
     
     
+    
+    @IBAction func tapToSMS(_ sender: UIButton) {
+        makeASMS()
+        
+    }
+    
+    @IBAction func tapToCall(_ sender: UIButton) {
+        makeAPhoneCall()
+    }
+    
+    func makeASMS(){
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Hai Kak Saya Ingin Mengikuti Event Ini, Apakah Masih Tersedia Slotnya ?"
+            controller.recipients = ["087889901930"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func makeAPhoneCall()  {
+        let url: NSURL = URL(string: "TEL://087889901930")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
     
     
     
@@ -131,66 +156,11 @@ class EventDetailController: UIViewController{
     
 }
 
-extension EventDetailController: UNUserNotificationCenterDelegate{
+extension EventDetailController: MFMessageComposeViewControllerDelegate {
     
-    // This function will be called when the app receive notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        // show the notification alert (banner), and with sound
-        completionHandler([.alert, .sound])
-    }
     
-    // This function will be called right after user tap on the notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        // tell the app that we have finished processing the user’s action (eg: tap on notification banner) / response
-        completionHandler()
-    }
-    
-    // When user allowed push notification and the app has gotten the device token
-    // (device token is a unique ID that Apple server use to determine which device to send push notification to)
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        // Create a subscription to the 'Notifications' Record Type in CloudKit
-        // User will receive a push notification when a new record is created in CloudKit
-        // Read more on https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/CloudKitQuickStart/SubscribingtoRecordChanges/SubscribingtoRecordChanges.html
-        
-        // The predicate lets you define condition of the subscription, eg: only be notified of change if the newly created notification start with "A"
-        // the TRUEPREDICATE means any new Notifications record created will be notified
-        let subscription = CKQuerySubscription(recordType: RemoteRecords.registerEvents, predicate: NSPredicate(format: "TRUEPREDICATE"), options: [.firesOnRecordCreation, .firesOnRecordUpdate, .firesOnRecordDeletion])
-        
-        // Here we customize the notification message
-        let info = CKSubscription.NotificationInfo()
-        
-        // this will use the 'title' field in the Record type 'notifications' as the title of the push notification
-        info.titleLocalizationKey = "%1$@"
-        info.titleLocalizationArgs = [RemoteRegisterEvents.status]
-        
-        // if you want to use multiple field combined for the title of push notification
-        // info.titleLocalizationKey = "%1$@ %2$@" // if want to add more, the format will be "%3$@", "%4$@" and so on
-        // info.titleLocalizationArgs = ["title", "subtitle"]
-        
-        // this will use the 'content' field in the Record type 'notifications' as the content of the push notification
-        info.alertLocalizationKey = "%1$@"
-        info.alertLocalizationArgs = [RemoteRegisterEvents.userId]
-        
-        // increment the red number count on the top right corner of app icon
-        info.shouldBadge = true
-        
-        // use system default notification sound
-        info.soundName = "default"
-        
-        subscription.notificationInfo = info
-        
-        // Save the subscription to Public Database in Cloudkit
-        DBConnection.share.publicDB.save(subscription, completionHandler: { subscription, error in
-            if error == nil {
-                // Subscription saved successfully
-            } else {
-                // Error occurred
-            }
-        })
-        
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

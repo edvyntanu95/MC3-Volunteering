@@ -1035,6 +1035,9 @@
                                         <rect key="frame" x="281" y="627" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="icons8-call-50"/>
+                                        <connections>
+                                            <action selector="tapToCall:" destination="YdV-Qv-eaX" eventType="touchUpInside" id="zv2-Bu-cWa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTk-Tt-IiU">
                                         <rect key="frame" x="34" y="699" width="340" height="53"/>
@@ -1089,6 +1092,9 @@
                                         <rect key="frame" x="346" y="627" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="icons8-messaging-50"/>
+                                        <connections>
+                                            <action selector="tapToSMS:" destination="YdV-Qv-eaX" eventType="touchUpInside" id="CPB-GV-jF7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1714,6 +1720,9 @@
                                 <rect key="frame" x="293" y="759" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="icons8-call-50"/>
+                                <connections>
+                                    <action selector="tapToCall:" destination="h30-30-Ovx" eventType="touchUpInside" id="ycy-J0-awD"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-jI-zPb">
                                 <rect key="frame" x="1" y="35" width="414" height="44"/>
@@ -1730,6 +1739,9 @@
                                 <rect key="frame" x="350" y="759" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="icons8-messaging-50"/>
+                                <connections>
+                                    <action selector="tapToSMS:" destination="h30-30-Ovx" eventType="touchUpInside" id="Opb-Bf-oVR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

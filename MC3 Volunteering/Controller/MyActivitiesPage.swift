@@ -15,14 +15,14 @@ class MyActivitiesPage: UIViewController {
     var myActivitiesEventsListStatus:[CKRecord] = []
     @IBOutlet weak var myActivitiesCV: UICollectionView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getMyActivitiesEventList { (finished) in
-            DispatchQueue.main.async {
-                self.myActivitiesCV.reloadData()
-            }
-        }
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        getMyActivitiesEventList { (finished) in
+//            DispatchQueue.main.async {
+//                self.myActivitiesCV.reloadData()
+//            }
+//        }
+//    }
     
     var safe: Bool = false
     override func viewWillAppear(_ animated: Bool) {
