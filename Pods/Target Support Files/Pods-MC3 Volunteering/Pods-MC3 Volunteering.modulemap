@@ -1,0 +1,6 @@
+framework module Pods_MC3_Volunteering {
+  umbrella header "Pods-MC3 Volunteering-umbrella.h"
+
+  export *
+  module * { export * }
+}
