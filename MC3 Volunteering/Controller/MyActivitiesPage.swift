@@ -24,11 +24,15 @@ class MyActivitiesPage: UIViewController {
         }
     }
     
+    var safe: Bool = false
     override func viewWillAppear(_ animated: Bool) {
+        safe = false
         myActivitiesEventList = []
         myActivitiesEventsListStatus = []
+        
         getMyActivitiesEventList { (finished) in
             DispatchQueue.main.async {
+                self.safe = true
                 self.myActivitiesCV.reloadData()
             }
         }
@@ -80,14 +84,19 @@ extension MyActivitiesPage:UICollectionViewDataSource, UICollectionViewDelegate 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myActivity = myActivitiesEventList[indexPath.row]
-        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
+       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActivitiesCollectionViewCell", for: indexPath) as! ActivitiesCollectionViewCell
-        cell.setCell(myActivity: myActivity, myActivityStatus: myActivityStatus)
+        if safe == true {
+            let myActivity = myActivitiesEventList[indexPath.row]
+            let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
+            cell.setCell(myActivity: myActivity, myActivityStatus: myActivityStatus)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if safe == true{
         let vc = storyboard?.instantiateViewController(withIdentifier: "MyActivitiesDetailsPage") as? MyActivitiesDetailsPage
         let myActivity = myActivitiesEventList[indexPath.row]
         let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
@@ -115,6 +124,8 @@ extension MyActivitiesPage:UICollectionViewDataSource, UICollectionViewDelegate 
         }
         
         self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
     }
     
 }

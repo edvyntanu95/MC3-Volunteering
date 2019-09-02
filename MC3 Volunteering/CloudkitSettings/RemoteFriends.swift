@@ -10,7 +10,7 @@ import Foundation
 
 enum RemoteFriends {
     static let id = "recordID"
-    static let userId = "recordUserID"
-    static let friendId = "recordFriendID"
+    static let userId = "userID"
+    static let friendId = "friendID"
     static let status = "status"
 }

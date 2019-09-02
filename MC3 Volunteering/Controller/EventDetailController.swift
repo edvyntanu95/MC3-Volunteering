@@ -77,6 +77,14 @@ class EventDetailController: UIViewController{
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "inviteFriend" {
+            if let destinationVC = segue.destination as? FriendListController {
+                destinationVC.eventId = eventId!
+            }
+        }
+    }
+    
     func setUpContent(){
         judulDetailEventLabel.text = eventTitle
         lblNumberOfFriends.text = numberOFfriends

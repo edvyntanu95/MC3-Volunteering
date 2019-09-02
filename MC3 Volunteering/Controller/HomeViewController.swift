@@ -24,20 +24,23 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         userDF.set(true, forKey: "isLogin")
         userDF.set("FDC5DC8A-8410-42CE-8749-C5A44D3F14B6", forKey: "sessionID")
-        getDataEventList { (finished) in
-            DispatchQueue.main.async {
-                self.nearbyEventCollectionView.reloadData()
-                self.suitableEventTableView.reloadData()
-            }
-        }
-        nearbyEventCollectionView.isPagingEnabled = true
-        setupNavBar()
+//        getDataEventList { (finished) in
+//            DispatchQueue.main.async {
+//                self.nearbyEventCollectionView.reloadData()
+//                self.suitableEventTableView.reloadData()
+//            }
+//        }
+//        nearbyEventCollectionView.isPagingEnabled = true
+//        setupNavBar()
     }
     
+    var safe : Bool = false
     override func viewWillAppear(_ animated: Bool) {
+        safe = false
         eventList = []
         getDataEventList { (finished) in
             DispatchQueue.main.async {
+                self.safe = true
                 self.nearbyEventCollectionView.reloadData()
                 self.suitableEventTableView.reloadData()
             }
@@ -88,11 +91,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = suitableEventTableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! HomeCustomTableViewCell
-        
-        cell.setTableCell(model: eventList[indexPath.row])
-        
+        if safe == true {
+            cell.setTableCell(model: eventList[indexPath.row])
+        }
         return cell
+        
     }
     
     
@@ -101,13 +106,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = nearbyEventCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCustomCollectionView
-        cell.setCell(model: eventList[indexPath.row])
-    
+        
+        if safe == true {
+            cell.setCell(model: eventList[indexPath.row])
+        }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if safe == true {
+        
         let event = eventList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
         let eventRecordID = event.recordID.recordName as! String
@@ -127,9 +138,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
         vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
         self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if safe == true {
+        
         let event = eventList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
         let eventRecordID = event.recordID.recordName as! String
@@ -149,5 +164,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
         vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
         self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
     }
 }

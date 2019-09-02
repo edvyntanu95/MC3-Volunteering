@@ -451,6 +451,7 @@
                         <outlet property="lblNickname" destination="pkc-ya-vGl" id="vKC-lP-xBD"/>
                         <outlet property="lblNumberOfActivities" destination="BPp-Qb-UXN" id="r2L-dO-ghy"/>
                         <outlet property="lblNumberOfHours" destination="dSF-Pe-ocA" id="mYK-Fk-dFI"/>
+                        <outlet property="myFriendList" destination="awy-gi-uM4" id="Mhg-WF-5c2"/>
                         <outlet property="popUpView" destination="Wp7-H0-6ak" id="wPk-M7-9BE"/>
                         <outlet property="visualEffectView" destination="GHW-5H-dhu" id="zj3-MH-K5r"/>
                     </connections>
@@ -1074,7 +1075,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="vCU-ud-tFg" kind="modal" identifier="" id="ATJ-el-jjO"/>
+                                            <segue destination="vCU-ud-tFg" kind="modal" identifier="inviteFriend" id="ATJ-el-jjO"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3x-K3-GZs">
@@ -1173,13 +1174,16 @@
                                     <outlet property="delegate" destination="vCU-ud-tFg" id="Cz8-vL-6NR"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vov-4d-6kR" customClass="RoundButton" customModule="MC3_Volunteering" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vov-4d-6kR">
                                 <rect key="frame" x="112" y="801" width="190" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.39335590600967407" green="0.62297368049621582" blue="0.86277371644973755" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Invite">
                                     <color key="titleColor" red="0.99346250739999997" green="1" blue="0.97461092780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="inviteButtonFriendList:" destination="vCU-ud-tFg" eventType="touchUpInside" id="lPq-af-9Rr"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite your friends!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-Ib-0cL">
                                 <rect key="frame" x="95" y="100" width="225" height="32"/>
@@ -1205,6 +1209,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sJW-xn-TUD"/>
                     </view>
+                    <connections>
+                        <outlet property="myFriendListTV" destination="Ez8-1b-Afh" id="BY9-H6-y8y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXo-e7-lga" sceneMemberID="firstResponder"/>
             </objects>

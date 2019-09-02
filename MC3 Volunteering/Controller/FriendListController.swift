@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import CloudKit
 
 class FriendListController: UIViewController{
+    @IBOutlet weak var myFriendListTV: UITableView!
+    
+    var eventId = ""
+    var friendId = [String]()
+    
+    var myFriends : [CKRecord] = []
     
     var friendArray : [FriendModel] = []
     
@@ -37,17 +44,104 @@ class FriendListController: UIViewController{
     
     @IBOutlet weak var tableViewCell: ClickableTableViewCell!
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("Event ID ini : \(eventId)")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        friendArray = makeFriendArrayObject()
+        getMyFriendList { (finished) in
+            if finished == true {
+                print("Friend List Berhasil Di Load")
+                for friend in self.myFriends {
+                    print(friend)
+                }
+                
+                DispatchQueue.main.async {
+                    self.myFriendListTV.reloadData()
+                }
+                
+            }
+        }
     }
     
+    
+    
     @IBAction func inviteButtonFriendList(_ sender: Any) {
+        inviteFriendToEvent { (finished) in
+            print("Invite Button Tapped")
+            for friend in self.friendId {
+                print(friend)
+            }
+        }
     }
     
     override func performSegue(withIdentifier identifier: String, sender: Any?) {
         performSegue(withIdentifier: "selectPreferenceRole", sender: nil)
+    }
+    
+    func getMyFriendList(completionHandler: @escaping (_ finished: Bool) -> Void){
+        
+        let userDF = UserDefaults.standard
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        let userReference = CKRecord.Reference(recordID: recordUserID, action: .none)
+        let predicate = NSPredicate(format: "userID == %@", userReference)
+        let query = CKQuery(recordType: RemoteRecords.friends, predicate: predicate)
+        
+        
+        DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }else{
+                guard let records = records else {return}
+                var recordNames:[CKRecord.ID] = []
+                for record in records {
+                    let friendReference = record[RemoteFriends.friendId] as! CKRecord.Reference
+                    recordNames.append(friendReference.recordID)
+                }
+                
+                print(recordNames.count)
+                
+                let operation = CKFetchRecordsOperation(recordIDs: recordNames)
+                operation.fetchRecordsCompletionBlock = { (records, error) in
+                    guard let records = records else {return}
+                    for (key, value) in records {
+                        self.myFriends.append(value)
+                    }
+                    completionHandler(true)
+                }
+                DBConnection.share.publicDB.add(operation)
+            }
+        }
+    }
+    
+    func inviteFriendToEvent(completionHandler:@escaping(_ finished: Bool) -> Void){
+        for friend in friendId {
+            var userDF = UserDefaults.standard
+            var recordEventID = CKRecord.ID(recordName: eventId)
+            var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+            var recordFriendID = CKRecord.ID(recordName: friend)
+            var recordInviteEvent = CKRecord(recordType: RemoteRecords.inviteEvents)
+            
+            print("Record ID EVENT : \(recordEventID)")
+            print("Record ID USER : \(recordUserID)")
+            print("Record ID FRIEND : \(recordFriendID)")
+            
+            recordInviteEvent[RemoteInviteEvents.eventId] = CKRecord.Reference(recordID: recordEventID, action: .deleteSelf)
+            recordInviteEvent[RemoteInviteEvents.userId] = CKRecord.Reference(recordID: recordUserID, action: .deleteSelf)
+            recordInviteEvent[RemoteInviteEvents.friendId] = CKRecord.Reference(recordID: recordFriendID, action: .deleteSelf)
+            recordInviteEvent[RemoteInviteEvents.status] = "Pending" as! NSString
+            DBConnection.share.publicDB.save(recordInviteEvent) { (record, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    completionHandler(false)
+                }else{
+                    print("RECORD BERHASIL DI TAMBAH \(friend)")
+                }
+            }
+        }
+        completionHandler(true)
     }
     
 }
@@ -59,14 +153,14 @@ extension FriendListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendArray.count
+        return myFriends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cells") as! ClickableTableViewCell
-        
-        cell.setInviteYourFriends(model: friendArray[indexPath.row])
+        var friend = myFriends[indexPath.row]
+        cell.setInviteYourFriends(model: friend)
         
         return cell
     }
@@ -77,5 +171,7 @@ extension FriendListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var friend = myFriends[indexPath.row]
+        friendId.append(friend.recordID.recordName)
     }
 }

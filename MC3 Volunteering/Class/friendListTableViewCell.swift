@@ -7,17 +7,29 @@
 //
 
 import UIKit
+import CloudKit
 
 class friendListTableViewCell: UITableViewCell {
-
+    
+    var friendID = ""
     @IBOutlet weak var imageViewPhoto: UIImageView!
     @IBOutlet weak var lblFriendName: UILabel!
     @IBOutlet weak var lblLastActive: UILabel!
     
-    func setFriendList(model: FriendModel){
-        imageViewPhoto.image = model.friendPhoto
-        lblFriendName.text = model.friendName
-        lblLastActive.text = model.lastActive
+    func setFriendList(model: CKRecord){
+        
+        friendID = model.recordID.recordName
+        
+        if let asset = model[RemoteUsers.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                self.imageViewPhoto.image = UIImage(data: data)
+            }
+        }
+        lblFriendName.text = model[RemoteUsers.name]
+        lblLastActive.text = "18 Hours ago"
+        
+        print(friendID)
         
         imageViewPhoto.layer.cornerRadius = 10
         imageViewPhoto.layer.masksToBounds = true

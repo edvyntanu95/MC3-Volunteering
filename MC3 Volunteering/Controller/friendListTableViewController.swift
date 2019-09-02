@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CloudKit
 
 class friendListTableViewController: UITableViewController {
-
+    var contacts: [CNContact] = []
+    var myFriends: [CKRecord] = []
     @IBOutlet var popUpView: UIView!
     @IBOutlet var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var ivFriendPhoto: UIImageView!
@@ -19,13 +21,34 @@ class friendListTableViewController: UITableViewController {
     @IBOutlet weak var lblNumberOfHours: UILabel!
     @IBOutlet weak var lblNumberOfActivities: UILabel!
     
+    @IBOutlet var myFriendList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        friendArray1 = makeFriendArrayObject1()
-        friendArray2 = makeFriendArrayObject2()
-        friendArray3 = makeFriendArrayObject3()
-        friends = [friendArray1,friendArray2,friendArray3]
+//        friendArray1 = makeFriendArrayObject1()
+//        friendArray2 = makeFriendArrayObject2()
+//        friendArray3 = makeFriendArrayObject3()
+        
+        getMyFriendList { (finished) in
+            if finished {
+                print("Friend List Berhasil Di Load")
+                print(self.friends.count)
+                
+                DispatchQueue.main.async {
+                    self.myFriendList.reloadData()
+                }
+                
+            }
+        }
+        
+        getAllContact { (finished) in
+            if finished {
+                for contact in self.contacts {
+                    print(contact.givenName)
+                }
+            }
+        }
+
         
         ivFriendPhoto.layer.cornerRadius = 10
         ivFriendPhoto.layer.masksToBounds = true
@@ -89,7 +112,7 @@ class friendListTableViewController: UITableViewController {
         return tempArray
     }
     
-    var friends : [[FriendModel]] = []
+    var friends : [CKRecord] = []
     
 //    var friends = [
 //        [["Haly", "15 minutes"], ["Hily", "10 minutes"], ["Holy","20 minutes"]],
@@ -99,14 +122,14 @@ class friendListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return friends.count
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return friends.count
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friends[section].count
+        return friends.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,23 +138,31 @@ class friendListTableViewController: UITableViewController {
 //        cell.lblFriendName.text = friends[indexPath.section][indexPath.row][0]
 //        cell.lblLastActive.text = friends[indexPath.section][indexPath.row][1]
         
-        cell.setFriendList(model: friends[indexPath.section][indexPath.row])
+        cell.setFriendList(model: friends[indexPath.row])
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(friends[section][0].friendName!.prefix(1))"
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "\(friends[section].prefix(1))"
+//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         animateIn()
-        ivFriendPhoto.image = friends[indexPath.section][indexPath.row].friendPhoto
-        lblFullName.text = friends[indexPath.section][indexPath.row].friendName
+        
+        let friend = friends[indexPath.row]
+        
+        if let asset = friend[RemoteUsers.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                self.ivFriendPhoto.image = UIImage(data: data)
+            }
+        }
+        
+        lblFullName.text = friend[RemoteUsers.userBio]
         lblLocation.text = "Tangerang"
         lblNumberOfHours.text = "80"
         lblNumberOfActivities.text = "5"
-        var separatedName = friends[indexPath.section][indexPath.row].friendName!.components(separatedBy: " ")
-        lblNickname.text = separatedName[0]
+        lblNickname.text = friend[RemoteUsers.name]
     }
     
     func animateIn(){
@@ -175,6 +206,92 @@ class friendListTableViewController: UITableViewController {
             self.popUpView.removeFromSuperview()
             self.visualEffectView.removeFromSuperview()
         }
+    }
+    
+    func getMyFriendList(completionHandler: @escaping (_ finished: Bool) -> Void){
+        
+        let userDF = UserDefaults.standard
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        let userReference = CKRecord.Reference(recordID: recordUserID, action: .none)
+        let predicate = NSPredicate(format: "userID == %@", userReference)
+        let query = CKQuery(recordType: RemoteRecords.friends, predicate: predicate)
+        
+        
+        DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }else{
+                guard let records = records else {return}
+                var recordNames:[CKRecord.ID] = []
+                for record in records {
+                    let friendReference = record[RemoteFriends.friendId] as! CKRecord.Reference
+                    recordNames.append(friendReference.recordID)
+                }
+                
+                print(recordNames.count)
+                
+                let operation = CKFetchRecordsOperation(recordIDs: recordNames)
+                operation.fetchRecordsCompletionBlock = { (records, error) in
+                    guard let records = records else {return}
+                    for (key, value) in records {
+                        self.friends.append(value)
+                    }
+                    completionHandler(true)
+                }
+                DBConnection.share.publicDB.add(operation)
+            }
+        }
+    }
+    
+    func getAllContact(completionHandler: @escaping(_ finished: Bool) -> Void){
+        
+        let store = CNContactStore()
+        
+        store.requestAccess(for: .contacts) { (granted, error) in
+            
+            if let error = error {
+                print("Failed to fetch request", error)
+                return
+            }
+            
+            if granted {
+                let keys = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName)]
+                let request = CNContactFetchRequest(keysToFetch: keys)
+                
+                do {
+                    try store.enumerateContacts(with: request) {
+                        (contact, stop) in
+                        // Array containing all unified contacts from everywhere
+                        self.contacts.append(contact)
+                        completionHandler(true)
+                    }
+                }
+                catch {
+                    print("unable to fetch contacts")
+                }
+                
+                
+                
+//                let keys = [CNContactGivenNameKey]
+//                let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+//                do {
+//                    try store.enumerateContacts(with: request) { (contact, stopEnumerating) in
+//                        self.contacts.append(contact)
+//                        completionHandler(true)
+//                    }
+//                }catch let error {
+//                    print("Failed to fetch contact", error)
+//                }
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
     }
 
    
