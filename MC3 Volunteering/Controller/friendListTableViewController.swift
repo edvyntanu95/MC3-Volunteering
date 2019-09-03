@@ -20,8 +20,8 @@ class friendListTableViewController: UITableViewController {
     @IBOutlet weak var lblLocation: UILabel!
     @IBOutlet weak var lblNumberOfHours: UILabel!
     @IBOutlet weak var lblNumberOfActivities: UILabel!
-    
     @IBOutlet var myFriendList: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,30 +29,51 @@ class friendListTableViewController: UITableViewController {
 //        friendArray2 = makeFriendArrayObject2()
 //        friendArray3 = makeFriendArrayObject3()
         
-        getMyFriendList { (finished) in
-            if finished {
-                print("Friend List Berhasil Di Load")
-                print(self.friends.count)
-                
-                DispatchQueue.main.async {
-                    self.myFriendList.reloadData()
-                }
-                
-            }
-        }
+//        getMyFriendList { (finished) in
+//            if finished {
+//                print("Friend List Berhasil Di Load")
+//                print(self.friends.count)
+//
+//                DispatchQueue.main.async {
+//                    self.myFriendList.reloadData()
+//                }
+//            }
+//        }
         
-        getAllContact { (finished) in
-            if finished {
-                for contact in self.contacts {
-                    print(contact.givenName)
-                }
-            }
-        }
+//        getAllContact { (finished) in
+//            if finished {
+//                for contact in self.contacts {
+//                    print(contact.givenName)
+//                }
+//            }
+//        }
 
         
         ivFriendPhoto.layer.cornerRadius = 10
         ivFriendPhoto.layer.masksToBounds = true
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let userDef = UserDefaults.standard
+        userDef.synchronize()
+        if !userDef.bool(forKey: "isLogin"){
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginPageController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else {
+            myFriends = []
+            friends = []
+            getMyFriendList { (finished) in
+                if finished {
+                    print("Friend List Berhasil Di Load")
+                    print(self.friends.count)
+                    
+                    DispatchQueue.main.async {
+                        self.myFriendList.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton) {
@@ -182,7 +203,7 @@ class friendListTableViewController: UITableViewController {
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem?.accessibilityElementsHidden = false
         
-        
+        self.tableView.isScrollEnabled = false
         UIView.animate(withDuration: 0.4) {
             self.visualEffectView.isHidden = false
             self.popUpView.alpha = 1
@@ -205,6 +226,7 @@ class friendListTableViewController: UITableViewController {
         }) { (success: Bool) in
             self.popUpView.removeFromSuperview()
             self.visualEffectView.removeFromSuperview()
+            self.tableView.isScrollEnabled = true
         }
     }
     
@@ -228,7 +250,7 @@ class friendListTableViewController: UITableViewController {
                     recordNames.append(friendReference.recordID)
                 }
                 
-                print(recordNames.count)
+//                print(recordNames.count)
                 
                 let operation = CKFetchRecordsOperation(recordIDs: recordNames)
                 operation.fetchRecordsCompletionBlock = { (records, error) in

@@ -26,16 +26,26 @@ class MyActivitiesPage: UIViewController {
     
     var safe: Bool = false
     override func viewWillAppear(_ animated: Bool) {
-        safe = false
-        myActivitiesEventList = []
-        myActivitiesEventsListStatus = []
+        let userDEF = UserDefaults.standard
+        userDEF.synchronize()
+        if !userDEF.bool(forKey: "isLogin") {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "LoginPageController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else {
         
-        getMyActivitiesEventList { (finished) in
-            DispatchQueue.main.async {
-                self.safe = true
-                self.myActivitiesCV.reloadData()
+            safe = false
+            myActivitiesEventList = []
+            myActivitiesEventsListStatus = []
+            DispatchQueue.global().async {
+                self.getMyActivitiesEventList { (finished) in
+                    DispatchQueue.main.async {
+                        self.safe = true
+                        self.myActivitiesCV.reloadData()
+                    }
+                }
             }
         }
+        
     }
     
     

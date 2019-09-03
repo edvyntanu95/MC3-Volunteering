@@ -73,6 +73,14 @@ class SettingProfileViewController: UIViewController, UITextViewDelegate {
     
     
     
-
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        let userDef = UserDefaults.standard
+        userDef.set(false, forKey: "isLogin")
+        userDef.set(" ", forKey: "sessionID")
+        userDef.synchronize()
+        let vs = storyboard?.instantiateViewController(withIdentifier: "LoginPageController")
+        self.navigationController?.pushViewController(vs!, animated: true)
+    }
+    
 
 }

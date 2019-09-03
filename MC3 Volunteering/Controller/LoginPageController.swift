@@ -22,8 +22,15 @@ class LoginPageController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //icon kiri untuk txtField
+        emailTF.setLeftImageLogin(imageName: "icons8-email-sign-50")
+        passwordTF.setLeftImageLogin(imageName: "icons8-lock-50")
+        
         emailTF.delegate = self
         passwordTF.delegate = self
+        
+        signInButton.layer.cornerRadius = 20
+        signInButton.layer.masksToBounds = true
         
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "eye"), for: .normal)
@@ -31,6 +38,21 @@ class LoginPageController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(self.refresh), for: .touchDown)
         passwordTF.rightView = button
         passwordTF.rightViewMode = .always
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let userDEF = UserDefaults.standard
+        userDEF.synchronize()
+        if userDEF.bool(forKey: "isLogin") {
+            self.navigationController?.popViewController(animated: true)
+        }
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,13 +74,20 @@ class LoginPageController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInTapped(_ sender: Any) {
-        login { (finished) in
-            if(finished == true) {
-                print("Benar")
-            }else{
-                print("Salah")
+            self.login { (finished) in
+                if(finished == true) {
+                    print("Benar")
+                    self.userDef.synchronize()
+                    DispatchQueue.main.async {
+//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
+//                        self.navigationController?.pushViewController(vc!, animated: true)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
+                }else{
+                    print("Salah")
+                }
             }
-        }
     }
     
     func login(completionhandler:@escaping(_ finished:Bool) -> Void) {
@@ -87,5 +116,18 @@ class LoginPageController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+}
+
+
+extension UITextField {
+    func setLeftImageLogin(imageName: String) {
+        
+        let imageView = UIImageView(frame: CGRect(x: 30, y: 0, width: 20, height: 20))
+        imageView.image = UIImage(named: imageName)
+        self.leftView = imageView;
+        self.leftViewMode = .always
+        
+    }
     
 }

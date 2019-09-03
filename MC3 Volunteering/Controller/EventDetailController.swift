@@ -93,11 +93,17 @@ class EventDetailController: UIViewController{
     }
     
     @IBAction func registerEventAloneTapped(_ sender: UIButton) {
-        registerEventAlone { (finished) in
-            if finished == true {
-                print("Daftar Event Berhasil")
-            }else{
-                print("Daftar Event Gagal")
+        DispatchQueue.global().async {
+            self.registerEventAlone { (finished) in
+                if finished == true {
+                    print("Daftar Event Berhasil")
+                    DispatchQueue.main.async {
+                        self.nextPage()
+                    }
+                    
+                }else{
+                    print("Daftar Event Gagal")
+                }
             }
         }
     }
@@ -152,6 +158,28 @@ class EventDetailController: UIViewController{
                 completionHandler(true)
             }
         }
+    }
+    
+    func nextPage(){
+        
+        let from = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MyActivitiesDetailsPage") as? MyActivitiesDetailsPage
+//        let myActivity = myActivitiesEventList[indexPath.row]
+//        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
+//
+//        let eventRecordID = myActivity.recordID.recordName as! String
+//        vc?.eventId = eventRecordID
+        vc?.eventTitle = eventTitle
+        vc?.eventDescriptions = eventDescription
+        vc?.eventLocation = eventLocation
+        vc?.eventTime = eventTime
+        vc?.eventDate = eventDate
+        vc?.eventOrganizer = eventOrganizer
+        vc?.numberOFfriends = "3 more friends joins"
+        vc?.eventImage = imageEvent
+
+        self.navigationController?.pushViewController(vc!, animated: true)
+//        navigationController?.popToRootViewController(animated: true)
     }
     
 }

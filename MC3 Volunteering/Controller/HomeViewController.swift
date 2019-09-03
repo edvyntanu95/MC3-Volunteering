@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var notificationEventPageButton: UIBarButtonItem!
     
@@ -18,12 +18,30 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var suitableEventTableView: UITableView!
     
     var eventList : [CKRecord] = []
+    var event : CKRecord?
     var userDF = UserDefaults.standard
+    
+    func setUpNavBar() {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        searchBar.searchBarStyle = .minimal
+        searchBar.placeholder = "Search by username"
+        searchBar.tintColor = UIColor.lightGray
+        searchBar.barTintColor = UIColor.lightGray
+        navigationItem.titleView = searchBar
+        searchBar.isTranslucent = true
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.present(UINavigationController(rootViewController: SearchViewController()), animated: false, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDF.set(true, forKey: "isLogin")
-        userDF.set("FDC5DC8A-8410-42CE-8749-C5A44D3F14B6", forKey: "sessionID")
+        setUpNavBar()
+//        userDF.set(true, forKey: "isLogin")
+//        userDF.set("5D7AD8CE-CEBC-4559-958E-4C18013A10E1", forKey: "sessionID")
+
 //        getDataEventList { (finished) in
 //            DispatchQueue.main.async {
 //                self.nearbyEventCollectionView.reloadData()
@@ -34,19 +52,25 @@ class HomeViewController: UIViewController {
 //        setupNavBar()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     var safe : Bool = false
     override func viewWillAppear(_ animated: Bool) {
         safe = false
         eventList = []
-        getDataEventList { (finished) in
-            DispatchQueue.main.async {
-                self.safe = true
-                self.nearbyEventCollectionView.reloadData()
-                self.suitableEventTableView.reloadData()
+        DispatchQueue.global().async {
+            self.getDataEventList { (finished) in
+                DispatchQueue.main.async {
+                    self.safe = true
+                    self.nearbyEventCollectionView.reloadData()
+                    self.suitableEventTableView.reloadData()
+                }
             }
         }
         nearbyEventCollectionView.isPagingEnabled = true
-        setupNavBar()
+        setUpNavBar()
     }
     
     func getDataEventList(completionHandler: @escaping(_ finished: Bool) -> Void){
@@ -71,16 +95,39 @@ class HomeViewController: UIViewController {
     }
     
     
-    func setupNavBar(){
-
-        let searchNavBarHome = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchNavBarHome
-        navigationItem.hidesSearchBarWhenScrolling = false
-
-    }
+//    func setupNavBar(){
+//
+//        let searchNavBarHome = UISearchController(searchResultsController: nil)
+//        navigationItem.searchController = searchNavBarHome
+//        navigationItem.hidesSearchBarWhenScrolling = false
+//
+//    }
     
     @IBAction func unwindSeguesToEventPage(_ sender: UIStoryboardSegue) {
         //--------
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? EventDetailController
+        
+        let eventRecordID = event!.recordID.recordName as! String
+        vc?.eventId = eventRecordID
+        vc?.eventTitle = event![RemoteEvents.name] as! String
+        vc?.eventDescription = event![RemoteEvents.description] as! String
+        vc?.eventLocation = event![RemoteEvents.location] as! String
+        vc?.eventTime = event![RemoteEvents.time] as! String
+        vc?.eventDate = event![RemoteEvents.date] as! String
+        vc?.eventOrganizer = "Social Designee"
+        vc?.numberOFfriends = "3 more friends joins"
+        if let asset = event![RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            vc?.imageEvent = UIImage(data: data)
+        }
+        vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
+        vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
+        vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
     }
 }
 
@@ -119,52 +166,52 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if safe == true {
         
-        let event = eventList[indexPath.row]
-        let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
-        let eventRecordID = event.recordID.recordName as! String
-        vc?.eventId = eventRecordID
-        vc?.eventTitle = event[RemoteEvents.name] as! String
-        vc?.eventDescription = event[RemoteEvents.description] as! String
-        vc?.eventLocation = event[RemoteEvents.location] as! String
-        vc?.eventTime = event[RemoteEvents.time] as! String
-        vc?.eventDate = event[RemoteEvents.date] as! String
-        vc?.eventOrganizer = "Social Designee"
-        vc?.numberOFfriends = "3 more friends joins"
-        if let asset = event[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
-        {
-            vc?.imageEvent = UIImage(data: data)
-        }
-        vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
-        vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
-        vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
-        self.navigationController?.pushViewController(vc!, animated: true)
-            
+        event = eventList[indexPath.row]
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
+//        let eventRecordID = event.recordID.recordName as! String
+//        vc?.eventId = eventRecordID
+//        vc?.eventTitle = event[RemoteEvents.name] as! String
+//        vc?.eventDescription = event[RemoteEvents.description] as! String
+//        vc?.eventLocation = event[RemoteEvents.location] as! String
+//        vc?.eventTime = event[RemoteEvents.time] as! String
+//        vc?.eventDate = event[RemoteEvents.date] as! String
+//        vc?.eventOrganizer = "Social Designee"
+//        vc?.numberOFfriends = "3 more friends joins"
+//        if let asset = event[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+//        {
+//            vc?.imageEvent = UIImage(data: data)
+//        }
+//        vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
+//        vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
+//        vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
+//        self.navigationController?.pushViewController(vc!, animated: true)
+            performSegue(withIdentifier: "eventDetailSegue", sender: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if safe == true {
-        
-        let event = eventList[indexPath.row]
-        let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
-        let eventRecordID = event.recordID.recordName as! String
-        vc?.eventId = eventRecordID
-        vc?.eventTitle = event[RemoteEvents.name] as! String
-        vc?.eventDescription = event[RemoteEvents.description] as! String
-        vc?.eventLocation = event[RemoteEvents.location] as! String
-        vc?.eventTime = event[RemoteEvents.time] as! String
-        vc?.eventDate = event[RemoteEvents.date] as! String
-        vc?.eventOrganizer = "Social Designee"
-        vc?.numberOFfriends = "3 more friends joins"
-        if let asset = event[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
-        {
-            vc?.imageEvent = UIImage(data: data)
-        }
-        vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
-        vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
-        vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
-        self.navigationController?.pushViewController(vc!, animated: true)
+        event = eventList[indexPath.row]
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailController") as? EventDetailController
+//        let eventRecordID = event.recordID.recordName as! String
+//        vc?.eventId = eventRecordID
+//        vc?.eventTitle = event[RemoteEvents.name] as! String
+//        vc?.eventDescription = event[RemoteEvents.description] as! String
+//        vc?.eventLocation = event[RemoteEvents.location] as! String
+//        vc?.eventTime = event[RemoteEvents.time] as! String
+//        vc?.eventDate = event[RemoteEvents.date] as! String
+//        vc?.eventOrganizer = "Social Designee"
+//        vc?.numberOFfriends = "3 more friends joins"
+//        if let asset = event[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+//        {
+//            vc?.imageEvent = UIImage(data: data)
+//        }
+//        vc?.imageFriendPhoto1 = #imageLiteral(resourceName: "human")
+//        vc?.imageFriendPhoto2 = #imageLiteral(resourceName: "human")
+//        vc?.imageFriendPhoto3 = #imageLiteral(resourceName: "human")
+//        self.navigationController?.pushViewController(vc!, animated: true)
             
+        performSegue(withIdentifier: "eventDetailSegue", sender: nil)
         }
     }
 }

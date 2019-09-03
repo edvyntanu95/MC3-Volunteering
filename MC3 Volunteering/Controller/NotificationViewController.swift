@@ -52,7 +52,7 @@ class NotificationViewController: UIViewController {
     
     func setUpButtons(){
         buttonDecline.layer.borderWidth = 0.5
-        buttonDecline.layer.borderColor = #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1)
+        buttonDecline.layer.borderColor = #colorLiteral(red: 0.875795722, green: 0.3232465982, blue: 0.2720501125, alpha: 1)
         buttonDecline.tintColor = #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.8117647059, alpha: 1)
         
         buttonDecline.layer.cornerRadius = 10

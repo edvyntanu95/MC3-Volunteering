@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0696B6EE3CB5E313D8C46BB6 /* Pods_MC3_Volunteering.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C713F4906C3051A12E73FD /* Pods_MC3_Volunteering.framework */; };
+		3114F7EB231D2CD6008EA5B9 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114F7EA231D2CD6008EA5B9 /* OnBoardingViewController.swift */; };
+		3114F7ED231D2E99008EA5B9 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114F7EC231D2E99008EA5B9 /* OnBoardingView.swift */; };
+		317F750B231E4FB000DFBB2F /* TrobleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317F750A231E4FB000DFBB2F /* TrobleSignInViewController.swift */; };
 		319C7B5923164612008E74E0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C7B5823164612008E74E0 /* NotificationViewController.swift */; };
 		319C7B5B231646EA008E74E0 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C7B5A231646EA008E74E0 /* NotificationTableViewCell.swift */; };
 		319C7B5D2316475F008E74E0 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C7B5C2316475F008E74E0 /* NotificationModel.swift */; };
@@ -18,6 +21,7 @@
 		31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */; };
 		31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */; };
 		31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */; };
+		31A38D64231EA1CE0094EE9C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D63231EA1CE0094EE9C /* SearchViewController.swift */; };
 		31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */; };
 		31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE52313E46600EF75B2 /* FriendModel.swift */; };
 		31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE72314015400EF75B2 /* ProfileViewController.swift */; };
@@ -67,6 +71,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3114F7EA231D2CD6008EA5B9 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		3114F7EC231D2E99008EA5B9 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		317F750A231E4FB000DFBB2F /* TrobleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrobleSignInViewController.swift; sourceTree = "<group>"; };
 		319C7B5823164612008E74E0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		319C7B5A231646EA008E74E0 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		319C7B5C2316475F008E74E0 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		31A22CAF2312A3EB0005EF81 /* RegisterEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEventModel.swift; sourceTree = "<group>"; };
 		31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesPage.swift; sourceTree = "<group>"; };
 		31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesDetailsPage.swift; sourceTree = "<group>"; };
+		31A38D63231EA1CE0094EE9C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		31DC0CE52313E46600EF75B2 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		31DC0CE72314015400EF75B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +171,6 @@
 				AAADC8FDE4AB23146CE4981B /* Pods-MC3 Volunteering.debug.xcconfig */,
 				9C5DA073C85EA18D4B0C4C24 /* Pods-MC3 Volunteering.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +214,7 @@
 		B6C78204230C2AA0005099E9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				3114F7EC231D2E99008EA5B9 /* OnBoardingView.swift */,
 				319C7B5A231646EA008E74E0 /* NotificationTableViewCell.swift */,
 				31DC0CEB23146B3B00EF75B2 /* friendListTableViewCell.swift */,
 				31A22CA8231299260005EF81 /* ActivitiesCollectionViewCell.swift */,
@@ -223,6 +231,8 @@
 		B6C7820B230D171D005099E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				317F750A231E4FB000DFBB2F /* TrobleSignInViewController.swift */,
+				3114F7EA231D2CD6008EA5B9 /* OnBoardingViewController.swift */,
 				B6C781F2230C027E005099E9 /* HomeViewController.swift */,
 				31E964A42315188B00B728BB /* QRCodeViewController.swift */,
 				E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */,
@@ -238,6 +248,7 @@
 				31DC0CE72314015400EF75B2 /* ProfileViewController.swift */,
 				319C7B5E23167782008E74E0 /* SettingProfileViewController.swift */,
 				C36C0D632317D6AB0012F75D /* InitDataViewController.swift */,
+				31A38D63231EA1CE0094EE9C /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,6 +441,7 @@
 			files = (
 				31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */,
 				B6C78203230C02D3005099E9 /* HomeCustomCollectionView.swift in Sources */,
+				317F750B231E4FB000DFBB2F /* TrobleSignInViewController.swift in Sources */,
 				C36C0D522317CF600012F75D /* QueryRegister.swift in Sources */,
 				C36C0D5E2317CF600012F75D /* QueryAddData.swift in Sources */,
 				319C7B5923164612008E74E0 /* NotificationViewController.swift in Sources */,
@@ -447,6 +459,8 @@
 				31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */,
 				C36C0D5A2317CF600012F75D /* RemoteInviteEvents.swift in Sources */,
 				31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */,
+				31A38D64231EA1CE0094EE9C /* SearchViewController.swift in Sources */,
+				3114F7EB231D2CD6008EA5B9 /* OnBoardingViewController.swift in Sources */,
 				C36C0D542317CF600012F75D /* QueryLogin.swift in Sources */,
 				B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */,
 				31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */,
@@ -461,6 +475,7 @@
 				C36C0D642317D6AB0012F75D /* InitDataViewController.swift in Sources */,
 				31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */,
 				31DC0CEA231411FE00EF75B2 /* ECertificateCollectionViewCell.swift in Sources */,
+				3114F7ED231D2E99008EA5B9 /* OnBoardingView.swift in Sources */,
 				319C7B5B231646EA008E74E0 /* NotificationTableViewCell.swift in Sources */,
 				C36C0D4F2317CF600012F75D /* QueryRegisterEventWithFriends.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
@@ -627,13 +642,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MTU6Z4VFLV;
+				DEVELOPMENT_TEAM = C56NL525H5;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-Volunteering";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-VolunteeringB1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -647,13 +662,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MTU6Z4VFLV;
+				DEVELOPMENT_TEAM = C56NL525H5;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-Volunteering";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-VolunteeringB1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

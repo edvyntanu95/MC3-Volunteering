@@ -31,6 +31,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController = sb.instantiateViewController(withIdentifier: "OnBoarding")
+        
+        let userDef = UserDefaults.standard
+
+        if userDef.bool(forKey: "onBoardingComplete") {
+            initialViewController = sb.instantiateViewController(withIdentifier: "MainPage")
+        }
+
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        
         return true
     }
     

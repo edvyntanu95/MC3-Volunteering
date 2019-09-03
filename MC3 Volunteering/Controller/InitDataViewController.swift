@@ -11,7 +11,7 @@ import CloudKit
 
 class InitDataViewController: UIViewController {
     
-    var myString = "test"
+    var myString = "test3"
     var processedImage:UIImage?
     
     override func viewDidLoad() {
@@ -24,6 +24,11 @@ class InitDataViewController: UIViewController {
                 print("Tambah Akun Gagal")
             }
         }
+        
+        addDataEvent { (finished) in
+            print("success")
+        }
+        
     }
     
     //CREATE BARCODE
@@ -75,8 +80,8 @@ class InitDataViewController: UIViewController {
     func register(completionHandler: @escaping(_ finished: Bool) -> Void){
         let record = CKRecord(recordType: RemoteRecords.users)
         record[RemoteUsers.name] = "Pramahadi Tama Putra" as NSString
-        record[RemoteUsers.username] = "test" as NSString
-        record[RemoteUsers.email] = "test@test.com" as NSString
+        record[RemoteUsers.username] = "test3" as NSString
+        record[RemoteUsers.email] = "test3@test.com" as NSString
         record[RemoteUsers.password] = "test123" as NSString
         record[RemoteUsers.userRole] = "Volunteer"
         record[RemoteUsers.location] = "Kota Tangerang" as NSString

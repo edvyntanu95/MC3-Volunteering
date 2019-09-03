@@ -10,7 +10,9 @@ import UIKit
 import CloudKit
 
 class FriendListController: UIViewController{
+    
     @IBOutlet weak var myFriendListTV: UITableView!
+    @IBOutlet weak var inviteButton: UIButton!
     
     var eventId = ""
     var friendId = [String]()
@@ -64,15 +66,24 @@ class FriendListController: UIViewController{
                 
             }
         }
+        
+        inviteButton.layer.cornerRadius = 20
+        inviteButton.layer.masksToBounds = true
+        
     }
     
     
     
     @IBAction func inviteButtonFriendList(_ sender: Any) {
-        inviteFriendToEvent { (finished) in
-            print("Invite Button Tapped")
-            for friend in self.friendId {
-                print(friend)
+        DispatchQueue.global().async {
+            self.inviteFriendToEvent { (finished) in
+                print("Invite Button Tapped")
+                for friend in self.friendId {
+                    print(friend)
+                    DispatchQueue.main.async {
+                        
+                    }
+                }
             }
         }
     }

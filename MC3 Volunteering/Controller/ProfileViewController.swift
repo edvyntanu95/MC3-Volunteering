@@ -31,19 +31,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getUserData { (finished) in
-            if finished == true{
-                self.getUserCertificate(completionHandler: { (finished) in
-                    if finished == true {
-                        self.setUpContent()
-                    }else{
-                        print("Data Certificate Kosong")
-                    }
-                })
-            }else{
-                print("Data User Kosong")
-            }
-        }
         
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         profileImageView.layer.masksToBounds = true
@@ -57,6 +44,31 @@ class ProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         visualEffectView.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let userDEF = UserDefaults.standard
+        userDEF.synchronize()
+        if !userDEF.bool(forKey: "isLogin") {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "LoginPageController")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else {
+            userData = []
+            userCetificates = []
+            getUserData { (finished) in
+                if finished == true{
+                    self.getUserCertificate(completionHandler: { (finished) in
+                        if finished == true {
+                            self.setUpContent()
+                        }else{
+                            print("Data Certificate Kosong")
+                        }
+                    })
+                }else{
+                    print("Data User Kosong")
+                }
+            }
+        }
     }
     
     func setUpContent(){

@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-call-50.png",
+      "filename" : "handLove.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "handLove@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "handLove@3x.png",
       "scale" : "3x"
     }
   ],
