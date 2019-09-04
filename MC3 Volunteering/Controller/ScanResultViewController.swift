@@ -21,7 +21,7 @@ class ScanResultViewController: UIViewController {
     @IBOutlet weak var lblNickName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(scanResult)
         DispatchQueue.global().async {
             self.getScannerResult(completionHandler: { (finished) in
                 if finished {
@@ -41,13 +41,12 @@ class ScanResultViewController: UIViewController {
         
         addFriendButton.layer.cornerRadius = 20
         addFriendButton.layer.borderColor = #colorLiteral(red: 0.08758807927, green: 0.5526862144, blue: 0.8551954627, alpha: 1)
+        addFriendButton.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         addFriendButton.layer.borderWidth = 0.5
         
         viewBackground.backgroundColor = #colorLiteral(red: 0.08758807927, green: 0.5526862144, blue: 0.8551954627, alpha: 1)
         viewBackground.layer.cornerRadius = 10
         viewBackground.layer.masksToBounds = true
-    }
-        
     }
     
     func getScannerResult(completionHandler: @escaping (_ finished: Bool) -> Void){

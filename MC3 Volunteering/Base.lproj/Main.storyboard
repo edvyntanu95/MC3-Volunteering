@@ -582,7 +582,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRb-cI-FxJ" customClass="AnimationView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRb-cI-FxJ" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="87" y="328" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
@@ -597,12 +597,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5y-cw-8yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7150.7246376811599" y="4429.6875"/>
+            <point key="canvasLocation" x="7378" y="4430"/>
         </scene>
         <!--Scan Result View Controller-->
         <scene sceneID="VdP-vs-8Lx">
             <objects>
-                <viewController id="rli-Fr-sgv" customClass="ScanResultViewController" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanResultViewController" id="rli-Fr-sgv" customClass="ScanResultViewController" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YnX-bv-Tsy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

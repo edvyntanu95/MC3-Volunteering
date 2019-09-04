@@ -154,13 +154,13 @@ extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
         self.captureSession.stopRunning()
         
 //        let from = storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
-        let vc = storyboard?.instantiateViewController(withIdentifier: "friendListTableViewController") as? friendListTableViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ScanResultViewController") as? ScanResultViewController
         //        let myActivity = myActivitiesEventList[indexPath.row]
         //        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
         //
         //        let eventRecordID = myActivity.recordID.recordName as! String
         //        vc?.eventId = eventRecordID
-        vc?.resultScannerFriendID = result
+        vc?.scanResult = result
         self.navigationController?.pushViewController(vc!, animated: true)
         //        navigationController?.popToRootViewController(animated: true)
     }
