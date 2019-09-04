@@ -14,7 +14,6 @@ class CameraViewController: UIViewController {
 
     @IBOutlet weak var animationQR: AnimationView!
         @IBOutlet weak var previewContainer: UIView!
-        @IBOutlet weak var resultsLabel: UILabel!
         
         
         private var captureSession: AVCaptureSession = AVCaptureSession()
@@ -131,7 +130,6 @@ class CameraViewController: UIViewController {
         
         private func resetViews() {
             boundingBox.isHidden = true
-            resultsLabel.text = nil
         }
     
     
@@ -142,7 +140,6 @@ class CameraViewController: UIViewController {
 extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-            self.resultsLabel.text = object.stringValue
             nextPage(result: object.stringValue!)
             guard let transformedObject = previewLayer.transformedMetadataObject(for: object) as? AVMetadataMachineReadableCodeObject else {
                 return

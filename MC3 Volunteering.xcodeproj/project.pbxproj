@@ -25,6 +25,8 @@
 		31A38D66231F71DA0094EE9C /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */; };
 		31A38D68231F74F70094EE9C /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */; };
 		31A38D6A231F83CE0094EE9C /* MapSocDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */; };
+		31A38D6C231F9CDF0094EE9C /* qr.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A38D6B231F9CDE0094EE9C /* qr.json */; };
+		31A38D6E231F9F450094EE9C /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */; };
 		31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */; };
 		31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE52313E46600EF75B2 /* FriendModel.swift */; };
 		31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE72314015400EF75B2 /* ProfileViewController.swift */; };
@@ -68,7 +70,6 @@
 		C36C0D622317CF600012F75D /* gambar1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C36C0D4D2317CF600012F75D /* gambar1.jpg */; };
 		C36C0D642317D6AB0012F75D /* InitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D632317D6AB0012F75D /* InitDataViewController.swift */; };
 		C36C0D672317DC650012F75D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C0D662317DC650012F75D /* CloudKit.framework */; };
-		C3D6A30D231F7A6D00EBFD4E /* qr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3D6A30C231F7A6D00EBFD4E /* qr.json */; };
 		E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */; };
 		E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */; };
 		E9775805230D6E5B00A9A3D0 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9775804230D6E5B00A9A3D0 /* ForgotPassword.swift */; };
@@ -92,6 +93,8 @@
 		31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewCell.swift; sourceTree = "<group>"; };
 		31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSocDesViewController.swift; sourceTree = "<group>"; };
+		31A38D6B231F9CDE0094EE9C /* qr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr.json; sourceTree = "<group>"; };
+		31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		31DC0CE52313E46600EF75B2 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		31DC0CE72314015400EF75B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +143,6 @@
 		C36C0D632317D6AB0012F75D /* InitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDataViewController.swift; sourceTree = "<group>"; };
 		C36C0D652317DC610012F75D /* MC3 Volunteering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC3 Volunteering.entitlements"; sourceTree = "<group>"; };
 		C36C0D662317DC650012F75D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		C3D6A30C231F7A6D00EBFD4E /* qr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr.json; sourceTree = "<group>"; };
 		E4C713F4906C3051A12E73FD /* Pods_MC3_Volunteering.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC3_Volunteering.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageController.swift; sourceTree = "<group>"; };
 		E9775802230D6E4F00A9A3D0 /* ViewControllerSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSignUp.swift; sourceTree = "<group>"; };
@@ -203,8 +205,8 @@
 		B6C781EF230C027E005099E9 /* MC3 Volunteering */ = {
 			isa = PBXGroup;
 			children = (
-				C3D6A30C231F7A6D00EBFD4E /* qr.json */,
 				C36C0D652317DC610012F75D /* MC3 Volunteering.entitlements */,
+				31A38D6B231F9CDE0094EE9C /* qr.json */,
 				C36C0D402317CF600012F75D /* CloudkitSettings */,
 				C36C0D4C2317CF600012F75D /* Images */,
 				C36C0D362317CF600012F75D /* Query */,
@@ -255,6 +257,7 @@
 				31DC0CED23146C4600EF75B2 /* friendListTableViewController.swift */,
 				E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */,
 				31E964A623153EB000B728BB /* CameraViewController.swift */,
+				31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */,
 				319C7B5823164612008E74E0 /* NotificationViewController.swift */,
 				31DC0CE72314015400EF75B2 /* ProfileViewController.swift */,
 				319C7B5E23167782008E74E0 /* SettingProfileViewController.swift */,
@@ -394,7 +397,7 @@
 				C36C0D622317CF600012F75D /* gambar1.jpg in Resources */,
 				B6C781F8230C027F005099E9 /* Assets.xcassets in Resources */,
 				B6C781F6230C027E005099E9 /* Main.storyboard in Resources */,
-				C3D6A30D231F7A6D00EBFD4E /* qr.json in Resources */,
+				31A38D6C231F9CDF0094EE9C /* qr.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +488,7 @@
 				31E964A723153EB000B728BB /* CameraViewController.swift in Sources */,
 				C36C0D4E2317CF600012F75D /* QueryAddEvent.swift in Sources */,
 				B6163A16231236A500288352 /* ClickableTableViewCell.swift in Sources */,
+				31A38D6E231F9F450094EE9C /* ScanResultViewController.swift in Sources */,
 				C36C0D552317CF600012F75D /* QueryRegisterEventAlone.swift in Sources */,
 				C36C0D612317CF600012F75D /* QueryReadData.swift in Sources */,
 				C36C0D5D2317CF600012F75D /* RemoteFriends.swift in Sources */,
@@ -660,13 +664,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MTU6Z4VFLV;
+				DEVELOPMENT_TEAM = C56NL525H5;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-Volunteering";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-VolunteeringB1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -680,13 +684,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MTU6Z4VFLV;
+				DEVELOPMENT_TEAM = C56NL525H5;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-Volunteering";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-VolunteeringB1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
