@@ -27,6 +27,8 @@
 		31A38D6A231F83CE0094EE9C /* MapSocDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */; };
 		31A38D6C231F9CDF0094EE9C /* qr.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A38D6B231F9CDE0094EE9C /* qr.json */; };
 		31A38D6E231F9F450094EE9C /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */; };
+		31B863F1231FF9F50093A07A /* DetailEventWithFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */; };
+		31B863F3231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B863F2231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift */; };
 		31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */; };
 		31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE52313E46600EF75B2 /* FriendModel.swift */; };
 		31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE72314015400EF75B2 /* ProfileViewController.swift */; };
@@ -95,6 +97,8 @@
 		31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSocDesViewController.swift; sourceTree = "<group>"; };
 		31A38D6B231F9CDE0094EE9C /* qr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr.json; sourceTree = "<group>"; };
 		31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
+		31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventWithFriendsController.swift; sourceTree = "<group>"; };
+		31B863F2231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		31DC0CE52313E46600EF75B2 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		31DC0CE72314015400EF75B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				B6163A0D231013C400288352 /* CustomImageViewRounded.swift */,
 				B6163A15231236A500288352 /* ClickableTableViewCell.swift */,
 				31DC0CE9231411FE00EF75B2 /* ECertificateCollectionViewCell.swift */,
+				31B863F2231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 		B6C7820B230D171D005099E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */,
 				31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */,
 				317F750A231E4FB000DFBB2F /* TrobleSignInViewController.swift */,
 				3114F7EA231D2CD6008EA5B9 /* OnBoardingViewController.swift */,
@@ -487,10 +493,12 @@
 				C36C0D5D2317CF600012F75D /* RemoteFriends.swift in Sources */,
 				C36C0D642317D6AB0012F75D /* InitDataViewController.swift in Sources */,
 				31A22CB02312A3EB0005EF81 /* RegisterEventModel.swift in Sources */,
+				31B863F1231FF9F50093A07A /* DetailEventWithFriendsController.swift in Sources */,
 				31DC0CEA231411FE00EF75B2 /* ECertificateCollectionViewCell.swift in Sources */,
 				3114F7ED231D2E99008EA5B9 /* OnBoardingView.swift in Sources */,
 				319C7B5B231646EA008E74E0 /* NotificationTableViewCell.swift in Sources */,
 				C36C0D4F2317CF600012F75D /* QueryRegisterEventWithFriends.swift in Sources */,
+				31B863F3231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
 				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
 				31A38D6A231F83CE0094EE9C /* MapSocDesViewController.swift in Sources */,

@@ -142,23 +142,14 @@ extension MyActivitiesPage:UICollectionViewDataSource, UICollectionViewDelegate 
         let myActivity = myActivitiesEventList[indexPath.row]
         let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
         
-        let eventRecordID = myActivity.recordID.recordName as! String
+        let eventRecordID = myActivity.recordID.recordName
         vc?.eventId = eventRecordID
-        
         vc?.eventTitle = myActivity[RemoteEvents.name] as! String
-        
         vc?.eventDescriptions = myActivity[RemoteEvents.description] as! String
-        
         vc?.eventLocation = myActivity[RemoteEvents.location] as! String
-        
         vc?.eventTime = myActivity[RemoteEvents.time] as! String
-        
         vc?.eventDate = myActivity[RemoteEvents.date] as! String
-        
         vc?.eventOrganizer = myActivity[RemoteEvents.organizer] as! String
-        
-        vc?.numberOFfriends = "3 more friends joins"
-            
         vc?.eventStatus = myActivityStatus[RemoteRegisterEvents.status] as! String
         
         if let asset = myActivity[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
@@ -166,7 +157,10 @@ extension MyActivitiesPage:UICollectionViewDataSource, UICollectionViewDelegate 
             vc?.eventImage = UIImage(data: data)
         }
         
-        self.navigationController?.pushViewController(vc!, animated: true)
+        
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+            
         }
         
     }
