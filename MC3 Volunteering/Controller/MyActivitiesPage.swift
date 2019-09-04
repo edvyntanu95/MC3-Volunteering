@@ -20,6 +20,22 @@ class MyActivitiesPage: UIViewController {
     var strLabel = UILabel()
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
+    // collection view outlet
+    @IBOutlet weak var detailCollectionView: UICollectionView!
+    
+    // segmented control functions
+    @IBAction func segmentedControlSwitched(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            
+            // statusArray = array alone event status
+            // currentArray = array alone event
+            detailCollectionView.reloadData()
+        } else {
+            
+            // currentArray = array with friends
+            detailCollectionView.reloadData()
+        }
+    }
     func activityIndicator(_ title: String) {
         
         strLabel.removeFromSuperview()
