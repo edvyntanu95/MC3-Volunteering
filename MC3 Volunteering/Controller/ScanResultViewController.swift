@@ -7,21 +7,54 @@
 //
 
 import UIKit
+import CloudKit
 
 class ScanResultViewController: UIViewController {
-    
+    var scanResult:String?
+    var user:[CKRecord] = []
     @IBOutlet weak var ivPersonImage: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var addFriendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.global().async {
+            self.getScannerResult(completionHandler: { (finished) in
+                if finished {
+                    DispatchQueue.main.async {
+                        self.setUpPage()
+                    }
+                }
+            })
+        }
 
         // Do any additional setup after loading the view.
     }
     
     func setUpPage(){
         ivPersonImage.layer.cornerRadius = ivPersonImage.frame.height / 2
+        
     }
+    
+    func getScannerResult(completionHandler: @escaping (_ finished: Bool) -> Void){
+        
+        var recordUserID = CKRecord.ID(recordName: scanResult!)
+        let predicate = NSPredicate(format: "recordID == %@", recordUserID)
+        let query = CKQuery(recordType: RemoteRecords.users, predicate: predicate)
+        
+        DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }else{
+                guard let records = records else {return}
+                for record in records {
+                    self.user.append(record)
+                }
+                completionHandler(true)
+            }
+        }
+    }
+    
 
 }
