@@ -58,6 +58,10 @@ class friendListTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func unwindSeguesToEventPage(_ sender: UIStoryboardSegue) {
+        //--------
+    }
+    
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         animateOut()
     }

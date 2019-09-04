@@ -25,7 +25,6 @@
 		31A38D66231F71DA0094EE9C /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */; };
 		31A38D68231F74F70094EE9C /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */; };
 		31A38D6A231F83CE0094EE9C /* MapSocDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */; };
-		31A38D6C231F9CDF0094EE9C /* qr.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A38D6B231F9CDE0094EE9C /* qr.json */; };
 		31A38D6E231F9F450094EE9C /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */; };
 		31B863F1231FF9F50093A07A /* DetailEventWithFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */; };
 		31B863F3231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B863F2231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift */; };
@@ -49,6 +48,7 @@
 		B6C78203230C02D3005099E9 /* HomeCustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78202230C02D3005099E9 /* HomeCustomCollectionView.swift */; };
 		B6C7820F230D500E005099E9 /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */; };
 		B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C78210230D63B0005099E9 /* EventDetailController.swift */; };
+		C3090C7423205002000821ED /* qr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3090C7323205002000821ED /* qr.json */; };
 		C36C0D4E2317CF600012F75D /* QueryAddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D372317CF600012F75D /* QueryAddEvent.swift */; };
 		C36C0D4F2317CF600012F75D /* QueryRegisterEventWithFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D382317CF600012F75D /* QueryRegisterEventWithFriends.swift */; };
 		C36C0D502317CF600012F75D /* QueryMyActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C0D392317CF600012F75D /* QueryMyActivities.swift */; };
@@ -95,7 +95,6 @@
 		31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewCell.swift; sourceTree = "<group>"; };
 		31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSocDesViewController.swift; sourceTree = "<group>"; };
-		31A38D6B231F9CDE0094EE9C /* qr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr.json; sourceTree = "<group>"; };
 		31A38D6D231F9F450094EE9C /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventWithFriendsController.swift; sourceTree = "<group>"; };
 		31B863F2231FFE1D0093A07A /* DetailEventFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventFriendsTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		B6C78202230C02D3005099E9 /* HomeCustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCollectionView.swift; sourceTree = "<group>"; };
 		B6C7820E230D500E005099E9 /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
 		B6C78210230D63B0005099E9 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		C3090C7323205002000821ED /* qr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr.json; sourceTree = "<group>"; };
 		C36C0D372317CF600012F75D /* QueryAddEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryAddEvent.swift; sourceTree = "<group>"; };
 		C36C0D382317CF600012F75D /* QueryRegisterEventWithFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryRegisterEventWithFriends.swift; sourceTree = "<group>"; };
 		C36C0D392317CF600012F75D /* QueryMyActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryMyActivities.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				C36C0D652317DC610012F75D /* MC3 Volunteering.entitlements */,
-				31A38D6B231F9CDE0094EE9C /* qr.json */,
+				C3090C7323205002000821ED /* qr.json */,
 				C36C0D402317CF600012F75D /* CloudkitSettings */,
 				C36C0D4C2317CF600012F75D /* Images */,
 				C36C0D362317CF600012F75D /* Query */,
@@ -248,7 +248,6 @@
 		B6C7820B230D171D005099E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */,
 				31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */,
 				317F750A231E4FB000DFBB2F /* TrobleSignInViewController.swift */,
 				3114F7EA231D2CD6008EA5B9 /* OnBoardingViewController.swift */,
@@ -260,6 +259,7 @@
 				B6163A13231235E200288352 /* FriendListController.swift */,
 				31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */,
 				31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */,
+				31B863F0231FF9F50093A07A /* DetailEventWithFriendsController.swift */,
 				31DC0CED23146C4600EF75B2 /* friendListTableViewController.swift */,
 				E9775800230D6D6F00A9A3D0 /* LoginPageController.swift */,
 				31E964A623153EB000B728BB /* CameraViewController.swift */,
@@ -403,7 +403,7 @@
 				C36C0D622317CF600012F75D /* gambar1.jpg in Resources */,
 				B6C781F8230C027F005099E9 /* Assets.xcassets in Resources */,
 				B6C781F6230C027E005099E9 /* Main.storyboard in Resources */,
-				31A38D6C231F9CDF0094EE9C /* qr.json in Resources */,
+				C3090C7423205002000821ED /* qr.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

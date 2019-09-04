@@ -56,8 +56,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         searchBar.sizeToFit()
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search events"
-        searchBar.tintColor = UIColor.lightGray
-        searchBar.barTintColor = UIColor.lightGray
+        searchBar.tintColor = UIColor.white
+        searchBar.barTintColor = UIColor.white
         navigationItem.titleView = searchBar
         searchBar.isTranslucent = true
     }
@@ -69,6 +69,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             self.navigationController?.pushViewController(vc!, animated: false)
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

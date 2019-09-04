@@ -101,6 +101,11 @@ class ScanResultViewController: UIViewController {
         let userSpecific = user[0]
         lblLocation.text = userSpecific[RemoteUsers.location]
         lblName.text = userSpecific[RemoteUsers.name]
+        
+        let split : String = userSpecific[RemoteUsers.name] as! String
+        var splitArr = split.components(separatedBy: " ")
+        lblNickName.text = splitArr[0]
+        
         if let asset = userSpecific[RemoteUsers.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
         {
             DispatchQueue.main.async {

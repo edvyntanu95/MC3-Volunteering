@@ -18,6 +18,10 @@ class SearchFriendsViewController: UIViewController {
         makeCurrentArray()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     var currentArray : [friends] = []
     var friendsArray : [friends] = []
     

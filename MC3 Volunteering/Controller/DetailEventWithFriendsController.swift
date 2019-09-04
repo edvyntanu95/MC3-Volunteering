@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class DetailEventWithFriendsController: UIViewController {
     
@@ -32,6 +33,9 @@ class DetailEventWithFriendsController: UIViewController {
     
     @IBOutlet weak var buttonRegisterEvent: UIButton!
     
+    @IBOutlet weak var tableViewFriend: UITableView!
+    
+    var friend:[CKRecord] = []
     var eventId:String?
     var imageEvent: UIImage?
     var imageEOPhoto: UIImage?
@@ -43,6 +47,7 @@ class DetailEventWithFriendsController: UIViewController {
     var eventDate: String?
     var eventOrganizer: String?
     var eventDescription: String?
+    var eventStatus: String?
     
     
     
@@ -50,8 +55,36 @@ class DetailEventWithFriendsController: UIViewController {
         super.viewDidLoad()
         setUpView()
         setUpContent()
-        
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableViewFriend.reloadData()
+        viewInvitedFill.alpha = 0
+        viewRegisterFill.alpha = 0
+        viewEventFill.alpha = 0
+        viewCertificateFill.alpha = 0
+        if eventStatus == "Invited" {
+            UIView.animate(withDuration: 0.3) {
+                self.viewInvitedFill.alpha = 1
+            }
+            if eventStatus == "Registered" {
+                UIView.animate(withDuration: 0.3) {
+                    self.viewRegisterFill.alpha = 1
+                }
+                if eventStatus == "Event" {
+                    UIView.animate(withDuration: 0.3) {
+                        self.viewEventFill.alpha = 1
+                    }
+                    
+                    if eventStatus == "Certificate" {
+                        UIView.animate(withDuration: 0.3) {
+                            self.viewCertificateFill.alpha = 1
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func setUpView(){
@@ -89,11 +122,22 @@ class DetailEventWithFriendsController: UIViewController {
 
 extension DetailEventWithFriendsController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return friend.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailFriendsCell", for: indexPath) as! DetailEventFriendsTableViewCell
+        let myFriend = friend[indexPath.row]
+        cell.lblFriendsName.text = myFriend[RemoteUsers.name]
+        cell.lblFriendStatus.text = "Pending"
+        if let asset = myFriend[RemoteUsers.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                cell.iViewFriendsPhoto.image = UIImage(data: data)
+            }
+        }
+        
+        return cell
     }
     
     

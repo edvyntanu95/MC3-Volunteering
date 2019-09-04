@@ -31,7 +31,8 @@ class NotificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ivEventPhoto.layer.cornerRadius = ivEventPhoto.frame.height / 2
+        ivEventPhoto.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +94,9 @@ class NotificationViewController: UIViewController {
     func animateIn(){
         self.view.addSubview(popUpView)
         
-        popUpView.center = self.view.center
+        popUpView.center.x = self.view.center.x
+        popUpView.center.y = self.view.center.y - 170
+        
         popUpView.layer.cornerRadius = 10
         popUpView.layer.masksToBounds = true
         popUpView.transform = CGAffineTransform.init(scaleX: 0.7, y: 0.7)

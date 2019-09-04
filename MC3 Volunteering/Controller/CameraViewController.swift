@@ -42,7 +42,7 @@ class CameraViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
     }
 
