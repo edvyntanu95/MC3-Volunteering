@@ -22,6 +22,9 @@
 		31A22CB22312AA350005EF81 /* MyActivitiesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */; };
 		31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */; };
 		31A38D64231EA1CE0094EE9C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D63231EA1CE0094EE9C /* SearchViewController.swift */; };
+		31A38D66231F71DA0094EE9C /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */; };
+		31A38D68231F74F70094EE9C /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */; };
+		31A38D6A231F83CE0094EE9C /* MapSocDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */; };
 		31DC0CE42313E2A100EF75B2 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */; };
 		31DC0CE62313E46600EF75B2 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE52313E46600EF75B2 /* FriendModel.swift */; };
 		31DC0CE82314015400EF75B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DC0CE72314015400EF75B2 /* ProfileViewController.swift */; };
@@ -85,6 +88,9 @@
 		31A22CB12312AA350005EF81 /* MyActivitiesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesPage.swift; sourceTree = "<group>"; };
 		31A22CB32312B4E00005EF81 /* MyActivitiesDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesDetailsPage.swift; sourceTree = "<group>"; };
 		31A38D63231EA1CE0094EE9C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewCell.swift; sourceTree = "<group>"; };
+		31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSocDesViewController.swift; sourceTree = "<group>"; };
 		31DC0CE32313E2A100EF75B2 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		31DC0CE52313E46600EF75B2 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		31DC0CE72314015400EF75B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 		B6C78204230C2AA0005099E9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				31A38D65231F71DA0094EE9C /* SearchBarTableViewCell.swift */,
 				3114F7EC231D2E99008EA5B9 /* OnBoardingView.swift */,
 				319C7B5A231646EA008E74E0 /* NotificationTableViewCell.swift */,
 				31DC0CEB23146B3B00EF75B2 /* friendListTableViewCell.swift */,
@@ -231,6 +238,7 @@
 		B6C7820B230D171D005099E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31A38D69231F83CE0094EE9C /* MapSocDesViewController.swift */,
 				317F750A231E4FB000DFBB2F /* TrobleSignInViewController.swift */,
 				3114F7EA231D2CD6008EA5B9 /* OnBoardingViewController.swift */,
 				B6C781F2230C027E005099E9 /* HomeViewController.swift */,
@@ -249,6 +257,7 @@
 				319C7B5E23167782008E74E0 /* SettingProfileViewController.swift */,
 				C36C0D632317D6AB0012F75D /* InitDataViewController.swift */,
 				31A38D63231EA1CE0094EE9C /* SearchViewController.swift */,
+				31A38D67231F74F70094EE9C /* SearchFriendsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -454,6 +463,7 @@
 				31DC0CEC23146B3B00EF75B2 /* friendListTableViewCell.swift in Sources */,
 				B6C781F1230C027E005099E9 /* AppDelegate.swift in Sources */,
 				C36C0D572317CF600012F75D /* RemoteNotifications.swift in Sources */,
+				31A38D68231F74F70094EE9C /* SearchFriendsViewController.swift in Sources */,
 				B6163A12231017AA00288352 /* TanggalCollectionView.swift in Sources */,
 				C36C0D602317CF600012F75D /* RemoteRegisterEvents.swift in Sources */,
 				31A22CB42312B4E00005EF81 /* MyActivitiesDetailsPage.swift in Sources */,
@@ -480,6 +490,7 @@
 				C36C0D4F2317CF600012F75D /* QueryRegisterEventWithFriends.swift in Sources */,
 				E9775801230D6D6F00A9A3D0 /* LoginPageController.swift in Sources */,
 				E9775803230D6E4F00A9A3D0 /* ViewControllerSignUp.swift in Sources */,
+				31A38D6A231F83CE0094EE9C /* MapSocDesViewController.swift in Sources */,
 				C36C0D5B2317CF600012F75D /* DBConnection.swift in Sources */,
 				B6C78211230D63B0005099E9 /* EventDetailController.swift in Sources */,
 				31A22CAC23129DA90005EF81 /* UserModel.swift in Sources */,
@@ -492,6 +503,7 @@
 				C36C0D582317CF600012F75D /* RemoteUsers.swift in Sources */,
 				319C7B5F23167782008E74E0 /* SettingProfileViewController.swift in Sources */,
 				319C7B5D2316475F008E74E0 /* NotificationModel.swift in Sources */,
+				31A38D66231F71DA0094EE9C /* SearchBarTableViewCell.swift in Sources */,
 				B6163A14231235E200288352 /* FriendListController.swift in Sources */,
 				C36C0D5C2317CF600012F75D /* RemoteRecords.swift in Sources */,
 			);
