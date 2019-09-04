@@ -12,6 +12,7 @@ import CloudKit
 class NotificationViewController: UIViewController {
     var notificationList = [CKRecord]()
     var notificationDetail = [CKRecord]()
+    var selectedNotification:String?
     // ========= outlets for pop up view
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var ivEventPhoto: UIImageView!
@@ -31,6 +32,11 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        notificationList = []
+        notificationDetail = []
         DispatchQueue.global().async {
             self.getNotificationList { (finished) in
                 if finished{
@@ -49,7 +55,19 @@ class NotificationViewController: UIViewController {
         
         popUpView.addGestureRecognizer(tap)
         visualEffectView.addGestureRecognizer(tap2)
-        
+    }
+    
+    
+    @IBAction func acceptTapped(_ sender: UIButton) {
+        DispatchQueue.global().async {
+            self.addFriend(completionHandler: { (finished) in
+                if finished{
+                    DispatchQueue.main.async {
+                        print("Friend Berhasil Di Accept")
+                    }
+                }
+            })
+        }
     }
     
     
@@ -146,6 +164,26 @@ class NotificationViewController: UIViewController {
             }
         }
     }
+    
+    func addFriend(completionHandler: @escaping (_ finished: Bool) -> Void){
+        var userDF = UserDefaults.standard
+        var recordFriendID = CKRecord.ID(recordName: selectedNotification!)
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        var recordFriends = CKRecord(recordType: RemoteRecords.friends)
+        
+        recordFriends[RemoteFriends.friendId] = CKRecord.Reference(recordID: recordFriendID, action: .deleteSelf)
+        recordFriends[RemoteFriends.userId] = CKRecord.Reference(recordID: recordUserID, action: .deleteSelf)
+        recordFriends[RemoteFriends.status] = "Follow" as! NSString
+        DBConnection.share.publicDB.save(recordFriends) { (record, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                completionHandler(false)
+            }else{
+                print(record)
+                completionHandler(true)
+            }
+        }
+    }
 
 }
 
@@ -170,6 +208,7 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
         animateIn()
         let notifDetail = notificationDetail[indexPath.row]
         let notif = notificationList[indexPath.row]
+        
         if let asset = notif[RemoteUsers.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
         {
             DispatchQueue.main.async {
@@ -177,9 +216,12 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
             }
         }
         
+        
+        let friendGoalID = notif.recordID.recordName
+        selectedNotification = friendGoalID
         lblEventName.text = notif[RemoteUsers.name] as! String
-        lblEventDateAndTime.text = "Papap"
-        lblEventLocation.text = "lokasi lokasi"
+        lblEventDateAndTime.text = selectedNotification
+        lblEventLocation.text = notif[RemoteUsers.location]
     }
     
     

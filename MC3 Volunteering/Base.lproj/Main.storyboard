@@ -314,6 +314,7 @@
                         <outlet property="lblEventDateAndTime" destination="G1M-LF-9Fz" id="FQp-gp-68e"/>
                         <outlet property="lblEventLocation" destination="3w8-zf-zVC" id="YdL-th-Sua"/>
                         <outlet property="lblEventName" destination="7N0-JS-nic" id="Aws-l0-BY7"/>
+                        <outlet property="notificationTV" destination="IBg-iC-zlX" id="51G-Ta-hQ3"/>
                         <outlet property="popUpView" destination="xDS-nE-5Ut" id="jzx-hv-A7Y"/>
                         <outlet property="visualEffectView" destination="OAV-iA-F24" id="kGl-m4-1gq"/>
                     </connections>
@@ -360,6 +361,9 @@
                             <state key="normal" title="Accept">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="acceptTapped:" destination="HmP-St-5EU" eventType="touchUpInside" id="ZXq-dY-1Ih"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilD-37-Owo">
                             <rect key="frame" x="36" y="308" width="252" height="44"/>
@@ -667,6 +671,9 @@
                                 <rect key="frame" x="67" y="533" width="282" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addFriendTapped:" destination="rli-Fr-sgv" eventType="touchUpInside" id="YaO-yg-0Uc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

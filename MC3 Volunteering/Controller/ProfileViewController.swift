@@ -145,7 +145,8 @@ class ProfileViewController: UIViewController {
     @IBAction func qrCodeButtonTapped(_ sender: UIBarButtonItem) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "QRCodeViewController") as? QRCodeViewController
         let user = userData[0]
-        vc?.userName = user[RemoteUsers.username] as! String
+        let userID = user.recordID.recordName
+        vc?.userName = userID
         self.navigationController?.pushViewController(vc!, animated: true)
         
     }
