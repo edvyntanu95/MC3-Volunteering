@@ -171,6 +171,7 @@ extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     func nextPage(result:String){
         self.captureSession.stopRunning()
         scanResultString = result
+        print(scanResultString)
 //        let from = storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "ScanResultViewController") as? ScanResultViewController
         //        let myActivity = myActivitiesEventList[indexPath.row]
