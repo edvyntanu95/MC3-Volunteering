@@ -55,7 +55,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = "Search by username"
+        searchBar.placeholder = "Search events"
         searchBar.tintColor = UIColor.lightGray
         searchBar.barTintColor = UIColor.lightGray
         navigationItem.titleView = searchBar
@@ -63,7 +63,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.present(UINavigationController(rootViewController: SearchViewController()), animated: false, completion: nil)
+//        self.present(UINavigationController(rootViewController: SearchViewController()), animated: false, completion: nil)
+        DispatchQueue.main.async {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController")
+            self.navigationController?.pushViewController(vc!, animated: false)
+        }
     }
     
     override func viewDidLoad() {
