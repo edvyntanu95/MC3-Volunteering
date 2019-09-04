@@ -44,14 +44,15 @@ class MyActivitiesPage: UIViewController {
         view.addSubview(effectView)
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 //        getMyActivitiesEventList { (finished) in
 //            DispatchQueue.main.async {
 //                self.myActivitiesCV.reloadData()
 //            }
 //        }
-//    }
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.08758807927, green: 0.5526862144, blue: 0.8551954627, alpha: 1)
+    }
     
     var safe: Bool = false
     override func viewWillAppear(_ animated: Bool) {
@@ -157,6 +158,8 @@ extension MyActivitiesPage:UICollectionViewDataSource, UICollectionViewDelegate 
         vc?.eventOrganizer = myActivity[RemoteEvents.organizer] as! String
         
         vc?.numberOFfriends = "3 more friends joins"
+            
+        vc?.eventStatus = myActivityStatus[RemoteRegisterEvents.status] as! String
         
         if let asset = myActivity[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
         {

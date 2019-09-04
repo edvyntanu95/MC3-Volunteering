@@ -11,10 +11,18 @@ import MessageUI
 
 class MyActivitiesDetailsPage: UIViewController {
     
+    
+    // outlet for progress
     @IBOutlet weak var progressCircle1: UIView!
     @IBOutlet weak var progressCircle2: UIView!
     @IBOutlet weak var progressCircle3: UIView!
     
+    @IBOutlet weak var circleFillRegister: UIView!
+    @IBOutlet weak var circleFillEvent: UIView!
+    @IBOutlet weak var circleFillCertificate: UIView!
+    
+    
+    // outlet for the rest
     @IBOutlet weak var imageViewEvent: UIImageView!
     
     @IBOutlet weak var lblEventTitle: UILabel!
@@ -47,6 +55,8 @@ class MyActivitiesDetailsPage: UIViewController {
     var eventTime: String?
     var eventDate: String?
     var eventOrganizer: String?
+    
+    var eventStatus: String?
     
     var eventImage: UIImage?
     var friend1: UIImage?
@@ -83,6 +93,32 @@ class MyActivitiesDetailsPage: UIViewController {
         // Do any additional setup after loading the view.
         setUpPage()
         setUpText()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        circleFillRegister.alpha = 0
+        circleFillEvent.alpha = 0
+        circleFillCertificate.alpha = 0
+        if eventStatus == "Registered" {
+            UIView.animate(withDuration: 0.3) {
+                self.circleFillRegister.alpha = 1
+            }
+            if eventStatus == "Event" {
+                UIView.animate(withDuration: 0.3) {
+                    self.circleFillEvent.alpha = 1
+                }
+                if eventStatus == "Certificate" {
+                    UIView.animate(withDuration: 0.3) {
+                        self.circleFillCertificate.alpha = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    func progressUpdate(){
+        
     }
     
     func setUpPage(){
@@ -94,6 +130,15 @@ class MyActivitiesDetailsPage: UIViewController {
         
         progressCircle3.layer.cornerRadius = progressCircle3.frame.height / 2
         progressCircle3.layer.masksToBounds = true
+        
+        circleFillRegister.layer.cornerRadius = circleFillRegister.frame.height/2
+        circleFillRegister.layer.masksToBounds = true
+        
+        circleFillEvent.layer.cornerRadius = circleFillEvent.frame.height/2
+        circleFillEvent.layer.masksToBounds = true
+        
+        circleFillCertificate.layer.cornerRadius = circleFillCertificate.frame.height/2
+        circleFillCertificate.layer.masksToBounds = true
         
         imageViewFriend1.layer.cornerRadius = imageViewFriend1.frame.height / 2
         imageViewFriend1.layer.masksToBounds = true

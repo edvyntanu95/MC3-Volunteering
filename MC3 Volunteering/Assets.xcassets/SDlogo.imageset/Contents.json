@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "circleFriends.png",
+      "filename" : "SDlogo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "circleFriends@2x.png",
+      "filename" : "SDlogo@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "circleFriends@3x.png",
+      "filename" : "SDlogo@3x.png",
       "scale" : "3x"
     }
   ],

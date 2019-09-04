@@ -13,6 +13,8 @@ class HomeCustomCollectionView: UICollectionViewCell {
     
     var eventId:String?
     
+    @IBOutlet weak var overlayView: UIView!
+    
     @IBOutlet weak var imageSliderHome: UIImageView!
     @IBOutlet weak var homeSliderNamaAcaraLabel: UILabel!
     
@@ -43,8 +45,13 @@ class HomeCustomCollectionView: UICollectionViewCell {
         }
         homeSliderNamaAcaraLabel.text = model[RemoteEvents.name] as! String
         homeSliderTempatAcaraLabel.text = model[RemoteEvents.location] as! String
-        homeSliderTanggalAcaraLabel.text = model[RemoteEvents.date
-            ] as! String
+        homeSliderTanggalAcaraLabel.text = model[RemoteEvents.date] as! String
+        
+        overlayView.layer.cornerRadius = 10
+        overlayView.layer.masksToBounds = true
+        
+        imageSliderHome.layer.cornerRadius = 10
+        imageSliderHome.layer.masksToBounds = true
     }
     
 }

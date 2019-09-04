@@ -20,6 +20,8 @@ class ActivitiesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageFriend2: UIImageView!
     @IBOutlet weak var imageFriend3: UIImageView!
     
+    @IBOutlet weak var overlayImage: UIView!
+    
     func setCell(myActivity: CKRecord, myActivityStatus: CKRecord){
         if let asset = myActivity[RemoteEvents.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
         {
@@ -34,6 +36,7 @@ class ActivitiesCollectionViewCell: UICollectionViewCell {
         lblDate.text = myActivity[RemoteEvents.date] as! String
         
         backgroundImageCard.layer.cornerRadius = 10
+        overlayImage.layer.cornerRadius = 10
         imageFriend1.layer.cornerRadius = imageFriend1.frame.height/2
         imageFriend2.layer.cornerRadius = imageFriend2.frame.height/2
         imageFriend3.layer.cornerRadius = imageFriend3.frame.height/2

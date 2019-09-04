@@ -35,6 +35,10 @@ class ScanResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func setUpPage(){
         ivPersonImage.layer.cornerRadius = ivPersonImage.frame.height / 2
         ivPersonImage.layer.masksToBounds = true

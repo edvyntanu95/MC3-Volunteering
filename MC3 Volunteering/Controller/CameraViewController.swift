@@ -21,6 +21,8 @@ class CameraViewController: UIViewController {
         
         fileprivate var previewLayer: AVCaptureVideoPreviewLayer!
     
+    var scanResultString : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,15 @@ class CameraViewController: UIViewController {
         animationQR.animation = scanner
         animationQR.loopMode = .loop
         animationQR.play()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
 
         
@@ -132,6 +143,13 @@ class CameraViewController: UIViewController {
             boundingBox.isHidden = true
         }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ScannerResultSegue" {
+            let destVC = segue.destination as? ScanResultViewController
+            destVC?.scanResult = scanResultString
+        }
+    }
+    
     
     
 
@@ -152,16 +170,20 @@ extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func nextPage(result:String){
         self.captureSession.stopRunning()
-        
+        scanResultString = result
 //        let from = storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ScanResultViewController") as? ScanResultViewController
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "ScanResultViewController") as? ScanResultViewController
         //        let myActivity = myActivitiesEventList[indexPath.row]
         //        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
         //
         //        let eventRecordID = myActivity.recordID.recordName as! String
         //        vc?.eventId = eventRecordID
-        vc?.scanResult = result
-        self.navigationController?.pushViewController(vc!, animated: true)
+//        vc?.scanResult = result
+//        self.navigationController?.pushViewController(vc!, animated: true)
         //        navigationController?.popToRootViewController(animated: true)
+        
+        performSegue(withIdentifier: "ScannerResultSegue", sender: nil)
+        
+        
     }
 }

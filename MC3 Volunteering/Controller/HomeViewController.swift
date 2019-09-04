@@ -84,10 +84,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
 //        }
 //        nearbyEventCollectionView.isPagingEnabled = true
 //        setupNavBar()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+
     }
     
     var safe : Bool = false

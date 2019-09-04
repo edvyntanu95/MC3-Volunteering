@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var popUpView: UIView!
     
+    @IBOutlet weak var achievementView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +41,11 @@ class ProfileViewController: UIViewController {
         
         visualEffectView.addGestureRecognizer(tap2)
         popUpView.addGestureRecognizer(tap)
+        
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.08758807927, green: 0.5526862144, blue: 0.8551954627, alpha: 1)
+        
+        achievementView.layer.cornerRadius = 10
+        achievementView.layer.masksToBounds = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +96,9 @@ class ProfileViewController: UIViewController {
     func animateIn(){
         self.view.addSubview(popUpView)
         
-        popUpView.center = self.view.center
+        popUpView.center.x = self.view.center.x
+        popUpView.center.y = self.view.center.y - 100
+        
         popUpView.layer.cornerRadius = 10
         popUpView.layer.masksToBounds = true
         popUpView.transform = CGAffineTransform.init(scaleX: 0.7, y: 0.7)

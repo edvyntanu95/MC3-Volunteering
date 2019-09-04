@@ -23,35 +23,16 @@ class friendListTableViewController: UITableViewController {
     @IBOutlet var myFriendList: UITableView!
     var resultScannerFriendID:String?
     
+    @IBOutlet weak var achievementViewContainer: UIView!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print("INI HASIL YANG DI SCAN : \(resultScannerFriendID)")
-//        friendArray1 = makeFriendArrayObject1()
-//        friendArray2 = makeFriendArrayObject2()
-//        friendArray3 = makeFriendArrayObject3()
-        
-//        getMyFriendList { (finished) in
-//            if finished {
-//                print("Friend List Berhasil Di Load")
-//                print(self.friends.count)
-//
-//                DispatchQueue.main.async {
-//                    self.myFriendList.reloadData()
-//                }
-//            }
-//        }
-        
-//        getAllContact { (finished) in
-//            if finished {
-//                for contact in self.contacts {
-//                    print(contact.givenName)
-//                }
-//            }
-//        }
-
-        
+        super.viewDidLoad()        
         ivFriendPhoto.layer.cornerRadius = 10
         ivFriendPhoto.layer.masksToBounds = true
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.08758807927, green: 0.5526862144, blue: 0.8551954627, alpha: 1)
+        
+        achievementViewContainer.layer.cornerRadius = 10
+        achievementViewContainer.layer.masksToBounds = true
         
     }
     
@@ -189,11 +170,12 @@ class friendListTableViewController: UITableViewController {
     
     func animateIn(){
         self.view.addSubview(visualEffectView)
-        visualEffectView.center = self.view.center
+        visualEffectView.center.x = self.view.center.x
+        visualEffectView.center.y = self.view.center.y - 70
         
         self.view.addSubview(popUpView)
         popUpView.center.x = self.view.center.x
-        popUpView.center.y = self.view.center.y - 70
+        popUpView.center.y = self.view.center.y - 170
         popUpView.layer.cornerRadius = 10
         popUpView.layer.masksToBounds = true
         popUpView.transform = CGAffineTransform.init(scaleX: 0.7, y: 0.7)
@@ -203,6 +185,8 @@ class friendListTableViewController: UITableViewController {
         
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem?.accessibilityElementsHidden = false
+        
+        navigationController?.navigationBar.alpha = 0.5
         
         self.tableView.isScrollEnabled = false
         UIView.animate(withDuration: 0.4) {
@@ -219,6 +203,8 @@ class friendListTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isUserInteractionEnabled = true
         self.navigationItem.hidesBackButton = false
         navigationItem.rightBarButtonItem?.accessibilityElementsHidden = false
+        
+        navigationController?.navigationBar.alpha = 1.0
         UIView.animate(withDuration: 0.4, animations: {
             self.popUpView.transform = CGAffineTransform.init(scaleX: 0.7, y: 0.7)
             self.popUpView.alpha = 0
