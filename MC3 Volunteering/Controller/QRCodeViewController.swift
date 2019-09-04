@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class QRCodeViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
@@ -20,7 +21,7 @@ class QRCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblUsername.text = userName
+        lblUsername.text = userName as! String
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
         generateQRcode()
@@ -28,7 +29,8 @@ class QRCodeViewController: UIViewController {
     }
     
     func generateQRcode(){
-        let data = userName!.data(using: .ascii, allowLossyConversion: false)
+        let user = userName as! String
+        let data = user.data(using: .ascii, allowLossyConversion: false)
         let filter = CIFilter(name: "CIQRCodeGenerator")
         filter?.setValue(data, forKey: "InputMessage")
             

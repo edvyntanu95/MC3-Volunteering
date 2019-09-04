@@ -18,14 +18,45 @@ class ScanResultViewController: UIViewController {
     @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var lblLocation: UILabel!
     
+    let messageFrame = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
+        strLabel.text = title
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
+        
+        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
+        effectView.layer.cornerRadius = 20
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+    }
+    
     @IBOutlet weak var lblNickName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator("Please Wait..")
         print(scanResult)
         DispatchQueue.global().async {
             self.getScannerResult(completionHandler: { (finished) in
                 if finished {
                     DispatchQueue.main.async {
+                        self.effectView.removeFromSuperview()
                         self.setUpPage()
                     }
                 }
@@ -33,6 +64,24 @@ class ScanResultViewController: UIViewController {
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func addFriendTapped(_ sender: UIButton) {
+        activityIndicator("Please Wait..")
+        DispatchQueue.global().async {
+            self.addFriend { (finished) in
+                if finished {
+                    self.sendNotification(completionHandler: { (finished) in
+                        if finished {
+                            DispatchQueue.main.async {
+                                self.effectView.removeFromSuperview()
+                                print("Berhasil Tambah Teman")
+                            }
+                        }
+                    })
+                }
+            }
+        }
     }
     
     func setUpPage(){
@@ -57,8 +106,8 @@ class ScanResultViewController: UIViewController {
     }
     
     func getScannerResult(completionHandler: @escaping (_ finished: Bool) -> Void){
-        var recordUserID = scanResult
-        let predicate = NSPredicate(format: "\(RemoteUsers.username) == %@", recordUserID!)
+        var recordFriendID = CKRecord.ID(recordName: scanResult!)
+        let predicate = NSPredicate(format: "recordID == %@", recordFriendID)
         let query = CKQuery(recordType: RemoteRecords.users, predicate: predicate)
         
         DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
@@ -73,6 +122,50 @@ class ScanResultViewController: UIViewController {
             }
         }
     }
+    
+    func addFriend(completionHandler: @escaping (_ finished: Bool) -> Void){
+        var userDF = UserDefaults.standard
+        var recordFriendID = CKRecord.ID(recordName: scanResult!)
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        var recordFriends = CKRecord(recordType: RemoteRecords.friends)
+        
+        recordFriends[RemoteFriends.friendId] = CKRecord.Reference(recordID: recordFriendID, action: .deleteSelf)
+        recordFriends[RemoteFriends.userId] = CKRecord.Reference(recordID: recordUserID, action: .deleteSelf)
+        recordFriends[RemoteFriends.status] = "Follow" as! NSString
+        DBConnection.share.publicDB.save(recordFriends) { (record, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                completionHandler(false)
+            }else{
+                print(record)
+                completionHandler(true)
+            }
+        }
+    }
+    
+    func sendNotification(completionHandler: @escaping(_ finished: Bool) -> Void){
+        var userDF = UserDefaults.standard
+        var recordReceiver = CKRecord.ID(recordName: scanResult!)
+        var recordSender = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        var recordNotification = CKRecord(recordType: RemoteRecords.notifications)
+        
+        recordNotification[RemoteNotifications.senderID] = CKRecord.Reference(recordID: recordSender, action: .deleteSelf)
+        recordNotification[RemoteNotifications.receiverID] = CKRecord.Reference(recordID: recordReceiver, action: .deleteSelf)
+        recordNotification[RemoteNotifications.type] = "Friend Invitation"
+        
+        DBConnection.share.publicDB.save(recordNotification) { (record, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                completionHandler(false)
+            }else{
+                print(record)
+                completionHandler(true)
+            }
+        }
+        
+    }
+    
+    
     
 
 }
