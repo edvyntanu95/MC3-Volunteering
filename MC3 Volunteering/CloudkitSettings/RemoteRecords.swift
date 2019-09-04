@@ -12,7 +12,7 @@ enum RemoteRecords{
     static let users = "NewUsers"
     static let events = "Events"
     static let friends = "Friends"
-    static let notifications = "Notifications"
+    static let notifications = "Notifikasi"
     static let registerEvents = "RegisterEvents"
     static let inviteEvents = "InviteEvents"
     static let certificates = "Certificates"

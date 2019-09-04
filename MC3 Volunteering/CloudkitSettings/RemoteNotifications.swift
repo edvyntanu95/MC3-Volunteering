@@ -10,6 +10,7 @@ import Foundation
 
 enum RemoteNotifications {
     static let id = "recordID"
-    static let userId = "recordUserID"
-    static let description = "description"
+    static let senderID = "senderID"
+    static let receiverID = "receiverID"
+    static let type = "type"
 }

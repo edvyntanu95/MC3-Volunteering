@@ -15,6 +15,35 @@ class MyActivitiesPage: UIViewController {
     var myActivitiesEventsListStatus:[CKRecord] = []
     @IBOutlet weak var myActivitiesCV: UICollectionView!
     
+    let messageFrame = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
+        strLabel.text = title
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
+        
+        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
+        effectView.layer.cornerRadius = 20
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+    }
+    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        getMyActivitiesEventList { (finished) in
@@ -32,13 +61,14 @@ class MyActivitiesPage: UIViewController {
             let vc = storyboard?.instantiateViewController(withIdentifier: "LoginPageController")
             self.navigationController?.pushViewController(vc!, animated: true)
         } else {
-        
+            activityIndicator("Please wait...")
             safe = false
             myActivitiesEventList = []
             myActivitiesEventsListStatus = []
             DispatchQueue.global().async {
                 self.getMyActivitiesEventList { (finished) in
                     DispatchQueue.main.async {
+                        self.effectView.removeFromSuperview()
                         self.safe = true
                         self.myActivitiesCV.reloadData()
                     }

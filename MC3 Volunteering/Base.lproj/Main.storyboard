@@ -295,6 +295,7 @@
                         <outlet property="lblEventDateAndTime" destination="G1M-LF-9Fz" id="FQp-gp-68e"/>
                         <outlet property="lblEventLocation" destination="3w8-zf-zVC" id="YdL-th-Sua"/>
                         <outlet property="lblEventName" destination="7N0-JS-nic" id="Aws-l0-BY7"/>
+                        <outlet property="notificationTV" destination="IBg-iC-zlX" id="66N-Tt-F4z"/>
                         <outlet property="popUpView" destination="xDS-nE-5Ut" id="jzx-hv-A7Y"/>
                         <outlet property="visualEffectView" destination="OAV-iA-F24" id="kGl-m4-1gq"/>
                     </connections>
@@ -381,10 +382,10 @@
             </objects>
             <point key="canvasLocation" x="4666.666666666667" y="1759.8214285714284"/>
         </scene>
-        <!--Friends-->
+        <!--friendListTableViewController-->
         <scene sceneID="l8c-Ji-Fk3">
             <objects>
-                <tableViewController id="r3r-JW-Q5v" customClass="friendListTableViewController" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="friendListTableViewController" title="friendListTableViewController" id="r3r-JW-Q5v" customClass="friendListTableViewController" customModule="MC3_Volunteering" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="awy-gi-uM4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -565,11 +566,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5o-Rz-zdo">
-                                <rect key="frame" x="37" y="184" width="340" height="340"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-fZ-y13">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSN-RL-MD6" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="87" y="339" width="240" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-fZ-y13">
                                 <rect key="frame" x="83" y="532" width="249" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -581,13 +586,14 @@
                         <viewLayoutGuide key="safeArea" id="APm-QL-b5j"/>
                     </view>
                     <connections>
+                        <outlet property="animationQR" destination="rSN-RL-MD6" id="yuc-d7-q5z"/>
                         <outlet property="previewContainer" destination="g5o-Rz-zdo" id="KDM-aa-ujH"/>
                         <outlet property="resultsLabel" destination="iYU-fZ-y13" id="lDc-Dq-ToU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5y-cw-8yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6457" y="3898"/>
+            <point key="canvasLocation" x="6456.521739130435" y="3897.9910714285711"/>
         </scene>
         <!--Init Data View Controller-->
         <scene sceneID="5uZ-IY-HNa">
