@@ -70,6 +70,24 @@ class ScanResultViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
+    @IBAction func addFriendTapped(_ sender: UIButton) {
+        activityIndicator("Please Wait..")
+        DispatchQueue.global().async {
+            self.addFriend { (finished) in
+                if finished {
+                    self.sendNotification(completionHandler: { (finished) in
+                        if finished {
+                            DispatchQueue.main.async {
+                                self.effectView.removeFromSuperview()
+                                print("Berhasil Tambah Teman")
+                            }
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
     func setUpPage(){
         ivPersonImage.layer.cornerRadius = ivPersonImage.frame.height / 2
         ivPersonImage.layer.masksToBounds = true
