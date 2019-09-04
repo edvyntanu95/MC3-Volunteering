@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -657,13 +657,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C56NL525H5;
+				DEVELOPMENT_TEAM = MTU6Z4VFLV;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-VolunteeringB1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-Volunteering";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,13 +677,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MC3 Volunteering/MC3 Volunteering.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C56NL525H5;
+				DEVELOPMENT_TEAM = MTU6Z4VFLV;
 				INFOPLIST_FILE = "MC3 Volunteering/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-VolunteeringB1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.edvyntanu.MC3-Volunteering";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -15,8 +15,6 @@ class QRCodeViewController: UIViewController {
     @IBOutlet weak var lblDescription: UILabel!
     
     var userName: String?
-    var generateQRcodeString: String = "wolololo"
-    
     var backBarButtonItem = UIBarButtonItem.self
     
     override func viewDidLoad() {
