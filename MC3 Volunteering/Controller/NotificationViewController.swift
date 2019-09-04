@@ -10,7 +10,8 @@ import UIKit
 import CloudKit
 
 class NotificationViewController: UIViewController {
-    
+    var notificationList = [CKRecord]()
+    var notificationDetail = [CKRecord]()
     // ========= outlets for pop up view
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var ivEventPhoto: UIImageView!
@@ -20,9 +21,8 @@ class NotificationViewController: UIViewController {
     @IBOutlet weak var buttonSeeDetail: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
     @IBOutlet weak var buttonAccept: UIButton!
-    
-    
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var notificationTV: UITableView!
     
     // ========== var for logics
     
@@ -30,6 +30,16 @@ class NotificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.global().async {
+            self.getNotificationList { (finished) in
+                if finished{
+                    DispatchQueue.main.async {
+                        self.notificationTV.reloadData()
+                    }
+                }
+            }
+        }
         
         visualEffectView.isHidden = true
         setUpButtons()
@@ -101,19 +111,56 @@ class NotificationViewController: UIViewController {
             
         }
     }
+    
+    func getNotificationList(completionHandler:@escaping(_ finished: Bool) -> Void){
+        let userDF = UserDefaults.standard
+        var recordUserID = CKRecord.ID(recordName: userDF.string(forKey: "sessionID")!)
+        let userReference = CKRecord.Reference(recordID: recordUserID, action: .none)
+        let predicate = NSPredicate(format: "receiverID == %@", userReference)
+        let query = CKQuery(recordType: RemoteRecords.notifications, predicate: predicate)
+        
+        
+        DBConnection.share.publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }else{
+                guard let records = records else {return}
+                var recordNames:[CKRecord.ID] = []
+                for record in records {
+                    let senderReference = record[RemoteNotifications.senderID] as! CKRecord.Reference
+                    self.notificationDetail.append(record)
+                    recordNames.append(senderReference.recordID)
+                }
+                
+                //                print(recordNames.count)
+                
+                let operation = CKFetchRecordsOperation(recordIDs: recordNames)
+                operation.fetchRecordsCompletionBlock = { (records, error) in
+                    guard let records = records else {return}
+                    for (key, value) in records {
+                        self.notificationList.append(value)
+                    }
+                    completionHandler(true)
+                }
+                DBConnection.share.publicDB.add(operation)
+            }
+        }
+    }
 
 }
 
 extension NotificationViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return notificationDetail.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Notification Cell") as! NotificationTableViewCell
-        cell.ivUserImage.image = #imageLiteral(resourceName: "human")
-        cell.lblName.text = "Pramahadi"
+        let notifDetail = notificationDetail[indexPath.row]
+        let notif = notificationList[indexPath.row]
+//        cell.ivUserImage.image = #imageLiteral(resourceName: "human")
+        cell.lblName.text = notifDetail[RemoteNotifications.type] as! String
         cell.lblLastActive.text = "10 minutes ago"
         //cell.setCell(model: notifList[indexPath.row])
         return cell
@@ -121,9 +168,16 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         animateIn()
+        let notifDetail = notificationDetail[indexPath.row]
+        let notif = notificationList[indexPath.row]
+        if let asset = notif[RemoteUsers.photo] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!)
+        {
+            DispatchQueue.main.async {
+                self.ivEventPhoto.image = UIImage(data: data)
+            }
+        }
         
-        ivEventPhoto.image = #imageLiteral(resourceName: "village2")
-        lblEventName.text = "Cleaning"
+        lblEventName.text = notif[RemoteUsers.name] as! String
         lblEventDateAndTime.text = "Papap"
         lblEventLocation.text = "lokasi lokasi"
     }

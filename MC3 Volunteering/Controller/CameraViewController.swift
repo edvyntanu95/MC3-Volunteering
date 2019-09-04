@@ -8,15 +8,11 @@
 
 import UIKit
 import AVFoundation
+import Lottie
 
 class CameraViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupCaptureSession()
-    }
-    
+    @IBOutlet weak var animationQR: AnimationView!
         @IBOutlet weak var previewContainer: UIView!
         @IBOutlet weak var resultsLabel: UILabel!
         
@@ -25,6 +21,21 @@ class CameraViewController: UIViewController {
         private let sessionQueue = DispatchQueue(label: "Capture Session Queue")
         
         fileprivate var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupCaptureSession()
+        playAnimation()
+    }
+    
+    func playAnimation(){
+        let scanner = Animation.named("qr")
+        animationQR.animation = scanner
+        animationQR.loopMode = .loop
+        animationQR.play()
+    }
+
         
         private func setupCaptureSession() {
             sessionQueue.sync {
@@ -74,9 +85,10 @@ class CameraViewController: UIViewController {
             previewLayer = AVCaptureVideoPreviewLayer(session: session)
             previewLayer.frame = previewContainer.layer.bounds
             previewLayer.videoGravity = .resizeAspectFill
-            
             previewContainer.layer.addSublayer(previewLayer)
         }
+    
+    
         
         
         
@@ -86,7 +98,6 @@ class CameraViewController: UIViewController {
             boundingBox.strokeColor = UIColor.red.cgColor
             boundingBox.lineWidth = 4.0
             boundingBox.fillColor = UIColor.clear.cgColor
-            
             previewContainer.layer.addSublayer(boundingBox)
         }
         
@@ -124,6 +135,7 @@ class CameraViewController: UIViewController {
         }
     
     
+    
 
 }
 
@@ -131,7 +143,7 @@ extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
             self.resultsLabel.text = object.stringValue
-            
+            nextPage(result: object.stringValue!)
             guard let transformedObject = previewLayer.transformedMetadataObject(for: object) as? AVMetadataMachineReadableCodeObject else {
                 return
             }
@@ -139,5 +151,20 @@ extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
             updateBoundingBox(transformedObject.corners)
             hideBoundingBox(after: 0.25)
         }
+    }
+    
+    func nextPage(result:String){
+        self.captureSession.stopRunning()
+        
+//        let from = storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "friendListTableViewController") as? friendListTableViewController
+        //        let myActivity = myActivitiesEventList[indexPath.row]
+        //        let myActivityStatus = myActivitiesEventsListStatus[indexPath.row]
+        //
+        //        let eventRecordID = myActivity.recordID.recordName as! String
+        //        vc?.eventId = eventRecordID
+        vc?.resultScannerFriendID = result
+        self.navigationController?.pushViewController(vc!, animated: true)
+        //        navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -7,5 +7,6 @@ target 'MC3 Volunteering' do
 
   # Pods for MC3 Volunteering
 	pod 'paper-onboarding'
+	pod 'lottie-ios'
 
 end

@@ -21,10 +21,11 @@ class friendListTableViewController: UITableViewController {
     @IBOutlet weak var lblNumberOfHours: UILabel!
     @IBOutlet weak var lblNumberOfActivities: UILabel!
     @IBOutlet var myFriendList: UITableView!
+    var resultScannerFriendID:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("INI HASIL YANG DI SCAN : \(resultScannerFriendID)")
 //        friendArray1 = makeFriendArrayObject1()
 //        friendArray2 = makeFriendArrayObject2()
 //        friendArray3 = makeFriendArrayObject3()
@@ -180,7 +181,7 @@ class friendListTableViewController: UITableViewController {
         }
         
         lblFullName.text = friend[RemoteUsers.userBio]
-        lblLocation.text = "Tangerang"
+        lblLocation.text = resultScannerFriendID
         lblNumberOfHours.text = "80"
         lblNumberOfActivities.text = "5"
         lblNickname.text = friend[RemoteUsers.name]

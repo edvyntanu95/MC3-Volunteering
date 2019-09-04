@@ -1,16 +1,20 @@
 PODS:
+  - lottie-ios (3.1.2)
   - paper-onboarding (6.1.3)
 
 DEPENDENCIES:
+  - lottie-ios
   - paper-onboarding
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - lottie-ios
     - paper-onboarding
 
 SPEC CHECKSUMS:
+  lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   paper-onboarding: 47ded9ede6ae9dd7ec135dddd8bd3e170b79d799
 
-PODFILE CHECKSUM: 453c216918cba5be44ece9312075db17f342232d
+PODFILE CHECKSUM: 4e2dad0091de0e2c83aafa751fa1e3561ad757ff
 
 COCOAPODS: 1.6.1
